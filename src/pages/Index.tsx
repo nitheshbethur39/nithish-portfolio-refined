@@ -10,7 +10,7 @@ import Navigation from '../components/Navigation';
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 text-white">
+    <div className="min-h-screen bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 dark:from-slate-950 dark:via-slate-900 dark:to-slate-950 light:from-slate-50 light:via-slate-100 light:to-slate-50 text-white dark:text-white light:text-slate-900 font-chivo">
       <Navigation />
       <Hero />
       <About />

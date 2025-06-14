@@ -1,4 +1,3 @@
-
 import type { Config } from "tailwindcss";
 
 export default {
@@ -63,30 +62,21 @@ export default {
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
 				},
-				coral: {
-					50: '#fef7f7',
-					100: '#feecec',
-					200: '#fcd6d7',
-					300: '#f9b2b2',
-					400: '#f48989',
-					500: '#ff6b6b',
-					600: '#e74c3c',
-					700: '#c0392b',
-					800: '#a93226',
-					900: '#922b21'
-				},
-				warm: {
-					50: '#fefaf8',
-					100: '#fdf2ed',
-					200: '#f9e1d4',
-					300: '#f4ccb4',
-					400: '#ecab81',
-					500: '#e67e22',
-					600: '#d35400',
-					700: '#b7472a',
-					800: '#943126',
-					900: '#7e2d23'
+				accent: {
+					50: '#f8fafc',
+					100: '#f1f5f9',
+					200: '#e2e8f0',
+					300: '#cbd5e1',
+					400: '#94a3b8',
+					500: '#64748b',
+					600: '#475569',
+					700: '#334155',
+					800: '#1e293b',
+					900: '#0f172a'
 				}
+			},
+			fontFamily: {
+				'chivo': ['Chivo', 'sans-serif'],
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
@@ -152,10 +142,10 @@ export default {
 				},
 				'glow': {
 					'0%, 100%': {
-						boxShadow: '0 0 20px rgba(255, 107, 107, 0.3)'
+						boxShadow: '0 0 20px rgba(148, 163, 184, 0.3)'
 					},
 					'50%': {
-						boxShadow: '0 0 40px rgba(255, 107, 107, 0.6)'
+						boxShadow: '0 0 40px rgba(148, 163, 184, 0.6)'
 					}
 				},
 				'float': {
