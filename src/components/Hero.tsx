@@ -1,9 +1,19 @@
 
-import { ArrowDown, Github, Linkedin, Mail } from 'lucide-react';
+import { ArrowDown, Github, Linkedin, Mail, Download } from 'lucide-react';
 
 const Hero = () => {
   const scrollToAbout = () => {
     document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' });
+  };
+
+  const downloadResume = () => {
+    // Create a dummy download link - user can replace with actual resume file
+    const link = document.createElement('a');
+    link.href = '/resume.pdf'; // User needs to add their resume file to public folder
+    link.download = 'Nithish_Bilasunur_Manjunatha_Reddy_Resume.pdf';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
   };
 
   return (
@@ -57,14 +67,24 @@ const Hero = () => {
             </a>
           </div>
 
-          {/* CTA */}
-          <button
-            onClick={scrollToAbout}
-            className="group inline-flex items-center space-x-3 border border-slate-600 hover:border-slate-400 px-8 py-4 rounded-full text-slate-300 hover:text-white font-chivo font-medium transition-all duration-300 hover:bg-slate-800/50 animate-glow"
-          >
-            <span>Explore My Work</span>
-            <ArrowDown size={16} className="group-hover:translate-y-1 transition-transform duration-300" />
-          </button>
+          {/* CTA Buttons */}
+          <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+            <button
+              onClick={scrollToAbout}
+              className="group inline-flex items-center space-x-3 border border-slate-600 hover:border-slate-400 px-8 py-4 rounded-full text-slate-300 hover:text-white font-chivo font-medium transition-all duration-300 hover:bg-slate-800/50 animate-glow"
+            >
+              <span>Explore My Work</span>
+              <ArrowDown size={16} className="group-hover:translate-y-1 transition-transform duration-300" />
+            </button>
+            
+            <button
+              onClick={downloadResume}
+              className="group inline-flex items-center space-x-3 bg-gradient-to-r from-coral-500 to-warm-500 hover:from-coral-600 hover:to-warm-600 px-8 py-4 rounded-full text-white font-chivo font-medium transition-all duration-300 hover:shadow-lg hover:shadow-coral-500/25 animate-pulse"
+            >
+              <Download size={16} />
+              <span>Download Resume</span>
+            </button>
+          </div>
         </div>
 
         {/* Headshot Section */}
