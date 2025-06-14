@@ -1,4 +1,3 @@
-
 import type { Config } from "tailwindcss";
 
 export default {
@@ -63,17 +62,17 @@ export default {
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
 				},
-				accent: {
-					50: '#f8fafc',
-					100: '#f1f5f9',
-					200: '#e2e8f0',
-					300: '#cbd5e1',
-					400: '#94a3b8',
-					500: '#64748b',
-					600: '#475569',
-					700: '#334155',
-					800: '#1e293b',
-					900: '#0f172a'
+				// Custom color palette
+				'dark-blue': '#333446',
+				'blue-gray': '#7F8CAA',
+				'light-teal': '#B8CFCE',
+				'light-gray': '#EAEFEF',
+				// Variations for better usage
+				custom: {
+					dark: '#333446',
+					medium: '#7F8CAA',
+					light: '#B8CFCE',
+					lightest: '#EAEFEF'
 				}
 			},
 			fontFamily: {
@@ -143,10 +142,10 @@ export default {
 				},
 				'glow': {
 					'0%, 100%': {
-						boxShadow: '0 0 20px rgba(148, 163, 184, 0.3)'
+						boxShadow: '0 0 20px rgba(127, 140, 170, 0.3)'
 					},
 					'50%': {
-						boxShadow: '0 0 40px rgba(148, 163, 184, 0.6)'
+						boxShadow: '0 0 40px rgba(127, 140, 170, 0.6)'
 					}
 				},
 				'float': {

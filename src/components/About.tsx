@@ -35,30 +35,30 @@ const About = () => {
         <div className="text-center mb-20 animate-fade-in-up">
           <div className="flex items-center justify-center gap-4 mb-6">
             <span className="text-4xl animate-float">👨‍💻</span>
-            <h2 className="text-5xl lg:text-6xl font-bold bg-gradient-to-r from-coral-400 to-warm-500 bg-clip-text text-transparent">
+            <h2 className="text-5xl lg:text-6xl font-bold bg-gradient-to-r from-light-teal to-blue-gray bg-clip-text text-transparent">
               About Me
             </h2>
             <span className="text-4xl animate-float delay-150">✨</span>
           </div>
-          <div className="w-32 h-1 bg-gradient-to-r from-coral-500 to-warm-600 mx-auto mb-10 rounded-full"></div>
+          <div className="w-32 h-1 bg-gradient-to-r from-light-teal to-blue-gray mx-auto mb-10 rounded-full"></div>
         </div>
 
         <div className="grid lg:grid-cols-2 gap-20 items-center">
           <div className="space-y-8 animate-slide-in-left">
             <div className="space-y-6">
-              <p className="text-xl text-slate-200 leading-relaxed">
+              <p className="text-xl text-light-gray leading-relaxed">
                 <span className="text-2xl mr-2">🚀</span>
                 I'm a passionate data scientist with over 3 years of experience in transforming 
                 complex datasets into actionable business insights. My expertise spans machine learning, 
                 statistical analysis, and data visualization.
               </p>
-              <p className="text-xl text-slate-200 leading-relaxed">
+              <p className="text-xl text-light-gray leading-relaxed">
                 <span className="text-2xl mr-2">🎯</span>
                 I specialize in building end-to-end data solutions, from data collection and preprocessing 
                 to model deployment and business intelligence dashboards. My goal is to bridge the gap 
                 between raw data and strategic decision-making.
               </p>
-              <p className="text-xl text-slate-200 leading-relaxed">
+              <p className="text-xl text-light-gray leading-relaxed">
                 <span className="text-2xl mr-2">🌟</span>
                 When I'm not analyzing data, you'll find me exploring new technologies, contributing to 
                 open-source projects, or sharing knowledge through technical writing and mentoring.
@@ -67,7 +67,7 @@ const About = () => {
             
             <div className="pt-8">
               <a href="/resume.pdf" target="_blank" rel="noopener noreferrer"
-                 className="group inline-flex items-center space-x-3 bg-gradient-to-r from-coral-500 to-warm-500 hover:from-coral-600 hover:to-warm-600 px-8 py-4 rounded-xl text-white font-bold text-lg transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-coral-500/30">
+                 className="group inline-flex items-center space-x-3 bg-gradient-to-r from-light-teal to-blue-gray hover:from-light-teal/80 hover:to-blue-gray/80 px-8 py-4 rounded-xl text-white font-bold text-lg transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-light-teal/30">
                 <span className="text-xl group-hover:rotate-12 transition-transform duration-300">📄</span>
                 <span>Download Resume</span>
               </a>
@@ -76,17 +76,17 @@ const About = () => {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 animate-fade-in">
             {highlights.map((item, index) => (
-              <div key={index} className={`group bg-slate-800/30 backdrop-blur-sm p-8 rounded-2xl border border-slate-700/50 hover:border-coral-500/50 transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-coral-500/10 animate-stagger-${index + 1}`}>
+              <div key={index} className={`group bg-slate-800/30 backdrop-blur-sm p-8 rounded-2xl border border-custom-medium hover:border-light-teal transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-light-teal/10 animate-stagger-${index + 1}`}>
                 <div className="flex items-center justify-center mb-6">
                   <div className="relative">
-                    <div className="w-16 h-16 bg-gradient-to-br from-coral-500 to-warm-500 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                    <div className="w-16 h-16 bg-gradient-to-br from-light-teal to-blue-gray rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                       <item.icon size={28} className="text-white" />
                     </div>
                     <span className="absolute -top-2 -right-2 text-2xl animate-float">{item.emoji}</span>
                   </div>
                 </div>
-                <h3 className="text-2xl font-bold mb-4 text-white group-hover:text-coral-400 transition-colors duration-300">{item.title}</h3>
-                <p className="text-slate-300 leading-relaxed">{item.description}</p>
+                <h3 className="text-2xl font-bold mb-4 text-light-gray group-hover:text-light-teal transition-colors duration-300">{item.title}</h3>
+                <p className="text-blue-gray leading-relaxed">{item.description}</p>
               </div>
             ))}
           </div>
