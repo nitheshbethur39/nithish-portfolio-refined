@@ -1,6 +1,6 @@
 
 import { useState, useEffect } from 'react';
-import { Menu, X, Sun, Moon } from 'lucide-react';
+import { Menu, X, Sun, Moon, Download } from 'lucide-react';
 import { useTheme } from './ThemeProvider';
 
 const Navigation = () => {
@@ -19,6 +19,17 @@ const Navigation = () => {
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     element?.scrollIntoView({ behavior: 'smooth' });
+    setIsOpen(false);
+  };
+
+  const downloadResume = () => {
+    // Create a dummy download link - user can replace with actual resume file
+    const link = document.createElement('a');
+    link.href = '/resume.pdf'; // User needs to add their resume file to public folder
+    link.download = 'Nithish_Bilasunur_Manjunatha_Reddy_Resume.pdf';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
     setIsOpen(false);
   };
 
@@ -54,6 +65,15 @@ const Navigation = () => {
                 {item.name}
               </button>
             ))}
+            
+            {/* Resume Download Button */}
+            <button
+              onClick={downloadResume}
+              className="inline-flex items-center space-x-2 text-slate-300 hover:text-white font-chivo font-light transition-colors duration-300 border border-slate-600 hover:border-slate-400 px-4 py-2 rounded-lg hover:bg-slate-800/50"
+            >
+              <Download size={16} />
+              <span>Resume</span>
+            </button>
             
             {/* Theme Toggle */}
             <button
@@ -94,6 +114,15 @@ const Navigation = () => {
                   {item.name}
                 </button>
               ))}
+              
+              {/* Mobile Resume Download Button */}
+              <button
+                onClick={downloadResume}
+                className="inline-flex items-center space-x-2 text-slate-300 hover:text-white font-chivo font-light border border-slate-600 hover:border-slate-400 px-4 py-2 rounded-lg hover:bg-slate-800/50 transition-all duration-300"
+              >
+                <Download size={16} />
+                <span>Resume</span>
+              </button>
             </div>
           </div>
         )}
