@@ -38,54 +38,54 @@ const Projects = () => {
   ];
 
   return (
-    <section id="projects" className="py-20 px-6 lg:px-8 bg-slate-900/50">
+    <section id="projects" className="py-16 px-6 lg:px-8 bg-slate-900/50">
       <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl lg:text-5xl font-chivo font-medium mb-6 text-light-gray">
+        <div className="text-center mb-12">
+          <h2 className="text-3xl lg:text-4xl font-chivo font-medium mb-4 text-light-gray">
             Featured Projects
           </h2>
-          <div className="w-24 h-[1px] bg-light-teal mx-auto mb-8"></div>
-          <p className="text-xl text-blue-gray max-w-3xl mx-auto font-chivo font-light">
+          <div className="w-20 h-[1px] bg-light-teal mx-auto mb-6"></div>
+          <p className="text-base text-blue-gray max-w-3xl mx-auto font-chivo font-light">
             Explore my latest data science and analytics projects that demonstrate practical applications 
             of machine learning and statistical analysis.
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-8">
+        <div className="grid lg:grid-cols-2 gap-6">
           {projects.map((project, index) => (
             <div key={index} className="group bg-slate-800/30 backdrop-blur-sm rounded-2xl border border-custom-medium/50 overflow-hidden hover:border-light-teal/50 transition-all duration-500 hover:transform hover:scale-[1.02]">
               <div className="relative overflow-hidden">
                 <img 
                   src={project.image} 
                   alt={project.title}
-                  className="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-700"
+                  className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-700"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 to-transparent"></div>
               </div>
               
-              <div className="p-8">
-                <div className="flex items-center justify-between mb-4">
+              <div className="p-6">
+                <div className="flex items-center justify-between mb-3">
                   <div className="flex space-x-3">
                     <a href={project.github} target="_blank" rel="noopener noreferrer"
                        className="text-blue-gray hover:text-light-teal transition-colors duration-300">
-                      <Github size={20} />
+                      <Github size={18} />
                     </a>
                     <a href={project.demo} target="_blank" rel="noopener noreferrer"
                        className="text-blue-gray hover:text-light-teal transition-colors duration-300">
-                      <ExternalLink size={20} />
+                      <ExternalLink size={18} />
                     </a>
                   </div>
                 </div>
                 
-                <h3 className="text-2xl font-chivo font-medium mb-4 text-light-gray group-hover:text-light-teal transition-colors duration-300">
+                <h3 className="text-lg font-chivo font-medium mb-3 text-light-gray group-hover:text-light-teal transition-colors duration-300">
                   {project.title}
                 </h3>
                 
-                <p className="text-blue-gray mb-6 leading-relaxed font-chivo font-light">
+                <p className="text-blue-gray mb-4 leading-relaxed font-chivo font-light text-sm">
                   {project.description}
                 </p>
                 
-                <div className="flex flex-wrap gap-2 mb-6">
+                <div className="flex flex-wrap gap-2 mb-4">
                   {project.tech.map((tech, techIndex) => (
                     <span key={techIndex} className="text-xs font-chivo font-medium text-light-gray bg-custom-dark/50 px-3 py-1 rounded-full">
                       {tech}
@@ -94,9 +94,9 @@ const Projects = () => {
                 </div>
                 
                 <a href={project.demo} target="_blank" rel="noopener noreferrer"
-                   className="inline-flex items-center space-x-2 text-blue-gray hover:text-light-teal font-chivo font-medium group-hover:translate-x-2 transition-all duration-300">
+                   className="inline-flex items-center space-x-2 text-blue-gray hover:text-light-teal font-chivo font-medium group-hover:translate-x-2 transition-all duration-300 text-sm">
                   <span>View Project</span>
-                  <ArrowRight size={16} />
+                  <ArrowRight size={14} />
                 </a>
               </div>
             </div>

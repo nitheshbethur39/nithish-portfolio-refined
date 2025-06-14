@@ -85,42 +85,42 @@ const Skills = () => {
   };
 
   return (
-    <section id="skills" className="py-20 px-6 lg:px-8 bg-white dark:bg-gray-900">
+    <section id="skills" className="py-16 px-6 lg:px-8 bg-white dark:bg-gray-900">
       <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl lg:text-5xl font-bold mb-6 text-gray-900 dark:text-white font-chivo">
+        <div className="text-center mb-12">
+          <h2 className="text-3xl lg:text-4xl font-bold mb-4 text-gray-900 dark:text-white font-chivo">
             Technical Skills
           </h2>
-          <div className="w-24 h-1 bg-gray-300 dark:bg-gray-600 mx-auto mb-8 rounded-full"></div>
-          <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto font-chivo">
+          <div className="w-20 h-1 bg-gray-300 dark:bg-gray-600 mx-auto mb-6 rounded-full"></div>
+          <p className="text-base text-gray-600 dark:text-gray-300 max-w-3xl mx-auto font-chivo">
             Comprehensive expertise across the data science and analytics ecosystem, 
             from data collection and processing to advanced machine learning and deployment.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {skillCategories.map((category, index) => (
             <div 
               key={index} 
-              className="bg-gray-50 dark:bg-gray-800 p-8 rounded-xl border border-gray-200 dark:border-gray-700 hover:shadow-lg transition-all duration-300"
+              className="bg-gray-50 dark:bg-gray-800 p-6 rounded-xl border border-gray-200 dark:border-gray-700 hover:shadow-lg transition-all duration-300"
             >
-              <div className="flex items-center mb-6">
-                <div className="w-12 h-12 bg-gray-900 dark:bg-gray-100 rounded-lg flex items-center justify-center mr-4">
-                  <category.icon size={24} className="text-white dark:text-gray-900" />
+              <div className="flex items-center mb-4">
+                <div className="w-10 h-10 bg-gray-900 dark:bg-gray-100 rounded-lg flex items-center justify-center mr-3">
+                  <category.icon size={20} className="text-white dark:text-gray-900" />
                 </div>
-                <h3 className="text-xl font-semibold text-gray-900 dark:text-white font-chivo">
+                <h3 className="text-lg font-semibold text-gray-900 dark:text-white font-chivo">
                   {category.title}
                 </h3>
               </div>
               
-              <div className="space-y-3">
+              <div className="space-y-2">
                 {category.skills.map((skill, skillIndex) => (
                   <div key={skillIndex} className="flex items-center justify-between">
-                    <span className="text-gray-700 dark:text-gray-300 font-medium font-chivo">
+                    <span className="text-gray-700 dark:text-gray-300 font-medium font-chivo text-sm">
                       {skill.name}
                     </span>
                     <span 
-                      className={`px-3 py-1 rounded-full text-xs font-medium ${getLevelColor(skill.level)}`}
+                      className={`px-2 py-1 rounded-full text-xs font-medium ${getLevelColor(skill.level)}`}
                     >
                       {skill.level}
                     </span>
@@ -129,66 +129,6 @@ const Skills = () => {
               </div>
             </div>
           ))}
-        </div>
-
-        {/* Core Competencies */}
-        <div className="mt-20">
-          <h3 className="text-3xl font-bold text-center text-gray-900 dark:text-white mb-12 font-chivo">
-            Core Competencies
-          </h3>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <div className="text-center p-6 bg-gray-50 dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700">
-              <h4 className="text-lg font-semibold text-gray-900 dark:text-white mb-4 font-chivo">
-                Statistical Analysis
-              </h4>
-              <ul className="text-gray-600 dark:text-gray-300 space-y-2 text-sm font-chivo">
-                <li>Hypothesis Testing</li>
-                <li>Regression Analysis</li>
-                <li>Time Series Forecasting</li>
-                <li>Bayesian Statistics</li>
-                <li>A/B Testing</li>
-              </ul>
-            </div>
-            
-            <div className="text-center p-6 bg-gray-50 dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700">
-              <h4 className="text-lg font-semibold text-gray-900 dark:text-white mb-4 font-chivo">
-                Domain Expertise
-              </h4>
-              <ul className="text-gray-600 dark:text-gray-300 space-y-2 text-sm font-chivo">
-                <li>Financial Analytics</li>
-                <li>Marketing Analytics</li>
-                <li>Supply Chain Optimization</li>
-                <li>Healthcare Data Analysis</li>
-                <li>Risk Assessment</li>
-              </ul>
-            </div>
-            
-            <div className="text-center p-6 bg-gray-50 dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700">
-              <h4 className="text-lg font-semibold text-gray-900 dark:text-white mb-4 font-chivo">
-                Leadership & Communication
-              </h4>
-              <ul className="text-gray-600 dark:text-gray-300 space-y-2 text-sm font-chivo">
-                <li>Project Management</li>
-                <li>Team Leadership</li>
-                <li>Stakeholder Communication</li>
-                <li>Technical Documentation</li>
-                <li>Cross-functional Collaboration</li>
-              </ul>
-            </div>
-            
-            <div className="text-center p-6 bg-gray-50 dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700">
-              <h4 className="text-lg font-semibold text-gray-900 dark:text-white mb-4 font-chivo">
-                Methodologies
-              </h4>
-              <ul className="text-gray-600 dark:text-gray-300 space-y-2 text-sm font-chivo">
-                <li>Agile/Scrum</li>
-                <li>CI/CD Pipelines</li>
-                <li>MLOps Best Practices</li>
-                <li>Data Governance</li>
-                <li>Model Validation</li>
-              </ul>
-            </div>
-          </div>
         </div>
       </div>
     </section>

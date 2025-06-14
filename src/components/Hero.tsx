@@ -31,39 +31,39 @@ const Hero = () => {
         {/* Content Section */}
         <div className="lg:w-2/3 text-center lg:text-left animate-fade-in-up">
           {/* Name */}
-          <h1 className="text-5xl lg:text-7xl font-chivo font-light mb-8 text-light-gray leading-tight animate-slide-in-left">
+          <h1 className="text-4xl lg:text-5xl font-chivo font-light mb-6 text-light-gray leading-tight animate-slide-in-left">
             Nithish Bilasunur
             <br />
             <span className="font-medium">Manjunatha Reddy</span>
           </h1>
           
           {/* Title */}
-          <div className="mb-8 animate-fade-in delay-200">
-            <p className="text-xl lg:text-2xl text-blue-gray font-chivo font-light">
+          <div className="mb-6 animate-fade-in delay-200">
+            <p className="text-lg lg:text-xl text-blue-gray font-chivo font-light">
               Data Scientist & Analytics Expert
             </p>
-            <div className="w-24 h-[1px] bg-light-teal mx-auto lg:mx-0 mt-6 animate-scale-in delay-300"></div>
+            <div className="w-24 h-[1px] bg-light-teal mx-auto lg:mx-0 mt-4 animate-scale-in delay-300"></div>
           </div>
           
           {/* Description */}
-          <p className="text-lg text-blue-gray mb-12 max-w-2xl mx-auto lg:mx-0 font-chivo font-light leading-relaxed animate-fade-in delay-400">
+          <p className="text-base text-blue-gray mb-10 max-w-2xl mx-auto lg:mx-0 font-chivo font-light leading-relaxed animate-fade-in delay-400">
             Transforming data into strategic insights through machine learning, 
             statistical analysis, and innovative visualization techniques.
           </p>
           
           {/* Social Links */}
-          <div className="flex justify-center lg:justify-start space-x-8 mb-16 animate-stagger-1">
+          <div className="flex justify-center lg:justify-start space-x-6 mb-12 animate-stagger-1">
             <a href="https://github.com" target="_blank" rel="noopener noreferrer" 
                className="text-blue-gray hover:text-light-teal transition-all duration-300 hover:scale-110 animate-float">
-              <Github size={24} />
+              <Github size={20} />
             </a>
             <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer"
                className="text-blue-gray hover:text-light-teal transition-all duration-300 hover:scale-110 animate-float delay-100">
-              <Linkedin size={24} />
+              <Linkedin size={20} />
             </a>
             <a href="mailto:nithish.bilasunu@example.com"
                className="text-blue-gray hover:text-light-teal transition-all duration-300 hover:scale-110 animate-float delay-200">
-              <Mail size={24} />
+              <Mail size={20} />
             </a>
           </div>
 
@@ -71,17 +71,17 @@ const Hero = () => {
           <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
             <button
               onClick={scrollToAbout}
-              className="group inline-flex items-center space-x-3 border border-custom-medium hover:border-light-teal px-8 py-4 rounded-full text-blue-gray hover:text-light-gray font-chivo font-medium transition-all duration-300 hover:bg-custom-dark/50 animate-glow"
+              className="group inline-flex items-center space-x-3 border border-custom-medium hover:border-light-teal px-6 py-3 rounded-full text-blue-gray hover:text-light-gray font-chivo font-medium transition-all duration-300 hover:bg-custom-dark/50 text-sm"
             >
               <span>Explore My Work</span>
-              <ArrowDown size={16} className="group-hover:translate-y-1 transition-transform duration-300" />
+              <ArrowDown size={14} className="group-hover:translate-y-1 transition-transform duration-300" />
             </button>
             
             <button
               onClick={downloadResume}
-              className="group inline-flex items-center space-x-3 bg-gradient-to-r from-light-teal to-blue-gray hover:from-light-teal/80 hover:to-blue-gray/80 px-8 py-4 rounded-full text-white font-chivo font-medium transition-all duration-300 hover:shadow-lg hover:shadow-light-teal/25 animate-pulse"
+              className="group inline-flex items-center space-x-3 bg-gradient-to-r from-light-teal to-blue-gray hover:from-light-teal/80 hover:to-blue-gray/80 px-6 py-3 rounded-full text-white font-chivo font-medium transition-all duration-300 hover:shadow-lg hover:shadow-light-teal/25 text-sm"
             >
-              <Download size={16} />
+              <Download size={14} />
               <span>Download Resume</span>
             </button>
           </div>
@@ -91,28 +91,28 @@ const Hero = () => {
         <div className="lg:w-1/3 flex justify-center animate-scale-in delay-500">
           <div className="relative group">
             {/* Placeholder for headshot */}
-            <div className="w-80 h-80 lg:w-96 lg:h-96 rounded-full bg-gradient-to-br from-custom-dark to-custom-medium border-4 border-blue-gray shadow-2xl flex items-center justify-center transition-all duration-500 group-hover:scale-105 animate-float">
+            <div className="w-64 h-64 lg:w-80 lg:h-80 rounded-full bg-gradient-to-br from-custom-dark to-custom-medium border-4 border-blue-gray shadow-2xl flex items-center justify-center transition-all duration-500 group-hover:scale-105 animate-float">
               <div className="text-center">
-                <div className="w-24 h-24 bg-blue-gray rounded-full mx-auto mb-4 flex items-center justify-center">
-                  <svg className="w-12 h-12 text-light-teal" fill="currentColor" viewBox="0 0 24 24">
+                <div className="w-20 h-20 bg-blue-gray rounded-full mx-auto mb-3 flex items-center justify-center">
+                  <svg className="w-10 h-10 text-light-teal" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
                   </svg>
                 </div>
-                <p className="text-light-teal font-chivo text-sm">Add Your Photo</p>
+                <p className="text-light-teal font-chivo text-xs">Add Your Photo</p>
               </div>
             </div>
             
             {/* Decorative elements */}
-            <div className="absolute -top-4 -right-4 w-8 h-8 bg-light-teal rounded-full animate-pulse"></div>
-            <div className="absolute -bottom-4 -left-4 w-6 h-6 bg-blue-gray rounded-full animate-pulse delay-1000"></div>
+            <div className="absolute -top-3 -right-3 w-6 h-6 bg-light-teal rounded-full animate-pulse"></div>
+            <div className="absolute -bottom-3 -left-3 w-5 h-5 bg-blue-gray rounded-full animate-pulse delay-1000"></div>
           </div>
         </div>
       </div>
 
       {/* Scroll Indicator */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-        <div className="w-6 h-12 border border-blue-gray rounded-full flex justify-center">
-          <div className="w-1 h-3 bg-light-teal rounded-full mt-2 animate-pulse"></div>
+      <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 animate-bounce">
+        <div className="w-5 h-10 border border-blue-gray rounded-full flex justify-center">
+          <div className="w-1 h-2 bg-light-teal rounded-full mt-2 animate-pulse"></div>
         </div>
       </div>
     </section>

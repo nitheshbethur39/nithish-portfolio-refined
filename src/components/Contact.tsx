@@ -57,53 +57,53 @@ const Contact = () => {
   ];
 
   return (
-    <section id="contact" className="py-20 px-6 lg:px-8 bg-slate-800/30">
+    <section id="contact" className="py-16 px-6 lg:px-8 bg-slate-800/30">
       <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl lg:text-5xl font-bold mb-6 bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
+        <div className="text-center mb-12">
+          <h2 className="text-3xl lg:text-4xl font-bold mb-4 bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
             Let's Connect
           </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-600 mx-auto mb-8 rounded-full"></div>
-          <p className="text-xl text-slate-300 max-w-3xl mx-auto">
+          <div className="w-20 h-1 bg-gradient-to-r from-blue-500 to-purple-600 mx-auto mb-6 rounded-full"></div>
+          <p className="text-base text-slate-300 max-w-3xl mx-auto">
             Ready to discuss data science opportunities, collaborations, or just want to chat about the latest in ML? 
             I'd love to hear from you.
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-12">
+        <div className="grid lg:grid-cols-2 gap-10">
           {/* Contact Information */}
           <div>
-            <h3 className="text-2xl font-bold text-white mb-8">Get in Touch</h3>
-            <div className="space-y-6">
+            <h3 className="text-xl font-bold text-white mb-6">Get in Touch</h3>
+            <div className="space-y-4">
               {contactInfo.map((info, index) => (
                 <a
                   key={index}
                   href={info.href}
                   target={info.href.startsWith('http') ? '_blank' : undefined}
                   rel={info.href.startsWith('http') ? 'noopener noreferrer' : undefined}
-                  className="flex items-center space-x-4 p-4 bg-slate-800/50 backdrop-blur-sm rounded-xl border border-slate-700/50 hover:border-blue-500/50 transition-all duration-300 hover:scale-105 group"
+                  className="flex items-center space-x-3 p-4 bg-slate-800/50 backdrop-blur-sm rounded-xl border border-slate-700/50 hover:border-blue-500/50 transition-all duration-300 hover:scale-105 group"
                 >
-                  <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                    <info.icon size={20} className="text-white" />
+                  <div className="w-10 h-10 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                    <info.icon size={18} className="text-white" />
                   </div>
                   <div>
-                    <p className="text-slate-400 text-sm">{info.label}</p>
-                    <p className="text-white font-medium">{info.value}</p>
+                    <p className="text-slate-400 text-xs">{info.label}</p>
+                    <p className="text-white font-medium text-sm">{info.value}</p>
                   </div>
                 </a>
               ))}
             </div>
 
-            <div className="mt-12 p-6 bg-gradient-to-r from-blue-500/10 to-purple-600/10 rounded-xl border border-blue-500/20">
-              <h4 className="text-xl font-bold text-white mb-4">Open to Opportunities</h4>
-              <p className="text-slate-300 mb-4">
+            <div className="mt-8 p-5 bg-gradient-to-r from-blue-500/10 to-purple-600/10 rounded-xl border border-blue-500/20">
+              <h4 className="text-lg font-bold text-white mb-3">Open to Opportunities</h4>
+              <p className="text-slate-300 mb-3 text-sm">
                 I'm currently open to new opportunities in data science, machine learning engineering, 
                 and analytics consulting roles. Let's discuss how I can help drive your organization's 
                 data initiatives forward.
               </p>
               <div className="flex flex-wrap gap-2">
                 {['Remote Work', 'Full-time', 'Contract', 'Consulting'].map((tag, index) => (
-                  <span key={index} className="text-xs font-medium text-blue-400 bg-blue-500/20 px-3 py-1 rounded-full">
+                  <span key={index} className="text-xs font-medium text-blue-400 bg-blue-500/20 px-2 py-1 rounded-full">
                     {tag}
                   </span>
                 ))}
@@ -113,11 +113,11 @@ const Contact = () => {
 
           {/* Contact Form */}
           <div>
-            <h3 className="text-2xl font-bold text-white mb-8">Send a Message</h3>
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <div className="grid md:grid-cols-2 gap-6">
+            <h3 className="text-xl font-bold text-white mb-6">Send a Message</h3>
+            <form onSubmit={handleSubmit} className="space-y-4">
+              <div className="grid md:grid-cols-2 gap-4">
                 <div>
-                  <label htmlFor="name" className="block text-slate-300 font-medium mb-2">
+                  <label htmlFor="name" className="block text-slate-300 font-medium mb-2 text-sm">
                     Name *
                   </label>
                   <input
@@ -127,12 +127,12 @@ const Contact = () => {
                     value={formData.name}
                     onChange={handleInputChange}
                     required
-                    className="w-full px-4 py-3 bg-slate-800/50 border border-slate-700/50 rounded-lg text-white placeholder-slate-400 focus:border-blue-500 focus:outline-none transition-colors duration-300"
+                    className="w-full px-3 py-2 bg-slate-800/50 border border-slate-700/50 rounded-lg text-white placeholder-slate-400 focus:border-blue-500 focus:outline-none transition-colors duration-300 text-sm"
                     placeholder="Your name"
                   />
                 </div>
                 <div>
-                  <label htmlFor="email" className="block text-slate-300 font-medium mb-2">
+                  <label htmlFor="email" className="block text-slate-300 font-medium mb-2 text-sm">
                     Email *
                   </label>
                   <input
@@ -142,14 +142,14 @@ const Contact = () => {
                     value={formData.email}
                     onChange={handleInputChange}
                     required
-                    className="w-full px-4 py-3 bg-slate-800/50 border border-slate-700/50 rounded-lg text-white placeholder-slate-400 focus:border-blue-500 focus:outline-none transition-colors duration-300"
+                    className="w-full px-3 py-2 bg-slate-800/50 border border-slate-700/50 rounded-lg text-white placeholder-slate-400 focus:border-blue-500 focus:outline-none transition-colors duration-300 text-sm"
                     placeholder="your.email@example.com"
                   />
                 </div>
               </div>
               
               <div>
-                <label htmlFor="subject" className="block text-slate-300 font-medium mb-2">
+                <label htmlFor="subject" className="block text-slate-300 font-medium mb-2 text-sm">
                   Subject *
                 </label>
                 <input
@@ -159,13 +159,13 @@ const Contact = () => {
                   value={formData.subject}
                   onChange={handleInputChange}
                   required
-                  className="w-full px-4 py-3 bg-slate-800/50 border border-slate-700/50 rounded-lg text-white placeholder-slate-400 focus:border-blue-500 focus:outline-none transition-colors duration-300"
+                  className="w-full px-3 py-2 bg-slate-800/50 border border-slate-700/50 rounded-lg text-white placeholder-slate-400 focus:border-blue-500 focus:outline-none transition-colors duration-300 text-sm"
                   placeholder="What's this about?"
                 />
               </div>
               
               <div>
-                <label htmlFor="message" className="block text-slate-300 font-medium mb-2">
+                <label htmlFor="message" className="block text-slate-300 font-medium mb-2 text-sm">
                   Message *
                 </label>
                 <textarea
@@ -174,17 +174,17 @@ const Contact = () => {
                   value={formData.message}
                   onChange={handleInputChange}
                   required
-                  rows={6}
-                  className="w-full px-4 py-3 bg-slate-800/50 border border-slate-700/50 rounded-lg text-white placeholder-slate-400 focus:border-blue-500 focus:outline-none transition-colors duration-300 resize-none"
+                  rows={5}
+                  className="w-full px-3 py-2 bg-slate-800/50 border border-slate-700/50 rounded-lg text-white placeholder-slate-400 focus:border-blue-500 focus:outline-none transition-colors duration-300 resize-none text-sm"
                   placeholder="Tell me about your project, opportunity, or just say hello!"
                 />
               </div>
               
               <button
                 type="submit"
-                className="w-full bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white font-semibold py-4 px-6 rounded-lg transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-blue-500/25 flex items-center justify-center space-x-2"
+                className="w-full bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-blue-500/25 flex items-center justify-center space-x-2 text-sm"
               >
-                <Send size={20} />
+                <Send size={16} />
                 <span>Send Message</span>
               </button>
             </form>
@@ -192,8 +192,8 @@ const Contact = () => {
         </div>
 
         {/* Footer */}
-        <div className="mt-20 pt-8 border-t border-slate-700/50 text-center">
-          <p className="text-slate-400">
+        <div className="mt-16 pt-6 border-t border-slate-700/50 text-center">
+          <p className="text-slate-400 text-sm">
             © 2024 Nithish Bilasunu. Built with React and Tailwind CSS.
           </p>
         </div>

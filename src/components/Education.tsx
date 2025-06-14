@@ -31,57 +31,57 @@ const Education = () => {
   };
 
   return (
-    <section id="education" className="py-24 px-6 lg:px-8 bg-gradient-to-b from-slate-900 to-slate-950">
+    <section id="education" className="py-20 px-6 lg:px-8 bg-gradient-to-b from-slate-900 to-slate-950">
       <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-20 animate-fade-in-up">
-          <div className="flex items-center justify-center gap-4 mb-6">
-            <span className="text-4xl animate-float">🎓</span>
-            <h2 className="text-5xl lg:text-6xl font-bold bg-gradient-to-r from-light-teal to-blue-gray bg-clip-text text-transparent">
+        <div className="text-center mb-16 animate-fade-in-up">
+          <div className="flex items-center justify-center gap-3 mb-4">
+            <span className="text-3xl animate-float">🎓</span>
+            <h2 className="text-3xl lg:text-4xl font-bold bg-gradient-to-r from-light-teal to-blue-gray bg-clip-text text-transparent">
               Education & Certification
             </h2>
-            <span className="text-4xl animate-float delay-150">📜</span>
+            <span className="text-3xl animate-float delay-150">📜</span>
           </div>
-          <div className="w-32 h-1 bg-gradient-to-r from-light-teal to-blue-gray mx-auto mb-10 rounded-full"></div>
-          <p className="text-xl text-blue-gray max-w-4xl mx-auto">
+          <div className="w-24 h-1 bg-gradient-to-r from-light-teal to-blue-gray mx-auto mb-8 rounded-full"></div>
+          <p className="text-base text-blue-gray max-w-4xl mx-auto">
             Academic foundation and professional certification that fuel my passion for data science excellence ✨
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-3 gap-16">
+        <div className="grid lg:grid-cols-3 gap-12">
           {/* Education */}
           <div className="lg:col-span-2 animate-slide-in-left">
-            <div className="flex items-center space-x-4 mb-12">
-              <div className="w-16 h-16 bg-gradient-to-r from-light-teal to-blue-gray rounded-2xl flex items-center justify-center">
-                <GraduationCap size={32} className="text-white" />
+            <div className="flex items-center space-x-3 mb-10">
+              <div className="w-12 h-12 bg-gradient-to-r from-light-teal to-blue-gray rounded-2xl flex items-center justify-center">
+                <GraduationCap size={24} className="text-white" />
               </div>
-              <h3 className="text-3xl font-bold text-light-gray">Education 📚</h3>
+              <h3 className="text-2xl font-bold text-light-gray">Education 📚</h3>
             </div>
 
-            <div className="space-y-12">
+            <div className="space-y-8">
               {education.map((edu, index) => (
                 <div key={index} className="group relative animate-stagger-1">
-                  <div className="bg-slate-800/30 backdrop-blur-sm p-8 rounded-2xl border border-custom-medium/50 hover:border-light-teal/50 transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-light-teal/10">
-                    <div className="flex items-start justify-between mb-6">
-                      <div className="flex items-center space-x-4">
-                        <span className="text-3xl">{edu.emoji}</span>
+                  <div className="bg-slate-800/30 backdrop-blur-sm p-6 rounded-2xl border border-custom-medium/50 hover:border-light-teal/50 transition-all duration-500 hover:scale-105 hover:shadow-xl hover:shadow-light-teal/10">
+                    <div className="flex items-start justify-between mb-4">
+                      <div className="flex items-center space-x-3">
+                        <span className="text-2xl">{edu.emoji}</span>
                         <div>
-                          <h4 className="text-2xl font-bold text-light-gray mb-2 group-hover:text-light-teal transition-colors duration-300">{edu.degree}</h4>
-                          <p className="text-light-teal font-semibold text-lg">{edu.school}</p>
+                          <h4 className="text-lg font-bold text-light-gray mb-1 group-hover:text-light-teal transition-colors duration-300">{edu.degree}</h4>
+                          <p className="text-light-teal font-semibold">{edu.school}</p>
                         </div>
                       </div>
                       <div className="text-right">
-                        <p className="text-blue-gray text-sm">{edu.period}</p>
-                        <p className="text-light-gray text-sm font-bold">GPA: {edu.gpa}</p>
+                        <p className="text-blue-gray text-xs">{edu.period}</p>
+                        <p className="text-light-gray text-xs font-bold">GPA: {edu.gpa}</p>
                       </div>
                     </div>
                     
-                    <p className="text-blue-gray mb-6 leading-relaxed">{edu.description}</p>
+                    <p className="text-blue-gray mb-4 leading-relaxed text-sm">{edu.description}</p>
                     
                     <div>
-                      <p className="text-sm font-semibold text-light-teal mb-4">🔑 Key Coursework:</p>
-                      <div className="flex flex-wrap gap-3">
+                      <p className="text-xs font-semibold text-light-teal mb-3">🔑 Key Coursework:</p>
+                      <div className="flex flex-wrap gap-2">
                         {edu.coursework.map((course, courseIndex) => (
-                          <span key={courseIndex} className="text-sm font-medium text-light-gray bg-custom-dark/50 px-3 py-2 rounded-lg border border-custom-medium/50">
+                          <span key={courseIndex} className="text-xs font-medium text-light-gray bg-custom-dark/50 px-2 py-1 rounded-lg border border-custom-medium/50">
                             {course}
                           </span>
                         ))}
@@ -95,28 +95,28 @@ const Education = () => {
 
           {/* Professional Certification */}
           <div className="animate-fade-in">
-            <div className="flex items-center space-x-4 mb-12">
-              <div className="w-16 h-16 bg-gradient-to-r from-blue-gray to-light-teal rounded-2xl flex items-center justify-center">
-                <Award size={32} className="text-white" />
+            <div className="flex items-center space-x-3 mb-10">
+              <div className="w-12 h-12 bg-gradient-to-r from-blue-gray to-light-teal rounded-2xl flex items-center justify-center">
+                <Award size={24} className="text-white" />
               </div>
-              <h3 className="text-3xl font-bold text-light-gray">Certification 🏆</h3>
+              <h3 className="text-2xl font-bold text-light-gray">Certification 🏆</h3>
             </div>
 
             <div className="relative">
               <div className="animate-stagger-1">
-                <div className="bg-slate-800/30 backdrop-blur-sm p-8 rounded-2xl border border-custom-medium/50 hover:border-light-teal/50 transition-all duration-500 hover:scale-105 hover:shadow-xl hover:shadow-light-teal/10">
-                  <div className="flex items-center space-x-4 mb-6">
-                    <div className="w-16 h-16 bg-gradient-to-r from-light-teal to-blue-gray rounded-2xl flex items-center justify-center">
-                      <span className="text-2xl">{certification.emoji}</span>
+                <div className="bg-slate-800/30 backdrop-blur-sm p-6 rounded-2xl border border-custom-medium/50 hover:border-light-teal/50 transition-all duration-500 hover:scale-105 hover:shadow-xl hover:shadow-light-teal/10">
+                  <div className="flex items-center space-x-3 mb-4">
+                    <div className="w-12 h-12 bg-gradient-to-r from-light-teal to-blue-gray rounded-2xl flex items-center justify-center">
+                      <span className="text-lg">{certification.emoji}</span>
                     </div>
                     <div>
-                      <h4 className="text-xl font-bold text-light-gray mb-2 hover:text-light-teal transition-colors duration-300">{certification.title}</h4>
-                      <p className="text-light-teal font-medium">{certification.issuer}</p>
-                      <span className="text-light-teal font-bold text-sm">{certification.year}</span>
+                      <h4 className="text-base font-bold text-light-gray mb-1 hover:text-light-teal transition-colors duration-300">{certification.title}</h4>
+                      <p className="text-light-teal font-medium text-sm">{certification.issuer}</p>
+                      <span className="text-light-teal font-bold text-xs">{certification.year}</span>
                     </div>
                   </div>
                   
-                  <p className="text-blue-gray leading-relaxed">
+                  <p className="text-blue-gray leading-relaxed text-sm">
                     Professional certification demonstrating expertise in machine learning engineering, 
                     model deployment, and AWS cloud services for data science applications.
                   </p>
