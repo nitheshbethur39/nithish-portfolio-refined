@@ -99,6 +99,22 @@
     scroll-behavior: smooth;
   }
 
+  /* Performance optimizations */
+  * {
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+  }
+
+  .will-change-transform {
+    will-change: transform;
+  }
+
+  .will-change-opacity {
+    will-change: opacity;
+  }
+
   /* Custom smooth scrolling for webkit browsers */
   ::-webkit-scrollbar {
     width: 8px;
@@ -124,70 +140,134 @@
     border-radius: 4px;
   }
 
-  /* Smooth transitions for all interactive elements */
+  /* GPU-accelerated smooth transitions */
   button, a, input, textarea, select {
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transform: translate3d(0, 0, 0);
   }
 
-  /* Enhanced hover states */
+  /* Enhanced hover states with GPU acceleration */
   button:hover, a:hover {
-    transform: translateY(-1px);
+    transform: translate3d(0, -1px, 0);
+  }
+
+  /* Reduced motion preferences */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+    
+    .parallax-bg {
+      transform: none !important;
+    }
   }
 
   /* Smooth page transitions */
   .page-transition-enter {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translate3d(0, 20px, 0);
   }
 
   .page-transition-enter-active {
     opacity: 1;
-    transform: translateY(0);
+    transform: translate3d(0, 0, 0);
     transition: opacity 600ms ease-out, transform 600ms ease-out;
   }
 }
 
-/* Custom animations for enhanced smoothness */
-@keyframes smooth-fade-in {
+/* GSAP optimized animations */
+@keyframes gsap-fade-in {
   from {
     opacity: 0;
-    transform: translateY(30px) scale(0.95);
+    transform: translate3d(0, 30px, 0) scale3d(0.95, 0.95, 1);
   }
   to {
     opacity: 1;
-    transform: translateY(0) scale(1);
+    transform: translate3d(0, 0, 0) scale3d(1, 1, 1);
   }
 }
 
-@keyframes smooth-slide-in-left {
+@keyframes gsap-slide-in-left {
   from {
     opacity: 0;
-    transform: translateX(-50px) rotateY(-5deg);
+    transform: translate3d(-50px, 0, 0);
   }
   to {
     opacity: 1;
-    transform: translateX(0) rotateY(0deg);
+    transform: translate3d(0, 0, 0);
   }
 }
 
-@keyframes smooth-slide-in-right {
+@keyframes gsap-slide-in-right {
   from {
     opacity: 0;
-    transform: translateX(50px) rotateY(5deg);
+    transform: translate3d(50px, 0, 0);
   }
   to {
     opacity: 1;
-    transform: translateX(0) rotateY(0deg);
+    transform: translate3d(0, 0, 0);
   }
 }
 
-@keyframes smooth-scale-in {
+@keyframes gsap-scale-in {
   from {
     opacity: 0;
-    transform: scale(0.8) rotate(-2deg);
+    transform: scale3d(0.8, 0.8, 1) rotate3d(0, 0, 1, -2deg);
   }
   to {
     opacity: 1;
-    transform: scale(1) rotate(0deg);
+    transform: scale3d(1, 1, 1) rotate3d(0, 0, 1, 0deg);
   }
 }
+
+/* Performance optimized hover effects */
+.hover-lift {
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transform: translate3d(0, 0, 0);
+}
+
+.hover-lift:hover {
+  transform: translate3d(0, -4px, 0);
+}
+
+/* Smooth floating animation */
+@keyframes float {
+  0%, 100% {
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translate3d(0, -10px, 0);
+  }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Staggered animations */
+@keyframes stagger-fade-in {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 20px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.stagger-item {
+  animation: stagger-fade-in 0.6s ease-out both;
+}
+
+.stagger-item:nth-child(1) { animation-delay: 0.1s; }
+.stagger-item:nth-child(2) { animation-delay: 0.2s; }
+.stagger-item:nth-child(3) { animation-delay: 0.3s; }
+.stagger-item:nth-child(4) { animation-delay: 0.4s; }
+.stagger-item:nth-child(5) { animation-delay: 0.5s; }
+.stagger-item:nth-child(6) { animation-delay: 0.6s; }

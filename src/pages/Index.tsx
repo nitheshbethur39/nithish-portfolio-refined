@@ -7,29 +7,36 @@ import Education from '../components/Education';
 import Skills from '../components/Skills';
 import Contact from '../components/Contact';
 import Navigation from '../components/Navigation';
+import { ThreeBackground } from '../components/ThreeBackground';
+import { useGSAPAnimations } from '../hooks/useGSAPAnimations';
 
 const Index = () => {
+  useGSAPAnimations();
+
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 dark:from-slate-950 dark:via-slate-900 dark:to-slate-950 light:from-slate-50 light:via-slate-100 light:to-slate-50 text-white dark:text-white light:text-slate-900 font-chivo scroll-smooth">
+    <div className="min-h-screen bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 dark:from-slate-950 dark:via-slate-900 dark:to-slate-950 light:from-slate-50 light:via-slate-100 light:to-slate-50 text-white dark:text-white light:text-slate-900 font-chivo scroll-smooth relative">
+      <ThreeBackground />
       <Navigation />
-      <div className="animate-fade-in">
-        <Hero />
-        <div className="animate-fade-in-up delay-300">
+      <div className="relative z-10">
+        <div className="hero-content">
+          <Hero />
+        </div>
+        <div className="about-section">
           <About />
         </div>
-        <div className="animate-slide-in-left delay-500">
+        <div className="projects-section">
           <Projects />
         </div>
-        <div className="animate-fade-in delay-700">
+        <div className="experience-section">
           <Experience />
         </div>
-        <div className="animate-scale-in delay-1000">
+        <div className="education-section">
           <Education />
         </div>
-        <div className="animate-fade-in-up delay-1200">
+        <div className="skills-section">
           <Skills />
         </div>
-        <div className="animate-slide-in-left delay-1500">
+        <div className="contact-section">
           <Contact />
         </div>
       </div>

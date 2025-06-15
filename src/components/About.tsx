@@ -32,19 +32,19 @@ const About = () => {
   return (
     <section id="about" className="py-20 px-6 lg:px-8 bg-gradient-to-b from-slate-950 to-slate-900">
       <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-16 animate-fade-in-up">
+        <div className="text-center mb-16">
           <div className="flex items-center justify-center gap-3 mb-5">
-            <span className="text-3xl animate-float">👨‍💻</span>
+            <span className="text-3xl">👨‍💻</span>
             <h2 className="text-3xl lg:text-4xl font-bold bg-gradient-to-r from-light-teal to-blue-gray bg-clip-text text-transparent">
               About Me
             </h2>
-            <span className="text-3xl animate-float delay-150">✨</span>
+            <span className="text-3xl">✨</span>
           </div>
           <div className="w-24 h-1 bg-gradient-to-r from-light-teal to-blue-gray mx-auto mb-8 rounded-full"></div>
         </div>
 
         <div className="grid lg:grid-cols-2 gap-16 items-center">
-          <div className="space-y-6 animate-slide-in-left">
+          <div className="space-y-6 about-content">
             <div className="space-y-5">
               <p className="text-base text-light-gray leading-relaxed">
                 <span className="text-xl mr-2">🚀</span>
@@ -67,22 +67,22 @@ const About = () => {
             
             <div className="pt-6">
               <a href="/resume.pdf" target="_blank" rel="noopener noreferrer"
-                 className="group inline-flex items-center space-x-3 bg-gradient-to-r from-light-teal to-blue-gray hover:from-light-teal/80 hover:to-blue-gray/80 px-6 py-3 rounded-xl text-white font-bold text-sm transition-all duration-500 hover:scale-105 hover:shadow-xl hover:shadow-light-teal/30">
+                 className="group inline-flex items-center space-x-3 bg-gradient-to-r from-light-teal to-blue-gray hover:from-light-teal/80 hover:to-blue-gray/80 px-6 py-3 rounded-xl text-white font-bold text-sm transition-all duration-500 hover:scale-105 hover:shadow-xl hover:shadow-light-teal/30 transform will-change-transform">
                 <span className="text-lg group-hover:rotate-12 transition-transform duration-300">📄</span>
                 <span>Download Resume</span>
               </a>
             </div>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 animate-fade-in">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 about-highlights">
             {highlights.map((item, index) => (
-              <div key={index} className={`group bg-slate-800/30 backdrop-blur-sm p-6 rounded-2xl border border-custom-medium hover:border-light-teal transition-all duration-500 hover:scale-105 hover:shadow-xl hover:shadow-light-teal/10 animate-stagger-${index + 1}`}>
+              <div key={index} className="group bg-slate-800/30 backdrop-blur-sm p-6 rounded-2xl border border-custom-medium hover:border-light-teal transition-all duration-500 hover:scale-105 hover:shadow-xl hover:shadow-light-teal/10 transform will-change-transform">
                 <div className="flex items-center justify-center mb-4">
                   <div className="relative">
                     <div className="w-12 h-12 bg-gradient-to-br from-light-teal to-blue-gray rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                       <item.icon size={20} className="text-white" />
                     </div>
-                    <span className="absolute -top-1 -right-1 text-lg animate-float">{item.emoji}</span>
+                    <span className="absolute -top-1 -right-1 text-lg">{item.emoji}</span>
                   </div>
                 </div>
                 <h3 className="text-lg font-bold mb-3 text-light-gray group-hover:text-light-teal transition-colors duration-300">{item.title}</h3>

@@ -66,7 +66,7 @@ const Projects = () => {
 
         <div className="grid lg:grid-cols-2 gap-5">
           {projects.map((project, index) => (
-            <div key={index} className="group relative bg-gradient-to-br from-slate-800/40 to-slate-800/20 backdrop-blur-sm rounded-xl border border-custom-medium/30 overflow-hidden hover:border-light-teal/40 transition-all duration-500 hover:transform hover:scale-[1.02] hover:shadow-2xl hover:shadow-light-teal/10">
+            <div key={index} className="project-card group relative bg-gradient-to-br from-slate-800/40 to-slate-800/20 backdrop-blur-sm rounded-xl border border-custom-medium/30 overflow-hidden hover:border-light-teal/40 transition-all duration-500 hover:transform hover:scale-[1.02] hover:shadow-2xl hover:shadow-light-teal/10 transform will-change-transform">
               
               {/* Status Badge */}
               <div className="absolute top-3 right-3 z-10">
@@ -84,18 +84,18 @@ const Projects = () => {
                 <img 
                   src={project.image} 
                   alt={project.title}
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 will-change-transform"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/50 to-transparent"></div>
                 
                 {/* Floating Action Buttons */}
                 <div className="absolute top-3 left-3 flex space-x-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                   <a href={project.github} target="_blank" rel="noopener noreferrer"
-                     className="w-8 h-8 bg-custom-dark/80 backdrop-blur-sm rounded-lg flex items-center justify-center text-light-gray hover:text-light-teal hover:bg-custom-dark transition-all duration-300 hover:scale-110">
+                     className="w-8 h-8 bg-custom-dark/80 backdrop-blur-sm rounded-lg flex items-center justify-center text-light-gray hover:text-light-teal hover:bg-custom-dark transition-all duration-300 hover:scale-110 transform will-change-transform">
                     <Github size={14} />
                   </a>
                   <a href={project.demo} target="_blank" rel="noopener noreferrer"
-                     className="w-8 h-8 bg-custom-dark/80 backdrop-blur-sm rounded-lg flex items-center justify-center text-light-gray hover:text-light-teal hover:bg-custom-dark transition-all duration-300 hover:scale-110">
+                     className="w-8 h-8 bg-custom-dark/80 backdrop-blur-sm rounded-lg flex items-center justify-center text-light-gray hover:text-light-teal hover:bg-custom-dark transition-all duration-300 hover:scale-110 transform will-change-transform">
                     <ExternalLink size={14} />
                   </a>
                 </div>
@@ -131,7 +131,7 @@ const Projects = () => {
                 {/* Action Buttons */}
                 <div className="flex items-center justify-between">
                   <Link to={`/project/${project.id}`}
-                     className="inline-flex items-center space-x-2 text-blue-gray hover:text-light-teal font-chivo font-medium group-hover:translate-x-1 transition-all duration-300 text-xs">
+                     className="inline-flex items-center space-x-2 text-blue-gray hover:text-light-teal font-chivo font-medium group-hover:translate-x-1 transition-all duration-300 text-xs transform will-change-transform">
                     <Code size={12} />
                     <span>View Project</span>
                     <ArrowRight size={12} />
@@ -139,11 +139,11 @@ const Projects = () => {
                   
                   <div className="flex space-x-2">
                     <a href={project.github} target="_blank" rel="noopener noreferrer"
-                       className="w-7 h-7 bg-custom-medium/20 rounded-lg flex items-center justify-center text-blue-gray hover:text-light-teal hover:bg-light-teal/10 transition-all duration-300">
+                       className="w-7 h-7 bg-custom-medium/20 rounded-lg flex items-center justify-center text-blue-gray hover:text-light-teal hover:bg-light-teal/10 transition-all duration-300 transform will-change-transform">
                       <Github size={12} />
                     </a>
                     <a href={project.demo} target="_blank" rel="noopener noreferrer"
-                       className="w-7 h-7 bg-custom-medium/20 rounded-lg flex items-center justify-center text-blue-gray hover:text-light-teal hover:bg-light-teal/10 transition-all duration-300">
+                       className="w-7 h-7 bg-custom-medium/20 rounded-lg flex items-center justify-center text-blue-gray hover:text-light-teal hover:bg-light-teal/10 transition-all duration-300 transform will-change-transform">
                       <ExternalLink size={12} />
                     </a>
                   </div>
@@ -158,7 +158,7 @@ const Projects = () => {
 
         {/* View All Projects Button */}
         <div className="text-center mt-8">
-          <a href="#" className="inline-flex items-center space-x-2 bg-gradient-to-r from-light-teal/20 to-light-teal/10 border border-light-teal/30 text-light-teal font-chivo font-medium px-5 py-2.5 rounded-lg hover:from-light-teal/30 hover:to-light-teal/20 hover:border-light-teal/50 transition-all duration-300 hover:scale-105 text-sm">
+          <a href="#" className="inline-flex items-center space-x-2 bg-gradient-to-r from-light-teal/20 to-light-teal/10 border border-light-teal/30 text-light-teal font-chivo font-medium px-5 py-2.5 rounded-lg hover:from-light-teal/30 hover:to-light-teal/20 hover:border-light-teal/50 transition-all duration-300 hover:scale-105 text-sm transform will-change-transform">
             <span>View All Projects</span>
             <ArrowRight size={14} />
           </a>
