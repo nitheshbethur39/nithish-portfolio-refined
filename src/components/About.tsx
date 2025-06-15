@@ -1,7 +1,10 @@
 
 import { Brain, Database, TrendingUp, Code } from 'lucide-react';
+import { useTheme } from './ThemeProvider';
 
 const About = () => {
+  const { theme } = useTheme();
+  
   const highlights = [
     {
       icon: Brain,
@@ -29,12 +32,15 @@ const About = () => {
     }
   ];
 
-  // Debug logging
+  console.log('About component theme:', theme);
   console.log('About component highlights:', highlights);
-  console.log('Brain icon:', Brain);
 
   return (
-    <section id="about" className="py-20 px-6 lg:px-8 bg-gradient-to-b from-slate-950 to-slate-900">
+    <section id="about" className={`py-20 px-6 lg:px-8 transition-colors duration-300 ${
+      theme === 'dark' 
+        ? 'bg-gradient-to-b from-slate-950 to-slate-900' 
+        : 'bg-gradient-to-b from-slate-100 to-slate-200'
+    }`}>
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16 section-header">
           <div className="flex items-center justify-center gap-3 mb-5">
@@ -52,19 +58,25 @@ const About = () => {
           {/* Text Content */}
           <div className="space-y-6 about-content">
             <div className="space-y-5">
-              <p className="text-lg text-light-gray leading-relaxed">
+              <p className={`text-lg leading-relaxed ${
+                theme === 'dark' ? 'text-light-gray' : 'text-slate-700'
+              }`}>
                 <span className="text-xl mr-2">🎓</span>
                 I'm a recent Master's graduate in Data Analytics Engineering from George Mason University and 
                 an AWS Certified Solutions Architect. I specialize in building scalable cloud-based data solutions 
                 that drive efficiency and measurable business impact.
               </p>
-              <p className="text-lg text-light-gray leading-relaxed">
+              <p className={`text-lg leading-relaxed ${
+                theme === 'dark' ? 'text-light-gray' : 'text-slate-700'
+              }`}>
                 <span className="text-xl mr-2">💡</span>
                 From automating EC2 backups with SmartVault (cutting costs by 40%) to engineering real-time 
                 pipelines with Kafka, Glue, and Athena, I bring hands-on experience in data engineering, 
                 analytics, and cloud architecture across healthcare, aerospace, and manufacturing sectors.
               </p>
-              <p className="text-lg text-light-gray leading-relaxed">
+              <p className={`text-lg leading-relaxed ${
+                theme === 'dark' ? 'text-light-gray' : 'text-slate-700'
+              }`}>
                 <span className="text-xl mr-2">🎯</span>
                 I'm passionate about using cloud tools to solve real business problems — whether it's streamlining 
                 workflows, enhancing compliance, or creating actionable insights. Currently seeking full-time 
@@ -85,10 +97,14 @@ const About = () => {
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 about-highlights">
             {highlights.map((item, index) => {
               const IconComponent = item.icon;
-              console.log(`Rendering card ${index}, icon:`, IconComponent);
+              console.log(`Rendering mobile card ${index}, icon:`, IconComponent, 'theme:', theme);
               
               return (
-                <div key={index} className="group bg-slate-800/90 border border-slate-700 hover:border-light-teal p-6 rounded-2xl transition-all duration-500 hover:scale-105 hover:shadow-xl hover:shadow-light-teal/20 transform will-change-transform hover:bg-slate-700/90">
+                <div key={index} className={`group border p-6 rounded-2xl transition-all duration-500 hover:scale-105 hover:shadow-xl transform will-change-transform ${
+                  theme === 'dark' 
+                    ? 'bg-slate-800/90 border-slate-700 hover:border-light-teal hover:shadow-light-teal/20 hover:bg-slate-700/90' 
+                    : 'bg-white/90 border-slate-300 hover:border-light-teal hover:shadow-light-teal/20 hover:bg-slate-50/90'
+                }`}>
                   <div className="flex items-center justify-center mb-4">
                     <div className="relative">
                       <div className="w-14 h-14 bg-gradient-to-br from-light-teal to-blue-gray rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-lg">
@@ -101,8 +117,14 @@ const About = () => {
                       <span className="absolute -top-1 -right-1 text-xl">{item.emoji}</span>
                     </div>
                   </div>
-                  <h3 className="text-xl font-bold mb-3 text-light-gray group-hover:text-light-teal transition-colors duration-300 text-center">{item.title}</h3>
-                  <p className="text-blue-gray leading-relaxed text-base text-center group-hover:text-light-gray transition-colors duration-300">{item.description}</p>
+                  <h3 className={`text-xl font-bold mb-3 group-hover:text-light-teal transition-colors duration-300 text-center ${
+                    theme === 'dark' ? 'text-light-gray' : 'text-slate-800'
+                  }`}>{item.title}</h3>
+                  <p className={`leading-relaxed text-base text-center transition-colors duration-300 ${
+                    theme === 'dark' 
+                      ? 'text-blue-gray group-hover:text-light-gray' 
+                      : 'text-slate-600 group-hover:text-slate-700'
+                  }`}>{item.description}</p>
                 </div>
               );
             })}
@@ -114,19 +136,25 @@ const About = () => {
           {/* Text Content - Takes 2 columns for better balance */}
           <div className="lg:col-span-2 space-y-6 about-content pr-4">
             <div className="space-y-6">
-              <p className="text-lg text-light-gray leading-relaxed">
+              <p className={`text-lg leading-relaxed ${
+                theme === 'dark' ? 'text-light-gray' : 'text-slate-700'
+              }`}>
                 <span className="text-xl mr-2">🎓</span>
                 I'm a recent Master's graduate in Data Analytics Engineering from George Mason University and 
                 an AWS Certified Solutions Architect. I specialize in building scalable cloud-based data solutions 
                 that drive efficiency and measurable business impact.
               </p>
-              <p className="text-lg text-light-gray leading-relaxed">
+              <p className={`text-lg leading-relaxed ${
+                theme === 'dark' ? 'text-light-gray' : 'text-slate-700'
+              }`}>
                 <span className="text-xl mr-2">💡</span>
                 From automating EC2 backups with SmartVault (cutting costs by 40%) to engineering real-time 
                 pipelines with Kafka, Glue, and Athena, I bring hands-on experience in data engineering, 
                 analytics, and cloud architecture across healthcare, aerospace, and manufacturing sectors.
               </p>
-              <p className="text-lg text-light-gray leading-relaxed">
+              <p className={`text-lg leading-relaxed ${
+                theme === 'dark' ? 'text-light-gray' : 'text-slate-700'
+              }`}>
                 <span className="text-xl mr-2">🎯</span>
                 I'm passionate about using cloud tools to solve real business problems — whether it's streamlining 
                 workflows, enhancing compliance, or creating actionable insights. Currently seeking full-time 
@@ -147,10 +175,14 @@ const About = () => {
           <div className="lg:col-span-2 grid grid-cols-2 gap-4 about-highlights">
             {highlights.map((item, index) => {
               const IconComponent = item.icon;
-              console.log(`Rendering desktop card ${index}, icon:`, IconComponent);
+              console.log(`Rendering desktop card ${index}, icon:`, IconComponent, 'theme:', theme);
               
               return (
-                <div key={index} className="group bg-slate-800/90 border border-slate-700 hover:border-light-teal p-4 rounded-2xl transition-all duration-500 hover:scale-105 hover:shadow-xl hover:shadow-light-teal/20 transform will-change-transform hover:bg-slate-700/90">
+                <div key={index} className={`group border p-4 rounded-2xl transition-all duration-500 hover:scale-105 hover:shadow-xl transform will-change-transform ${
+                  theme === 'dark' 
+                    ? 'bg-slate-800/90 border-slate-700 hover:border-light-teal hover:shadow-light-teal/20 hover:bg-slate-700/90' 
+                    : 'bg-white/90 border-slate-300 hover:border-light-teal hover:shadow-light-teal/20 hover:bg-slate-50/90'
+                }`}>
                   <div className="flex items-center justify-center mb-3">
                     <div className="relative">
                       <div className="w-12 h-12 bg-gradient-to-br from-light-teal to-blue-gray rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-lg">
@@ -163,8 +195,14 @@ const About = () => {
                       <span className="absolute -top-1 -right-1 text-lg">{item.emoji}</span>
                     </div>
                   </div>
-                  <h3 className="text-lg font-bold mb-2 text-light-gray group-hover:text-light-teal transition-colors duration-300 text-center">{item.title}</h3>
-                  <p className="text-blue-gray leading-relaxed text-sm text-center group-hover:text-light-gray transition-colors duration-300">{item.description}</p>
+                  <h3 className={`text-lg font-bold mb-2 group-hover:text-light-teal transition-colors duration-300 text-center ${
+                    theme === 'dark' ? 'text-light-gray' : 'text-slate-800'
+                  }`}>{item.title}</h3>
+                  <p className={`leading-relaxed text-sm text-center transition-colors duration-300 ${
+                    theme === 'dark' 
+                      ? 'text-blue-gray group-hover:text-light-gray' 
+                      : 'text-slate-600 group-hover:text-slate-700'
+                  }`}>{item.description}</p>
                 </div>
               );
             })}
