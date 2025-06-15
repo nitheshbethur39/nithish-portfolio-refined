@@ -1,4 +1,3 @@
-
 import { Github, ExternalLink, ArrowRight, Calendar, Code } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
@@ -79,8 +78,8 @@ const Projects = () => {
           </p>
         </div>
 
-        {/* Responsive Grid Layout - Fixed spacing and alignment */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8">
+        {/* Updated Grid Layout - Changed from 3-column to 2-column for better balance */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
           {projects.map((project, index) => (
             <div key={index} className="project-card group relative bg-slate-800/50 backdrop-blur-sm rounded-2xl border border-slate-700/50 overflow-hidden hover:border-teal-400/50 transition-all duration-500 hover:transform hover:scale-[1.02] hover:shadow-2xl hover:shadow-teal-400/10 flex flex-col">
               
