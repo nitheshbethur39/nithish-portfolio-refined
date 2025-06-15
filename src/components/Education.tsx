@@ -28,30 +28,6 @@ const Education = () => {
       year: "2024",
       emoji: "☁️",
       badge: "/lovable-uploads/c2e1de75-4e6c-49f4-a9a1-33699db9705e.png"
-    },
-    {
-      title: "Programming for Everybody (Getting Started with Python)",
-      issuer: "Coursera",
-      year: "2023",
-      emoji: "🐍"
-    },
-    {
-      title: "Foundations: Data, Data, Everywhere",
-      issuer: "Google Career Certificates",
-      year: "2023",
-      emoji: "📊"
-    },
-    {
-      title: "Intermediate SQL",
-      issuer: "DataCamp",
-      year: "2023",
-      emoji: "🗄️"
-    },
-    {
-      title: "Complete Python Bootcamp",
-      issuer: "Udemy",
-      year: "2023",
-      emoji: "💻"
     }
   ];
 
