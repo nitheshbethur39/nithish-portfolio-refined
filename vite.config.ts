@@ -21,6 +21,12 @@ export default defineConfig(({ mode }) => ({
     },
   },
   optimizeDeps: {
-    include: ['three']
+    include: ['three'],
+    exclude: []
+  },
+  build: {
+    commonjsOptions: {
+      include: [/three/, /node_modules/]
+    }
   }
 }));
