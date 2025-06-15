@@ -1,3 +1,4 @@
+
 import { ArrowDown, Github, Linkedin, Mail, Download } from 'lucide-react';
 
 const Hero = () => {
@@ -28,8 +29,8 @@ const Hero = () => {
       <div className="max-w-6xl mx-auto flex flex-col lg:flex-row items-center justify-between gap-12 relative z-10">
         {/* Content Section */}
         <div className="lg:w-2/3 text-center lg:text-left hero-content">
-          {/* Name with shimmer effect */}
-          <h1 className="text-4xl lg:text-5xl font-chivo font-medium mb-6 leading-tight">
+          {/* Name with enhanced shimmer effect */}
+          <h1 className="text-5xl lg:text-6xl font-chivo font-bold mb-6 leading-tight">
             <span className="shimmer-text">
               Nithish Bilasunur
               <br />

@@ -47,11 +47,15 @@ const Experience = () => {
   return (
     <section id="experience" className="py-16 px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl lg:text-4xl font-bold mb-4 bg-gradient-to-r from-light-teal to-blue-gray bg-clip-text text-transparent">
-            Professional Experience
-          </h2>
-          <div className="w-20 h-1 bg-gradient-to-r from-light-teal to-blue-gray mx-auto mb-6 rounded-full"></div>
+        <div className="text-center mb-16 section-header">
+          <div className="flex items-center justify-center gap-3 mb-5">
+            <span className="text-3xl">💼</span>
+            <h2 className="text-3xl lg:text-4xl font-bold bg-gradient-to-r from-light-teal to-blue-gray bg-clip-text text-transparent">
+              Professional Experience
+            </h2>
+            <span className="text-3xl">🚀</span>
+          </div>
+          <div className="w-24 h-1 bg-gradient-to-r from-light-teal to-blue-gray mx-auto mb-8 rounded-full"></div>
           <p className="text-base text-blue-gray max-w-3xl mx-auto">
             My journey in data science, from junior analyst to senior leadership roles, 
             driving data-driven decision making across organizations.
@@ -64,7 +68,7 @@ const Experience = () => {
 
           <div className="space-y-10">
             {experiences.map((exp, index) => (
-              <div key={index} className={`relative flex items-center ${
+              <div key={index} className={`relative flex items-center timeline-item ${
                 index % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'
               }`}>
                 {/* Timeline dot */}

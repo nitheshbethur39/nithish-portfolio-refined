@@ -32,7 +32,7 @@ const About = () => {
   return (
     <section id="about" className="py-20 px-6 lg:px-8 bg-gradient-to-b from-slate-950 to-slate-900">
       <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-16">
+        <div className="text-center mb-16 section-header">
           <div className="flex items-center justify-center gap-3 mb-5">
             <span className="text-3xl">👨‍💻</span>
             <h2 className="text-3xl lg:text-4xl font-bold bg-gradient-to-r from-light-teal to-blue-gray bg-clip-text text-transparent">

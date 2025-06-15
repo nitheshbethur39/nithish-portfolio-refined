@@ -87,18 +87,22 @@ const Skills = () => {
   return (
     <section id="skills" className="py-16 px-6 lg:px-8 bg-white dark:bg-gray-900">
       <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl lg:text-4xl font-bold mb-4 text-gray-900 dark:text-white font-chivo">
-            Technical Skills
-          </h2>
-          <div className="w-20 h-1 bg-gray-300 dark:bg-gray-600 mx-auto mb-6 rounded-full"></div>
+        <div className="text-center mb-16 section-header">
+          <div className="flex items-center justify-center gap-3 mb-5">
+            <span className="text-3xl">💻</span>
+            <h2 className="text-3xl lg:text-4xl font-bold bg-gradient-to-r from-light-teal to-blue-gray bg-clip-text text-transparent">
+              Technical Skills
+            </h2>
+            <span className="text-3xl">⚡</span>
+          </div>
+          <div className="w-24 h-1 bg-gradient-to-r from-light-teal to-blue-gray mx-auto mb-8 rounded-full"></div>
           <p className="text-base text-gray-600 dark:text-gray-300 max-w-3xl mx-auto font-chivo">
             Comprehensive expertise across the data science and analytics ecosystem, 
             from data collection and processing to advanced machine learning and deployment.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 skill-category">
           {skillCategories.map((category, index) => (
             <div 
               key={index} 
