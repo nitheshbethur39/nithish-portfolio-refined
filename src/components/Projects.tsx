@@ -5,47 +5,58 @@ import { Link } from 'react-router-dom';
 const Projects = () => {
   const projects = [
     {
-      id: 'customer-churn-prediction',
-      title: "Customer Churn Prediction Model",
-      description: "Developed a machine learning model to predict customer churn with 94% accuracy using ensemble methods and feature engineering techniques.",
-      tech: ["Python", "Scikit-learn", "Pandas", "XGBoost"],
-      image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=400&fit=crop",
+      id: 'smartvault-backup-automation',
+      title: "SmartVault - AWS EC2 Backup Automation",
+      description: "Automated real-time stock data ingestion and EC2 backup processes using AWS Lambda and EventBridge, reducing manual data collection efforts by 90% and cutting infrastructure costs by 40%.",
+      tech: ["AWS Lambda", "EC2", "S3", "EventBridge", "Python"],
+      image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=600&h=400&fit=crop",
       github: "#",
       demo: "#",
-      date: "2024",
-      status: "Completed"
-    },
-    {
-      id: 'sales-analytics-dashboard',
-      title: "Real-time Sales Analytics Dashboard",
-      description: "Built an interactive dashboard for real-time sales monitoring with automated alerts and predictive forecasting capabilities.",
-      tech: ["Python", "Streamlit", "PostgreSQL", "Plotly"],
-      image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop",
-      github: "#",
-      demo: "#",
-      date: "2024",
+      date: "2025",
       status: "In Progress"
     },
     {
-      id: 'nlp-sentiment-analysis',
-      title: "NLP Sentiment Analysis System",
-      description: "Created a comprehensive sentiment analysis system for social media monitoring with real-time processing capabilities.",
-      tech: ["Python", "NLTK", "Transformers", "FastAPI"],
-      image: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=600&h=400&fit=crop",
+      id: 'airline-performance-analytics',
+      title: "Airline Performance Analytics & Forecasting",
+      description: "Cleaned and transformed 500,000+ rows of flight data achieving 87% prediction accuracy using ML models. Engineered unified datasets and deployed interactive React dashboards for investor insights.",
+      tech: ["Python", "pandas", "Random Forest", "LSTM", "XGBoost", "React"],
+      image: "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=600&h=400&fit=crop",
       github: "#",
       demo: "#",
-      date: "2023",
+      date: "Jan 2025 - May 2025",
+      status: "In Progress"
+    },
+    {
+      id: 'healthcare-etl-pipeline',
+      title: "Healthcare ETL Pipeline & Data Warehouse",
+      description: "Delivered scalable ETL pipelines for U.S. healthcare provider achieving 99.9% data accuracy. Optimized SQL queries improving execution speed by 30% and reduced pre-deployment issues by 20%.",
+      tech: ["Python", "PostgreSQL", "SQL", "ETL", "Data Warehouse"],
+      image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?w=600&h=400&fit=crop",
+      github: "#",
+      demo: "#",
+      date: "Nov 2020 - Jun 2023",
       status: "Completed"
     },
     {
-      id: 'supply-chain-optimization',
-      title: "Supply Chain Optimization",
-      description: "Optimized supply chain logistics using linear programming and simulation modeling, reducing costs by 15%.",
-      tech: ["Python", "OR-Tools", "Pandas", "Matplotlib"],
-      image: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=600&h=400&fit=crop",
+      id: 'naval-thermal-monitoring',
+      title: "Naval Thermal Monitoring System",
+      description: "Engineered real-time ETL pipeline for thermal monitoring on Indian Navy vessels, reducing overheating incidents by 30% and energy consumption by 20%. Built Tableau dashboards cutting diagnostics time by 40%.",
+      tech: ["Python", "MySQL", "Tableau", "Real-time ETL", "Statistical Models"],
+      image: "https://images.unsplash.com/photo-1581833971358-2c8b550f87b3?w=600&h=400&fit=crop",
       github: "#",
       demo: "#",
-      date: "2023",
+      date: "Dec 2019 - Sep 2020",
+      status: "Completed"
+    },
+    {
+      id: 'predictive-maintenance-bosch',
+      title: "Predictive Maintenance System",
+      description: "Developed real-time data integration system for Bosch manufacturing plant using SCADA integration and time-series analysis, reducing machine breakdowns by 25% and maintenance costs by 15%.",
+      tech: ["Python", "SQL", "Tableau", "SCADA", "Time-series Analysis"],
+      image: "https://images.unsplash.com/photo-1565008447742-97d5aca24c05?w=600&h=400&fit=crop",
+      github: "#",
+      demo: "#",
+      date: "Jun 2019 - Aug 2019",
       status: "Completed"
     }
   ];
@@ -53,14 +64,18 @@ const Projects = () => {
   return (
     <section id="projects" className="py-20 px-6 lg:px-8">
       <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl lg:text-4xl font-bold mb-4 bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">
-            Featured Projects
-          </h2>
-          <div className="w-20 h-1 bg-gradient-to-r from-teal-400 to-blue-500 mx-auto mb-6"></div>
+        <div className="text-center mb-16 section-header">
+          <div className="flex items-center justify-center gap-3 mb-5">
+            <span className="text-3xl">🚀</span>
+            <h2 className="text-3xl lg:text-4xl font-bold bg-gradient-to-r from-light-teal to-blue-gray bg-clip-text text-transparent">
+              Featured Projects
+            </h2>
+            <span className="text-3xl">💼</span>
+          </div>
+          <div className="w-24 h-1 bg-gradient-to-r from-light-teal to-blue-gray mx-auto mb-8 rounded-full"></div>
           <p className="text-gray-400 max-w-2xl mx-auto text-lg leading-relaxed">
-            Explore my latest data science and analytics projects that demonstrate practical applications 
-            of machine learning and statistical analysis.
+            Real-world data engineering and analytics projects showcasing cloud automation, 
+            machine learning, and scalable data solutions with measurable business impact.
           </p>
         </div>
 
@@ -73,7 +88,7 @@ const Projects = () => {
                 <span className={`text-xs font-medium px-3 py-1 rounded-full backdrop-blur-sm ${
                   project.status === 'Completed' 
                     ? 'bg-green-500/20 text-green-400 border border-green-500/30' 
-                    : 'bg-yellow-500/20 text-yellow-400 border border-yellow-500/30'
+                    : 'bg-blue-500/20 text-blue-400 border border-blue-500/30'
                 }`}>
                   {project.status}
                 </span>
@@ -154,14 +169,6 @@ const Projects = () => {
               <div className="absolute inset-0 bg-gradient-to-r from-teal-400/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
             </div>
           ))}
-        </div>
-
-        {/* View All Projects Button */}
-        <div className="text-center mt-12">
-          <a href="#" className="inline-flex items-center space-x-3 bg-gradient-to-r from-teal-400/20 to-blue-500/20 border border-teal-400/30 text-teal-400 font-medium px-8 py-3 rounded-xl hover:from-teal-400/30 hover:to-blue-500/30 hover:border-teal-400/50 transition-all duration-300 hover:scale-105">
-            <span>View All Projects</span>
-            <ArrowRight size={18} />
-          </a>
         </div>
       </div>
     </section>
