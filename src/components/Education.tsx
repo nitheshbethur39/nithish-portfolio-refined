@@ -1,38 +1,28 @@
-
 import { GraduationCap, Award } from 'lucide-react';
-
 const Education = () => {
-  const education = [
-    {
-      degree: "Master of Science in Data Analytics Engineering",
-      school: "George Mason University",
-      period: "August 2023 - May 2025",
-      emoji: "🎓",
-      description: "Specialized in cloud-based data solutions, machine learning, and advanced analytics",
-      coursework: ["Data Engineering", "Cloud Computing", "Machine Learning", "Statistical Analysis", "Big Data Analytics"]
-    },
-    {
-      degree: "Bachelor of Engineering in Electronics & Communications", 
-      school: "Bangalore Institute of Technology",
-      period: "August 2016 - October 2020",
-      emoji: "⚡",
-      description: "Focus on embedded systems, signal processing, and IoT technologies",
-      coursework: ["Digital Signal Processing", "Embedded Systems", "IoT", "Data Structures", "Network Protocols"]
-    }
-  ];
-
-  const certifications = [
-    {
-      title: "AWS Certified Solutions Architect - Associate",
-      issuer: "Amazon Web Services",
-      year: "2024",
-      emoji: "☁️",
-      badge: "/lovable-uploads/c2e1de75-4e6c-49f4-a9a1-33699db9705e.png"
-    }
-  ];
-
-  return (
-    <section id="education" className="py-20 px-6 lg:px-8 bg-gradient-to-b from-slate-900 to-slate-950">
+  const education = [{
+    degree: "Master of Science in Data Analytics Engineering",
+    school: "George Mason University",
+    period: "August 2023 - May 2025",
+    emoji: "🎓",
+    description: "Specialized in cloud-based data solutions, machine learning, and advanced analytics",
+    coursework: ["Data Engineering", "Cloud Computing", "Machine Learning", "Statistical Analysis", "Big Data Analytics"]
+  }, {
+    degree: "Bachelor of Engineering in Electronics & Communications",
+    school: "Bangalore Institute of Technology",
+    period: "August 2016 - October 2020",
+    emoji: "⚡",
+    description: "Focus on embedded systems, signal processing, and IoT technologies",
+    coursework: ["Digital Signal Processing", "Embedded Systems", "IoT", "Data Structures", "Network Protocols"]
+  }];
+  const certifications = [{
+    title: "AWS Certified Solutions Architect - Associate",
+    issuer: "Amazon Web Services",
+    year: "2024",
+    emoji: "☁️",
+    badge: "/lovable-uploads/c2e1de75-4e6c-49f4-a9a1-33699db9705e.png"
+  }];
+  return <section id="education" className="py-20 px-6 lg:px-8 bg-gradient-to-b from-slate-900 to-slate-950">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16 animate-fade-in-up">
           <div className="flex items-center justify-center gap-3 mb-4">
@@ -59,8 +49,7 @@ const Education = () => {
             </div>
 
             <div className="space-y-8">
-              {education.map((edu, index) => (
-                <div key={index} className="group relative animate-stagger-1">
+              {education.map((edu, index) => <div key={index} className="group relative animate-stagger-1">
                   <div className="bg-slate-800/30 backdrop-blur-sm p-6 rounded-2xl border border-custom-medium/50 hover:border-light-teal/50 transition-all duration-500 hover:scale-105 hover:shadow-xl hover:shadow-light-teal/10">
                     <div className="flex items-start justify-between mb-4">
                       <div className="flex items-center space-x-3">
@@ -80,16 +69,13 @@ const Education = () => {
                     <div>
                       <p className="text-xs font-semibold text-light-teal mb-3">🔑 Key Coursework:</p>
                       <div className="flex flex-wrap gap-2">
-                        {edu.coursework.map((course, courseIndex) => (
-                          <span key={courseIndex} className="text-xs font-medium text-light-gray bg-custom-dark/50 px-2 py-1 rounded-lg border border-custom-medium/50">
+                        {edu.coursework.map((course, courseIndex) => <span key={courseIndex} className="text-xs font-medium text-light-gray bg-custom-dark/50 px-2 py-1 rounded-lg border border-custom-medium/50">
                             {course}
-                          </span>
-                        ))}
+                          </span>)}
                       </div>
                     </div>
                   </div>
-                </div>
-              ))}
+                </div>)}
             </div>
           </div>
 
@@ -103,23 +89,14 @@ const Education = () => {
             </div>
 
             <div className="space-y-4">
-              {certifications.map((cert, index) => (
-                <div key={index} className="animate-stagger-1">
-                  <div className="bg-slate-800/30 backdrop-blur-sm p-4 rounded-2xl border border-custom-medium/50 hover:border-light-teal/50 transition-all duration-500 hover:scale-105 hover:shadow-xl hover:shadow-light-teal/10">
+              {certifications.map((cert, index) => <div key={index} className="animate-stagger-1">
+                  <div className="bg-slate-800/30 backdrop-blur-sm p-4 rounded-2xl border border-custom-medium/50 hover:border-light-teal/50 transition-all duration-500 hover:scale-105 hover:shadow-xl hover:shadow-light-teal/10 px-[17px] mx-[49px] my-[64px] py-[61px]">
                     <div className="flex items-center space-x-3">
-                      {cert.badge ? (
-                        <div className="w-12 h-12 flex items-center justify-center">
-                          <img 
-                            src={cert.badge} 
-                            alt={`${cert.title} Badge`}
-                            className="w-10 h-10 object-contain"
-                          />
-                        </div>
-                      ) : (
-                        <div className="w-12 h-12 bg-gradient-to-r from-light-teal to-blue-gray rounded-xl flex items-center justify-center">
+                      {cert.badge ? <div className="w-12 h-12 flex items-center justify-center">
+                          <img src={cert.badge} alt={`${cert.title} Badge`} className="w-10 h-10 object-contain" />
+                        </div> : <div className="w-12 h-12 bg-gradient-to-r from-light-teal to-blue-gray rounded-xl flex items-center justify-center">
                           <span className="text-lg">{cert.emoji}</span>
-                        </div>
-                      )}
+                        </div>}
                       <div className="flex-1">
                         <h4 className="text-sm font-bold text-light-gray mb-1 hover:text-light-teal transition-colors duration-300">{cert.title}</h4>
                         <p className="text-light-teal font-medium text-xs">{cert.issuer}</p>
@@ -127,14 +104,11 @@ const Education = () => {
                       </div>
                     </div>
                   </div>
-                </div>
-              ))}
+                </div>)}
             </div>
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default Education;
