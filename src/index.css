@@ -191,26 +191,26 @@
   .shimmer-text {
     background: linear-gradient(
       110deg,
-      #EAEFEF 25%,
-      #ffffff 37%,
+      #EAEFEF 20%,
+      #ffffff 35%,
       #B8CFCE 50%,
-      #ffffff 63%,
-      #EAEFEF 75%
+      #ffffff 65%,
+      #EAEFEF 80%
     );
-    background-size: 400% 100%;
+    background-size: 300% 100%;
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
-    animation: shimmer 3.5s ease-in-out infinite;
+    animation: shimmer 6s cubic-bezier(0.25, 0.46, 0.45, 0.94) infinite;
     will-change: background-position;
   }
 
   @keyframes shimmer {
     0% {
-      background-position: 200% 0;
+      background-position: 150% 0;
     }
     100% {
-      background-position: -200% 0;
+      background-position: -150% 0;
     }
   }
 }
