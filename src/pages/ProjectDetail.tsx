@@ -7,143 +7,291 @@ const ProjectDetail = () => {
 
   const projects = [
     {
-      id: 'customer-churn-prediction',
-      title: "Customer Churn Prediction Model",
-      description: "Developed a machine learning model to predict customer churn with 94% accuracy using ensemble methods and feature engineering techniques.",
-      longDescription: "This comprehensive machine learning project focused on predicting customer churn for a telecommunications company. The solution involved extensive data preprocessing, feature engineering, and the implementation of multiple ensemble methods including Random Forest, XGBoost, and Gradient Boosting. The final model achieved 94% accuracy and provided actionable insights for customer retention strategies.",
-      tech: ["Python", "Scikit-learn", "Pandas", "XGBoost"],
-      image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=600&fit=crop",
+      id: 'smartvault-backup-automation',
+      title: "SmartVault - AWS EC2 Backup Automation",
+      description: "Automated real-time stock data ingestion and EC2 backup processes using AWS Lambda and EventBridge, reducing manual data collection efforts by 90% and cutting infrastructure costs by 40%.",
+      longDescription: "This comprehensive cloud automation project focused on building a robust backup system for AWS EC2 instances using serverless architecture. The solution automated stock data ingestion from multiple sources, implemented real-time backup processes, and significantly reduced operational overhead while improving system reliability and cost efficiency.",
+      tech: ["AWS Lambda", "EC2", "S3", "EventBridge", "Python"],
+      image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800&h=600&fit=crop",
       github: "#",
       demo: "#",
-      date: "2024",
+      date: "2025",
+      status: "In Progress",
+      duration: "6 months",
+      teamSize: "Solo Project",
+      category: "cloud",
+      challenges: [
+        "Managing complex EC2 instance dependencies during backup",
+        "Handling real-time stock data ingestion at scale",
+        "Optimizing Lambda cold starts for time-sensitive operations"
+      ],
+      solutions: [
+        "Implemented dependency mapping with EventBridge orchestration",
+        "Used streaming data pipelines with buffering mechanisms",
+        "Applied provisioned concurrency and connection pooling"
+      ],
+      results: [
+        "90% reduction in manual data collection efforts",
+        "40% reduction in infrastructure costs",
+        "99.9% backup success rate with automated recovery"
+      ],
+      keyFeatures: [
+        "Automated EC2 snapshot management",
+        "Real-time stock data processing",
+        "Cost optimization algorithms",
+        "Disaster recovery automation"
+      ]
+    },
+    {
+      id: 'airline-performance-analytics',
+      title: "Airline Performance Analytics & Forecasting",
+      description: "Cleaned and transformed 500,000+ rows of flight data achieving 87% prediction accuracy using ML models. Engineered unified datasets and deployed interactive React dashboards for investor insights.",
+      longDescription: "A comprehensive data analytics platform that processes large-scale airline performance data to provide predictive insights for investors and airline management. The system combines advanced machine learning models with interactive visualizations to forecast flight performance, delays, and operational metrics.",
+      tech: ["Python", "pandas", "Random Forest", "LSTM", "XGBoost", "React"],
+      image: "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=800&h=600&fit=crop",
+      github: "#",
+      demo: "#",
+      date: "Jan 2025 - May 2025",
+      status: "In Progress",
+      duration: "5 months",
+      teamSize: "3 developers",
+      category: "analytics",
+      challenges: [
+        "Processing 500,000+ rows of heterogeneous flight data",
+        "Handling missing data and inconsistent formats",
+        "Building accurate forecasting models for volatile airline metrics"
+      ],
+      solutions: [
+        "Implemented robust ETL pipelines with data validation",
+        "Used advanced imputation techniques and feature engineering",
+        "Applied ensemble methods combining LSTM and XGBoost models"
+      ],
+      results: [
+        "87% prediction accuracy for flight performance",
+        "Unified dataset from 15+ data sources",
+        "Interactive dashboards serving 100+ stakeholders"
+      ],
+      keyFeatures: [
+        "Real-time flight performance tracking",
+        "Predictive delay forecasting",
+        "Interactive investor dashboards",
+        "Automated reporting system"
+      ]
+    },
+    {
+      id: 'healthcare-etl-pipeline',
+      title: "Healthcare ETL Pipeline & Data Warehouse",
+      description: "Delivered scalable ETL pipelines for U.S. healthcare provider achieving 99.9% data accuracy. Optimized SQL queries improving execution speed by 30% and reduced pre-deployment issues by 20%.",
+      longDescription: "A mission-critical healthcare data infrastructure project that built scalable ETL pipelines for a major U.S. healthcare provider. The system processes sensitive patient data while maintaining HIPAA compliance, ensuring data accuracy, and providing real-time analytics for clinical decision-making.",
+      tech: ["Python", "PostgreSQL", "SQL", "ETL", "Data Warehouse"],
+      image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?w=800&h=600&fit=crop",
+      github: "#",
+      demo: "#",
+      date: "Nov 2020 - Jun 2023",
+      status: "Completed",
+      duration: "32 months",
+      teamSize: "5 team members",
+      category: "cloud",
+      challenges: [
+        "Ensuring HIPAA compliance for sensitive patient data",
+        "Managing complex healthcare data schemas",
+        "Achieving near-perfect data accuracy requirements"
+      ],
+      solutions: [
+        "Implemented end-to-end encryption and audit trails",
+        "Built flexible schema mapping with validation rules",
+        "Created comprehensive data quality monitoring"
+      ],
+      results: [
+        "99.9% data accuracy achieved",
+        "30% improvement in SQL query execution speed",
+        "20% reduction in pre-deployment issues"
+      ],
+      keyFeatures: [
+        "HIPAA-compliant data processing",
+        "Real-time data validation",
+        "Automated quality monitoring",
+        "Clinical analytics dashboards"
+      ]
+    },
+    {
+      id: 'naval-thermal-monitoring',
+      title: "Naval Thermal Monitoring System",
+      description: "Engineered real-time ETL pipeline for thermal monitoring on Indian Navy vessels, reducing overheating incidents by 30% and energy consumption by 20%. Built Tableau dashboards cutting diagnostics time by 40%.",
+      longDescription: "A specialized IoT and data analytics solution for the Indian Navy that monitors thermal conditions across naval vessels in real-time. The system prevents equipment failures, optimizes energy consumption, and provides critical insights for maritime operations through advanced analytics and visualization.",
+      tech: ["Python", "MySQL", "Tableau", "Real-time ETL", "Statistical Models"],
+      image: "https://images.unsplash.com/photo-1581833971358-2c8b550f87b3?w=800&h=600&fit=crop",
+      github: "#",
+      demo: "#",
+      date: "Dec 2019 - Sep 2020",
+      status: "Completed",
+      duration: "10 months",
+      teamSize: "4 engineers",
+      category: "cloud",
+      challenges: [
+        "Operating in harsh maritime environments",
+        "Processing real-time sensor data from multiple vessels",
+        "Ensuring system reliability for critical naval operations"
+      ],
+      solutions: [
+        "Implemented ruggedized IoT sensors with redundancy",
+        "Built fault-tolerant streaming data architecture",
+        "Created automated failover and recovery systems"
+      ],
+      results: [
+        "30% reduction in overheating incidents",
+        "20% reduction in energy consumption",
+        "40% reduction in diagnostic time"
+      ],
+      keyFeatures: [
+        "Real-time thermal monitoring",
+        "Predictive maintenance alerts",
+        "Energy optimization algorithms",
+        "Naval-grade reliability systems"
+      ]
+    },
+    {
+      id: 'predictive-maintenance-bosch',
+      title: "Predictive Maintenance System",
+      description: "Developed real-time data integration system for Bosch manufacturing plant using SCADA integration and time-series analysis, reducing machine breakdowns by 25% and maintenance costs by 15%.",
+      longDescription: "An industrial IoT and predictive analytics solution developed for Bosch manufacturing operations. The system integrates with existing SCADA infrastructure to provide real-time machine health monitoring, predictive maintenance scheduling, and operational optimization through advanced time-series analysis.",
+      tech: ["Python", "SQL", "Tableau", "SCADA", "Time-series Analysis"],
+      image: "https://images.unsplash.com/photo-1565008447742-97d5aca24c05?w=800&h=600&fit=crop",
+      github: "#",
+      demo: "#",
+      date: "Jun 2019 - Aug 2019",
       status: "Completed",
       duration: "3 months",
-      teamSize: "Solo Project",
-      challenges: [
-        "Handling imbalanced dataset with 85% non-churn customers",
-        "Feature selection from 50+ customer attributes",
-        "Model interpretability for business stakeholders"
-      ],
-      solutions: [
-        "Implemented SMOTE for balanced sampling",
-        "Used recursive feature elimination and correlation analysis",
-        "Created SHAP visualizations for model explainability"
-      ],
-      results: [
-        "94% accuracy in churn prediction",
-        "Identified top 10 churn indicators",
-        "Reduced false positive rate by 15%"
-      ],
-      keyFeatures: [
-        "Real-time prediction API",
-        "Interactive dashboard for insights",
-        "Automated model retraining pipeline",
-        "Customer risk scoring system"
-      ]
-    },
-    {
-      id: 'sales-analytics-dashboard',
-      title: "Real-time Sales Analytics Dashboard",
-      description: "Built an interactive dashboard for real-time sales monitoring with automated alerts and predictive forecasting capabilities.",
-      longDescription: "A comprehensive real-time analytics platform that provides sales teams with actionable insights through interactive visualizations, automated alerting systems, and predictive forecasting. The dashboard processes live sales data and provides real-time KPI monitoring with customizable alerts for performance thresholds.",
-      tech: ["Python", "Streamlit", "PostgreSQL", "Plotly"],
-      image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=600&fit=crop",
-      github: "#",
-      demo: "#",
-      date: "2024",
-      status: "In Progress",
-      duration: "4 months",
-      teamSize: "3 developers",
-      challenges: [
-        "Processing high-volume real-time data",
-        "Creating responsive interactive visualizations",
-        "Implementing accurate forecasting models"
-      ],
-      solutions: [
-        "Implemented streaming data pipeline with Apache Kafka",
-        "Used Plotly for dynamic, responsive charts",
-        "Applied ARIMA and Prophet models for forecasting"
-      ],
-      results: [
-        "Real-time data processing with <2s latency",
-        "95% forecast accuracy for monthly sales",
-        "40% improvement in sales team response time"
-      ],
-      keyFeatures: [
-        "Live sales performance tracking",
-        "Predictive sales forecasting",
-        "Automated alert system",
-        "Customizable KPI dashboards"
-      ]
-    },
-    {
-      id: 'nlp-sentiment-analysis',
-      title: "NLP Sentiment Analysis System",
-      description: "Created a comprehensive sentiment analysis system for social media monitoring with real-time processing capabilities.",
-      longDescription: "An advanced natural language processing system that monitors social media platforms for brand sentiment analysis. The system processes thousands of social media posts in real-time, classifies sentiment with high accuracy, and provides detailed analytics for brand monitoring and reputation management.",
-      tech: ["Python", "NLTK", "Transformers", "FastAPI"],
-      image: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=800&h=600&fit=crop",
-      github: "#",
-      demo: "#",
-      date: "2023",
-      status: "Completed",
-      duration: "5 months",
       teamSize: "2 developers",
+      category: "analytics",
       challenges: [
-        "Handling multilingual social media content",
-        "Dealing with informal language and slang",
-        "Processing high-volume streaming data"
+        "Integrating with legacy SCADA systems",
+        "Processing high-frequency industrial sensor data",
+        "Building accurate predictive models for diverse machinery"
       ],
       solutions: [
-        "Used pre-trained multilingual BERT models",
-        "Implemented custom preprocessing for social media text",
-        "Built scalable microservices architecture"
+        "Developed custom SCADA connectors with protocol translation",
+        "Implemented streaming analytics with edge computing",
+        "Used machine-specific ML models with ensemble techniques"
       ],
       results: [
-        "92% accuracy in sentiment classification",
-        "Processing 10,000+ posts per minute",
-        "Support for 12 different languages"
+        "25% reduction in machine breakdowns",
+        "15% reduction in maintenance costs",
+        "Real-time monitoring of 200+ machines"
       ],
       keyFeatures: [
-        "Real-time sentiment monitoring",
-        "Multi-platform social media integration",
-        "Trend analysis and reporting",
-        "Automated alert system for negative sentiment"
+        "SCADA system integration",
+        "Real-time anomaly detection",
+        "Predictive maintenance scheduling",
+        "Manufacturing optimization dashboards"
       ]
     },
     {
-      id: 'supply-chain-optimization',
-      title: "Supply Chain Optimization",
-      description: "Optimized supply chain logistics using linear programming and simulation modeling, reducing costs by 15%.",
-      longDescription: "A comprehensive supply chain optimization project that used advanced mathematical modeling and simulation techniques to optimize logistics operations. The solution involved route optimization, inventory management, and demand forecasting to significantly reduce operational costs while maintaining service quality.",
-      tech: ["Python", "OR-Tools", "Pandas", "Matplotlib"],
-      image: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=800&h=600&fit=crop",
+      id: 'e-commerce-analytics',
+      title: "E-commerce Customer Analytics Platform",
+      description: "Built comprehensive customer behavior analytics platform with real-time recommendation engine and churn prediction models, improving customer retention by 35% and increasing revenue by 22%.",
+      longDescription: "A comprehensive e-commerce analytics platform that combines customer behavior analysis, real-time recommendation systems, and predictive modeling to optimize customer experience and business outcomes. The platform processes millions of user interactions to provide personalized experiences and actionable business insights.",
+      tech: ["Python", "Apache Kafka", "TensorFlow", "React", "MongoDB"],
+      image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&h=600&fit=crop",
       github: "#",
       demo: "#",
-      date: "2023",
-      status: "Completed",
-      duration: "6 months",
-      teamSize: "4 team members",
+      date: "Coming Soon",
+      status: "Coming Soon",
+      duration: "8 months",
+      teamSize: "6 developers",
+      category: "analytics",
       challenges: [
-        "Complex multi-objective optimization problem",
-        "Uncertainty in demand and supply",
-        "Integration with existing ERP systems"
+        "Processing millions of real-time user interactions",
+        "Building accurate recommendation algorithms",
+        "Scaling personalization across diverse product catalogs"
       ],
       solutions: [
-        "Implemented multi-objective genetic algorithms",
-        "Used Monte Carlo simulation for uncertainty handling",
-        "Built REST API for ERP integration"
+        "Implemented distributed streaming with Apache Kafka",
+        "Used collaborative filtering with deep learning models",
+        "Built microservices architecture for horizontal scaling"
       ],
       results: [
-        "15% reduction in operational costs",
-        "20% improvement in delivery times",
-        "30% reduction in inventory holding costs"
+        "35% improvement in customer retention",
+        "22% increase in revenue",
+        "Real-time recommendations for 1M+ users"
       ],
       keyFeatures: [
-        "Route optimization algorithms",
-        "Inventory management system",
-        "Demand forecasting models",
-        "Real-time supply chain monitoring"
+        "Real-time behavior tracking",
+        "Personalized recommendation engine",
+        "Customer churn prediction",
+        "Revenue optimization analytics"
+      ]
+    },
+    {
+      id: 'serverless-microservices',
+      title: "Serverless Microservices Architecture",
+      description: "Designed and implemented cloud-native microservices architecture using AWS Lambda and API Gateway, reducing operational costs by 60% and improving system scalability by 300%.",
+      longDescription: "A comprehensive serverless architecture transformation project that modernized legacy monolithic applications into cloud-native microservices. The solution leverages AWS serverless technologies to achieve unprecedented scalability while dramatically reducing operational overhead and infrastructure costs.",
+      tech: ["AWS Lambda", "API Gateway", "DynamoDB", "CloudFormation", "Node.js"],
+      image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&h=600&fit=crop",
+      github: "#",
+      demo: "#",
+      date: "Coming Soon",
+      status: "Coming Soon",
+      duration: "12 months",
+      teamSize: "8 developers",
+      category: "cloud",
+      challenges: [
+        "Decomposing complex monolithic applications",
+        "Managing distributed system complexity",
+        "Ensuring data consistency across microservices"
+      ],
+      solutions: [
+        "Applied domain-driven design for service boundaries",
+        "Implemented event-driven architecture with SQS/SNS",
+        "Used eventual consistency with CQRS patterns"
+      ],
+      results: [
+        "60% reduction in operational costs",
+        "300% improvement in system scalability",
+        "Zero-downtime deployments"
+      ],
+      keyFeatures: [
+        "Serverless microservices architecture",
+        "Auto-scaling infrastructure",
+        "Event-driven communication",
+        "Infrastructure as Code deployment"
+      ]
+    },
+    {
+      id: 'realtime-fraud-detection',
+      title: "Real-time Fraud Detection System",
+      description: "Developed ML-powered fraud detection system processing 1M+ transactions daily with 99.8% accuracy and sub-second response times, preventing $2.5M in fraudulent activities annually.",
+      longDescription: "A high-performance fraud detection system that processes millions of financial transactions in real-time using advanced machine learning algorithms. The system combines rule-based engines with ML models to achieve exceptional accuracy while maintaining ultra-low latency for critical financial operations.",
+      tech: ["Python", "Apache Spark", "Kafka", "Redis", "Scikit-learn"],
+      image: "https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=800&h=600&fit=crop",
+      github: "#",
+      demo: "#",
+      date: "Coming Soon",
+      status: "Coming Soon",
+      duration: "10 months",
+      teamSize: "5 data scientists",
+      category: "analytics",
+      challenges: [
+        "Processing 1M+ transactions daily with sub-second latency",
+        "Balancing fraud detection accuracy with false positives",
+        "Adapting to evolving fraud patterns in real-time"
+      ],
+      solutions: [
+        "Implemented distributed computing with Apache Spark",
+        "Used ensemble models with dynamic threshold adjustment",
+        "Built continuous learning pipelines with model retraining"
+      ],
+      results: [
+        "99.8% fraud detection accuracy",
+        "Sub-second response times",
+        "$2.5M prevented in fraudulent activities annually"
+      ],
+      keyFeatures: [
+        "Real-time transaction monitoring",
+        "Machine learning fraud detection",
+        "Dynamic risk scoring",
+        "Automated response systems"
       ]
     }
   ];
@@ -196,7 +344,9 @@ const ProjectDetail = () => {
                 <span className={`text-xs font-chivo font-medium px-3 py-1 rounded-full ${
                   project.status === 'Completed' 
                     ? 'bg-green-500/20 text-green-400 border border-green-500/30' 
-                    : 'bg-yellow-500/20 text-yellow-400 border border-yellow-500/30'
+                    : project.status === 'Coming Soon'
+                    ? 'bg-purple-500/20 text-purple-400 border border-purple-500/30'
+                    : 'bg-blue-500/20 text-blue-400 border border-blue-500/30'
                 }`}>
                   {project.status}
                 </span>
