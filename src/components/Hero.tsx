@@ -1,4 +1,3 @@
-
 import { ArrowDown, Github, Linkedin, Mail, Download } from 'lucide-react';
 
 const Hero = () => {
@@ -39,36 +38,36 @@ const Hero = () => {
           </h1>
           
           {/* Title */}
-          <div className="mb-8 hero-subtitle">
+          <div className="mb-6">
             <p className="text-lg lg:text-xl text-blue-gray font-chivo font-light">
               AWS Certified Solutions Architect | Data Engineer | GMU Graduate
             </p>
             <div className="w-24 h-[1px] bg-light-teal mx-auto lg:mx-0 mt-4"></div>
           </div>
-
-          {/* Social Links - Positioned right after title */}
-          <div className="flex justify-center lg:justify-start space-x-8 mb-8 hero-social">
-            <a href="https://github.com/nithishbm" target="_blank" rel="noopener noreferrer" 
-               className="text-blue-gray hover:text-light-teal transition-all duration-300 hover:scale-110 transform will-change-transform flex items-center justify-center w-14 h-14 animate-jitter"
-               aria-label="Visit my GitHub profile">
-              <Github size={28} className="block" />
-            </a>
-            <a href="https://www.linkedin.com/in/nithishbm" target="_blank" rel="noopener noreferrer"
-               className="text-blue-gray hover:text-light-teal transition-all duration-300 hover:scale-110 transform will-change-transform flex items-center justify-center w-14 h-14 animate-jitter"
-               aria-label="Visit my LinkedIn profile">
-              <Linkedin size={28} className="block" />
-            </a>
-          </div>
           
           {/* Description */}
-          <p className="text-base text-blue-gray mb-10 max-w-2xl mx-auto lg:mx-0 font-chivo font-light leading-relaxed hero-description">
+          <p className="text-base text-blue-gray mb-10 max-w-2xl mx-auto lg:mx-0 font-chivo font-light leading-relaxed">
             Turning Cloud & Data into Real-World Impact. Specialized in building scalable cloud-based data 
             solutions that drive efficiency and measurable business results. Actively seeking full-time opportunities 
             in data engineering and analytics.
           </p>
+          
+          {/* Social Links - Repositioned with jitter animation */}
+          <div className="flex justify-center lg:justify-start space-x-6 mb-8 hero-social">
+            <a href="https://github.com/nithishbm" target="_blank" rel="noopener noreferrer" 
+               className="text-blue-gray hover:text-light-teal transition-all duration-300 hover:scale-110 transform will-change-transform flex items-center justify-center w-12 h-12 animate-jitter"
+               aria-label="Visit my GitHub profile">
+              <Github size={24} className="block" />
+            </a>
+            <a href="https://www.linkedin.com/in/nithishbm" target="_blank" rel="noopener noreferrer"
+               className="text-blue-gray hover:text-light-teal transition-all duration-300 hover:scale-110 transform will-change-transform flex items-center justify-center w-12 h-12 animate-jitter"
+               aria-label="Visit my LinkedIn profile">
+              <Linkedin size={24} className="block" />
+            </a>
+          </div>
 
           {/* Contact Email Link */}
-          <div className="flex justify-center lg:justify-start mt-8 mb-8">
+          <div className="flex justify-center lg:justify-start mt-8">
             <a href="mailto:nitheshbethur39@gmail.com"
                className="text-blue-gray hover:text-light-teal transition-all duration-300 flex items-center space-x-2 text-sm"
                aria-label="Send me an email">
