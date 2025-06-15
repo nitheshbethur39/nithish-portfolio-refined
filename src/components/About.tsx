@@ -29,6 +29,10 @@ const About = () => {
     }
   ];
 
+  // Debug logging
+  console.log('About component highlights:', highlights);
+  console.log('Brain icon:', Brain);
+
   return (
     <section id="about" className="py-20 px-6 lg:px-8 bg-gradient-to-b from-slate-950 to-slate-900">
       <div className="max-w-7xl mx-auto">
@@ -79,20 +83,29 @@ const About = () => {
 
           {/* Highlight Cards */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 about-highlights">
-            {highlights.map((item, index) => (
-              <div key={index} className="group bg-slate-800/90 border border-slate-700 hover:border-light-teal p-6 rounded-2xl transition-all duration-500 hover:scale-105 hover:shadow-xl hover:shadow-light-teal/20 transform will-change-transform hover:bg-slate-700/90">
-                <div className="flex items-center justify-center mb-4">
-                  <div className="relative">
-                    <div className="w-14 h-14 bg-gradient-to-br from-light-teal to-blue-gray rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-lg">
-                      <item.icon size={24} className="text-white" />
+            {highlights.map((item, index) => {
+              const IconComponent = item.icon;
+              console.log(`Rendering card ${index}, icon:`, IconComponent);
+              
+              return (
+                <div key={index} className="group bg-slate-800/90 border border-slate-700 hover:border-light-teal p-6 rounded-2xl transition-all duration-500 hover:scale-105 hover:shadow-xl hover:shadow-light-teal/20 transform will-change-transform hover:bg-slate-700/90">
+                  <div className="flex items-center justify-center mb-4">
+                    <div className="relative">
+                      <div className="w-14 h-14 bg-gradient-to-br from-light-teal to-blue-gray rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-lg">
+                        {IconComponent ? (
+                          <IconComponent size={24} className="text-white" />
+                        ) : (
+                          <span className="text-white text-2xl">?</span>
+                        )}
+                      </div>
+                      <span className="absolute -top-1 -right-1 text-xl">{item.emoji}</span>
                     </div>
-                    <span className="absolute -top-1 -right-1 text-xl">{item.emoji}</span>
                   </div>
+                  <h3 className="text-xl font-bold mb-3 text-light-gray group-hover:text-light-teal transition-colors duration-300 text-center">{item.title}</h3>
+                  <p className="text-blue-gray leading-relaxed text-base text-center group-hover:text-light-gray transition-colors duration-300">{item.description}</p>
                 </div>
-                <h3 className="text-xl font-bold mb-3 text-light-gray group-hover:text-light-teal transition-colors duration-300 text-center">{item.title}</h3>
-                <p className="text-blue-gray leading-relaxed text-base text-center group-hover:text-light-gray transition-colors duration-300">{item.description}</p>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
 
@@ -132,20 +145,29 @@ const About = () => {
 
           {/* Highlight Cards - Takes 2 columns with 2x2 grid */}
           <div className="lg:col-span-2 grid grid-cols-2 gap-4 about-highlights">
-            {highlights.map((item, index) => (
-              <div key={index} className="group bg-slate-800/90 border border-slate-700 hover:border-light-teal p-4 rounded-2xl transition-all duration-500 hover:scale-105 hover:shadow-xl hover:shadow-light-teal/20 transform will-change-transform hover:bg-slate-700/90">
-                <div className="flex items-center justify-center mb-3">
-                  <div className="relative">
-                    <div className="w-12 h-12 bg-gradient-to-br from-light-teal to-blue-gray rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-lg">
-                      <item.icon size={20} className="text-white" />
+            {highlights.map((item, index) => {
+              const IconComponent = item.icon;
+              console.log(`Rendering desktop card ${index}, icon:`, IconComponent);
+              
+              return (
+                <div key={index} className="group bg-slate-800/90 border border-slate-700 hover:border-light-teal p-4 rounded-2xl transition-all duration-500 hover:scale-105 hover:shadow-xl hover:shadow-light-teal/20 transform will-change-transform hover:bg-slate-700/90">
+                  <div className="flex items-center justify-center mb-3">
+                    <div className="relative">
+                      <div className="w-12 h-12 bg-gradient-to-br from-light-teal to-blue-gray rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-lg">
+                        {IconComponent ? (
+                          <IconComponent size={20} className="text-white" />
+                        ) : (
+                          <span className="text-white text-lg">?</span>
+                        )}
+                      </div>
+                      <span className="absolute -top-1 -right-1 text-lg">{item.emoji}</span>
                     </div>
-                    <span className="absolute -top-1 -right-1 text-lg">{item.emoji}</span>
                   </div>
+                  <h3 className="text-lg font-bold mb-2 text-light-gray group-hover:text-light-teal transition-colors duration-300 text-center">{item.title}</h3>
+                  <p className="text-blue-gray leading-relaxed text-sm text-center group-hover:text-light-gray transition-colors duration-300">{item.description}</p>
                 </div>
-                <h3 className="text-lg font-bold mb-2 text-light-gray group-hover:text-light-teal transition-colors duration-300 text-center">{item.title}</h3>
-                <p className="text-blue-gray leading-relaxed text-sm text-center group-hover:text-light-gray transition-colors duration-300">{item.description}</p>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </div>
