@@ -1,4 +1,3 @@
-
 import { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -21,99 +20,77 @@ export const useGSAPAnimations = () => {
       return;
     }
 
-    // Set default animation properties for better performance
+    // Set default animation properties for better performance and cinematic feel
     gsap.defaults({
-      ease: "power2.out",
-      duration: 1,
+      ease: "power3.out",
+      duration: 1.2,
       force3D: true
     });
 
-    // Enhanced Hero section animations
-    const heroTl = gsap.timeline();
+    // Enhanced Hero section animations with staggered children
+    const heroTl = gsap.timeline({ delay: 0.2 });
     heroTl
-      .from('.hero-content', {
+      .from('.hero-content > *', {
         opacity: 0,
-        y: 50,
-        duration: 1.2,
-        ease: "power3.out",
-        force3D: true
-      })
-      .from('.hero-social a', {
-        opacity: 0,
-        y: 30,
+        y: 40,
         stagger: 0.15,
-        duration: 0.8,
-        ease: "back.out(1.7)",
-        force3D: true
-      }, '-=0.8')
-      .from('.hero-buttons button', {
-        opacity: 0,
-        y: 30,
-        stagger: 0.2,
-        duration: 0.8,
-        ease: "back.out(1.7)",
-        force3D: true
-      }, '-=0.6')
+        duration: 1,
+        ease: "power3.out"
+      })
       .from('.hero-image', {
         opacity: 0,
         scale: 0.9,
-        duration: 1,
-        ease: "back.out(1.7)",
-        force3D: true
-      }, '-=1');
+        duration: 1.5,
+        ease: "expo.out"
+      }, '-=0.75');
 
     // Enhanced Section Headers Animation
     ScrollTrigger.batch('.section-header', {
       onEnter: (elements) => {
         gsap.from(elements, {
           opacity: 0,
-          y: 50,
-          duration: 1,
-          ease: "power2.out",
-          stagger: 0.1,
-          force3D: true
+          y: 60,
+          rotationZ: -2,
+          duration: 1.5,
+          ease: "expo.out",
+          stagger: 0.15
         });
       },
       start: 'top 85%',
       once: true
     });
 
-    // About section enhanced animations
-    ScrollTrigger.create({
-      trigger: '#about',
-      start: 'top 80%',
-      end: 'bottom 20%',
-      onEnter: () => {
-        gsap.from('#about .about-content', {
-          opacity: 0,
-          x: -50,
-          duration: 1.2,
-          ease: "power2.out",
-          force3D: true
-        });
-        gsap.from('#about .about-highlights > div', {
-          opacity: 0,
-          y: 50,
-          stagger: 0.15,
-          duration: 0.8,
-          delay: 0.3,
-          ease: "back.out(1.7)",
-          force3D: true
-        });
+    // About section enhanced animations with a timeline for better control
+    const aboutTl = gsap.timeline({
+      scrollTrigger: {
+        trigger: '#about',
+        start: 'top 75%',
+        once: true,
       }
     });
+    aboutTl.from('#about .about-content', {
+      opacity: 0,
+      x: -60,
+      duration: 1.5,
+      ease: "power4.out"
+    }).from('#about .about-highlights > div', {
+      opacity: 0,
+      y: 40,
+      stagger: 0.2,
+      duration: 1,
+      ease: "back.out(1.5)"
+    }, "-=1.2");
 
     // Enhanced Projects section animations
     ScrollTrigger.batch('#projects .project-card', {
       onEnter: (elements) => {
         gsap.from(elements, {
           opacity: 0,
-          y: 60,
-          scale: 0.95,
-          stagger: 0.2,
-          duration: 1,
-          ease: "power2.out",
-          force3D: true
+          y: 70,
+          scale: 0.9,
+          stagger: 0.15,
+          duration: 1.2,
+          ease: "back.out(1.4)"
         });
       },
       start: 'top 85%',
@@ -126,11 +103,10 @@ export const useGSAPAnimations = () => {
         elements.forEach((element, index) => {
           gsap.from(element.querySelector('div:last-child'), {
             opacity: 0,
-            x: index % 2 === 0 ? -60 : 60,
-            duration: 1.2,
-            ease: "power2.out",
-            delay: index * 0.2,
-            force3D: true
+            x: index % 2 === 0 ? -80 : 80,
+            duration: 1.5,
+            ease: "power3.out",
+            delay: index * 0.15
           });
         });
       },
@@ -144,11 +120,10 @@ export const useGSAPAnimations = () => {
         gsap.from(elements, {
           opacity: 0,
           scale: 0.9,
-          rotation: -2,
+          rotation: -3,
           stagger: 0.2,
-          duration: 1,
-          ease: "back.out(1.7)",
-          force3D: true
+          duration: 1.2,
+          ease: "back.out(1.7)"
         });
       },
       start: 'top 85%',
@@ -160,12 +135,11 @@ export const useGSAPAnimations = () => {
       onEnter: (elements) => {
         gsap.from(elements, {
           opacity: 0,
-          y: 40,
-          rotation: 1,
+          y: 50,
+          rotation: 2,
           stagger: 0.1,
-          duration: 0.8,
-          ease: "power2.out",
-          force3D: true
+          duration: 1,
+          ease: "expo.out"
         });
       },
       start: 'top 85%',
@@ -173,19 +147,18 @@ export const useGSAPAnimations = () => {
     });
 
     // Contact section animations
-    ScrollTrigger.create({
-      trigger: '#contact',
-      start: 'top 80%',
-      end: 'bottom 20%',
-      onEnter: () => {
-        gsap.from('#contact .contact-content', {
-          opacity: 0,
-          y: 50,
-          duration: 1.2,
-          ease: "power2.out",
-          force3D: true
-        });
+    const contactTl = gsap.timeline({
+      scrollTrigger: {
+        trigger: '#contact',
+        start: 'top 80%',
+        once: true,
       }
+    });
+    contactTl.from('#contact .contact-content', {
+      opacity: 0,
+      y: 60,
+      duration: 1.5,
+      ease: "power3.out"
     });
 
     // Enhanced parallax effect with throttling
@@ -194,13 +167,13 @@ export const useGSAPAnimations = () => {
       if (!ticking) {
         requestAnimationFrame(() => {
           gsap.to('.parallax-bg', {
-            yPercent: -50,
+            yPercent: -30,
             ease: "none",
             scrollTrigger: {
               trigger: 'body',
               start: 'top bottom',
               end: 'bottom top',
-              scrub: 1
+              scrub: true
             }
           });
           ticking = false;

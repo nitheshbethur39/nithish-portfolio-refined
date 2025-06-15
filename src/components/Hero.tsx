@@ -1,4 +1,3 @@
-
 import { ArrowDown, Github, Linkedin, Mail, Download } from 'lucide-react';
 
 const Hero = () => {
@@ -56,12 +55,12 @@ const Hero = () => {
           {/* Social Links - Repositioned with jitter animation */}
           <div className="flex justify-center lg:justify-start space-x-6 mb-8 hero-social">
             <a href="https://github.com/nithishbm" target="_blank" rel="noopener noreferrer" 
-               className="text-blue-gray hover:text-light-teal transition-all duration-300 hover:scale-110 transform will-change-transform flex items-center justify-center w-12 h-12 animate-jitter"
+               className="text-blue-gray hover:text-light-teal transition-all duration-300 hover:scale-110 transform will-change-transform flex items-center justify-center w-12 h-12"
                aria-label="Visit my GitHub profile">
               <Github size={24} className="block" />
             </a>
             <a href="https://www.linkedin.com/in/nithishbm" target="_blank" rel="noopener noreferrer"
-               className="text-blue-gray hover:text-light-teal transition-all duration-300 hover:scale-110 transform will-change-transform flex items-center justify-center w-12 h-12 animate-jitter"
+               className="text-blue-gray hover:text-light-teal transition-all duration-300 hover:scale-110 transform will-change-transform flex items-center justify-center w-12 h-12"
                aria-label="Visit my LinkedIn profile">
               <Linkedin size={24} className="block" />
             </a>
