@@ -8,6 +8,7 @@ import Skills from '../components/Skills';
 import Contact from '../components/Contact';
 import Navigation from '../components/Navigation';
 import { ThreeBackground } from '../components/ThreeBackground';
+import ParticleBackground from '../components/ParticleBackground';
 import { useGSAPAnimations } from '../hooks/useGSAPAnimations';
 import { useTheme } from '../components/ThemeProvider';
 
@@ -22,8 +23,9 @@ const Index = () => {
       theme === 'dark' 
         ? 'bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 text-white' 
         : 'bg-gradient-to-br from-slate-50 via-slate-100 to-slate-50 text-slate-900'
-    } font-chivo scroll-smooth relative`}>
+    } font-chivo scroll-smooth relative overflow-x-hidden`}>
       <ThreeBackground />
+      <ParticleBackground />
       <Navigation />
       <div className="relative z-10">
         <div className="hero-content">

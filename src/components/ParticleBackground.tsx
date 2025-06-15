@@ -3,6 +3,9 @@ import { useEffect, useRef } from 'react';
 
 const ParticleBackground = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
+  const animationFrameRef = useRef<number>();
+  const particlesRef = useRef<any[]>([]);
+  const mouseRef = useRef({ x: 0, y: 0, radius: 150 });
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -16,153 +19,229 @@ const ParticleBackground = () => {
     if (prefersReducedMotion.matches) return;
 
     const resizeCanvas = () => {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
+      const dpr = window.devicePixelRatio || 1;
+      const rect = canvas.getBoundingClientRect();
+      
+      canvas.width = rect.width * dpr;
+      canvas.height = rect.height * dpr;
+      canvas.style.width = rect.width + 'px';
+      canvas.style.height = rect.height + 'px';
+      
+      ctx.scale(dpr, dpr);
     };
 
     resizeCanvas();
     window.addEventListener('resize', resizeCanvas);
 
-    // Site color palette - elegant and muted
-    const siteColors = [
-      { r: 184, g: 207, b: 206 }, // Muted teal
-      { r: 127, g: 140, b: 170 }, // Blue-gray
-      { r: 139, g: 127, b: 184 }, // Soft purple
+    // Enhanced color palette matching site theme
+    const colors = [
+      { r: 184, g: 207, b: 206, name: 'light-teal' },
+      { r: 127, g: 140, b: 170, name: 'blue-gray' },
+      { r: 234, g: 239, b: 239, name: 'light-gray' },
+      { r: 51, g: 52, b: 70, name: 'dark-blue' }
     ];
 
-    // Enhanced particle system
-    const particles: Array<{
+    // Particle class with enhanced physics
+    class Particle {
       x: number;
       y: number;
-      dx: number;
-      dy: number;
+      baseX: number;
+      baseY: number;
+      vx: number;
+      vy: number;
+      size: number;
       baseSize: number;
-      currentSize: number;
       opacity: number;
       baseOpacity: number;
+      color: { r: number; g: number; b: number };
       pulsePhase: number;
       pulseSpeed: number;
-      color: { r: number; g: number; b: number };
-    }> = [];
+      connectionDistance: number;
 
-    // Mouse interaction variables
-    const mouse = { x: 0, y: 0, radius: 100 };
-    
-    const handleMouseMove = (event: MouseEvent) => {
-      mouse.x = event.clientX;
-      mouse.y = event.clientY;
-    };
-    window.addEventListener('mousemove', handleMouseMove);
+      constructor(canvas: HTMLCanvasElement) {
+        this.baseX = this.x = Math.random() * canvas.width / (window.devicePixelRatio || 1);
+        this.baseY = this.y = Math.random() * canvas.height / (window.devicePixelRatio || 1);
+        this.vx = (Math.random() - 0.5) * 0.5;
+        this.vy = (Math.random() - 0.5) * 0.5;
+        this.baseSize = this.size = Math.random() * 3 + 1;
+        this.baseOpacity = this.opacity = Math.random() * 0.6 + 0.3;
+        this.color = colors[Math.floor(Math.random() * colors.length)];
+        this.pulsePhase = Math.random() * Math.PI * 2;
+        this.pulseSpeed = Math.random() * 0.02 + 0.01;
+        this.connectionDistance = Math.random() * 100 + 80;
+      }
 
-    // Create enhanced particles with site colors
-    for (let i = 0; i < 60; i++) {
-      const baseSize = Math.random() * 5 + 3; // Size range: 3-8px
-      const colorIndex = Math.floor(Math.random() * siteColors.length);
-      const selectedColor = siteColors[colorIndex];
-      
-      particles.push({
-        x: Math.random() * canvas.width,
-        y: Math.random() * canvas.height,
-        dx: (Math.random() - 0.5) * 0.4,
-        dy: (Math.random() - 0.5) * 0.4,
-        baseSize: baseSize,
-        currentSize: baseSize,
-        baseOpacity: Math.random() * 0.3 + 0.4, // Opacity range: 0.4-0.7
-        opacity: Math.random() * 0.3 + 0.4,
-        pulsePhase: Math.random() * Math.PI * 2,
-        pulseSpeed: Math.random() * 0.02 + 0.01,
-        color: {
-          r: selectedColor.r + (Math.random() - 0.5) * 20, // Slight variation
-          g: selectedColor.g + (Math.random() - 0.5) * 20,
-          b: selectedColor.b + (Math.random() - 0.5) * 20
-        }
-      });
-    }
+      update(mouse: { x: number; y: number; radius: number }, canvas: HTMLCanvasElement) {
+        // Gentle floating motion
+        this.baseX += this.vx;
+        this.baseY += this.vy;
 
-    let animationTime = 0;
+        // Boundary wrapping
+        const canvasWidth = canvas.width / (window.devicePixelRatio || 1);
+        const canvasHeight = canvas.height / (window.devicePixelRatio || 1);
 
-    const animate = () => {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      animationTime += 0.016; // ~60fps
+        if (this.baseX < -10) this.baseX = canvasWidth + 10;
+        if (this.baseX > canvasWidth + 10) this.baseX = -10;
+        if (this.baseY < -10) this.baseY = canvasHeight + 10;
+        if (this.baseY > canvasHeight + 10) this.baseY = -10;
 
-      particles.forEach((particle) => {
-        // Update position
-        particle.x += particle.dx;
-        particle.y += particle.dy;
-
-        // Boundary collision with smooth wrapping
-        if (particle.x < -particle.baseSize) particle.x = canvas.width + particle.baseSize;
-        if (particle.x > canvas.width + particle.baseSize) particle.x = -particle.baseSize;
-        if (particle.y < -particle.baseSize) particle.y = canvas.height + particle.baseSize;
-        if (particle.y > canvas.height + particle.baseSize) particle.y = -particle.baseSize;
-
-        // Mouse interaction - subtle attraction/repulsion
-        const distanceToMouse = Math.sqrt(
-          Math.pow(mouse.x - particle.x, 2) + Math.pow(mouse.y - particle.y, 2)
-        );
-
-        if (distanceToMouse < mouse.radius) {
-          const force = (mouse.radius - distanceToMouse) / mouse.radius;
-          const angle = Math.atan2(particle.y - mouse.y, particle.x - mouse.x);
+        // Mouse interaction with smoother physics
+        const dx = mouse.x - this.baseX;
+        const dy = mouse.y - this.baseY;
+        const distance = Math.sqrt(dx * dx + dy * dy);
+        
+        if (distance < mouse.radius) {
+          const force = (mouse.radius - distance) / mouse.radius;
+          const angle = Math.atan2(dy, dx);
           
-          // Gentle repulsion effect
-          particle.x += Math.cos(angle) * force * 0.5;
-          particle.y += Math.sin(angle) * force * 0.5;
+          // Smooth attraction/repulsion
+          const targetX = this.baseX - Math.cos(angle) * force * 30;
+          const targetY = this.baseY - Math.sin(angle) * force * 30;
           
-          // Enhance particle when near mouse
-          particle.currentSize = particle.baseSize * (1 + force * 0.3);
-          particle.opacity = Math.min(particle.baseOpacity * (1 + force * 0.4), 0.9);
+          this.x += (targetX - this.x) * 0.1;
+          this.y += (targetY - this.y) * 0.1;
+          
+          // Enhanced visual effects near cursor
+          this.size = this.baseSize * (1 + force * 0.8);
+          this.opacity = Math.min(this.baseOpacity * (1 + force * 0.6), 1);
         } else {
-          // Return to normal size and opacity
-          particle.currentSize += (particle.baseSize - particle.currentSize) * 0.1;
-          particle.opacity += (particle.baseOpacity - particle.opacity) * 0.1;
+          // Return to base position smoothly
+          this.x += (this.baseX - this.x) * 0.05;
+          this.y += (this.baseY - this.y) * 0.05;
+          this.size += (this.baseSize - this.size) * 0.1;
+          this.opacity += (this.baseOpacity - this.opacity) * 0.1;
         }
 
-        // Pulsing animation
-        particle.pulsePhase += particle.pulseSpeed;
-        const pulse = Math.sin(particle.pulsePhase) * 0.2 + 1;
-        const finalSize = particle.currentSize * pulse;
+        // Subtle pulsing animation
+        this.pulsePhase += this.pulseSpeed;
+      }
 
-        // Create gradient for soft circular appearance
+      draw(ctx: CanvasRenderingContext2D) {
+        const pulse = Math.sin(this.pulsePhase) * 0.2 + 1;
+        const finalSize = this.size * pulse;
+        
+        // Create radial gradient for soft glow
         const gradient = ctx.createRadialGradient(
-          particle.x, particle.y, 0,
-          particle.x, particle.y, finalSize
+          this.x, this.y, 0,
+          this.x, this.y, finalSize * 2
         );
-        gradient.addColorStop(0, `rgba(${particle.color.r}, ${particle.color.g}, ${particle.color.b}, ${particle.opacity})`);
-        gradient.addColorStop(0.7, `rgba(${particle.color.r}, ${particle.color.g}, ${particle.color.b}, ${particle.opacity * 0.5})`);
-        gradient.addColorStop(1, `rgba(${particle.color.r}, ${particle.color.g}, ${particle.color.b}, 0)`);
+        gradient.addColorStop(0, `rgba(${this.color.r}, ${this.color.g}, ${this.color.b}, ${this.opacity})`);
+        gradient.addColorStop(0.4, `rgba(${this.color.r}, ${this.color.g}, ${this.color.b}, ${this.opacity * 0.6})`);
+        gradient.addColorStop(1, `rgba(${this.color.r}, ${this.color.g}, ${this.color.b}, 0)`);
 
-        // Draw circular particle with gradient
         ctx.beginPath();
-        ctx.arc(particle.x, particle.y, finalSize, 0, Math.PI * 2);
+        ctx.arc(this.x, this.y, finalSize, 0, Math.PI * 2);
         ctx.fillStyle = gradient;
         ctx.fill();
 
-        // Add subtle glow effect for larger particles
-        if (finalSize > 4) {
+        // Additional glow for enhanced particles
+        if (finalSize > 2) {
           ctx.beginPath();
-          ctx.arc(particle.x, particle.y, finalSize * 1.5, 0, Math.PI * 2);
-          ctx.fillStyle = `rgba(${particle.color.r}, ${particle.color.g}, ${particle.color.b}, ${particle.opacity * 0.1})`;
+          ctx.arc(this.x, this.y, finalSize * 1.8, 0, Math.PI * 2);
+          ctx.fillStyle = `rgba(${this.color.r}, ${this.color.g}, ${this.color.b}, ${this.opacity * 0.1})`;
           ctx.fill();
         }
-      });
+      }
+    }
 
-      requestAnimationFrame(animate);
+    // Initialize particles
+    const particleCount = Math.min(80, Math.floor((canvas.width * canvas.height) / 15000));
+    const particles: Particle[] = [];
+    
+    for (let i = 0; i < particleCount; i++) {
+      particles.push(new Particle(canvas));
+    }
+    
+    particlesRef.current = particles;
+
+    // Mouse tracking with smooth interpolation
+    let targetMouse = { x: 0, y: 0 };
+    
+    const handleMouseMove = (event: MouseEvent) => {
+      const rect = canvas.getBoundingClientRect();
+      targetMouse.x = event.clientX - rect.left;
+      targetMouse.y = event.clientY - rect.top;
     };
 
-    animate();
+    window.addEventListener('mousemove', handleMouseMove, { passive: true });
+
+    // Smooth mouse interpolation
+    const updateMouse = () => {
+      mouseRef.current.x += (targetMouse.x - mouseRef.current.x) * 0.1;
+      mouseRef.current.y += (targetMouse.y - mouseRef.current.y) * 0.1;
+    };
+
+    // Connection lines between nearby particles
+    const drawConnections = (ctx: CanvasRenderingContext2D, particles: Particle[]) => {
+      for (let i = 0; i < particles.length; i++) {
+        for (let j = i + 1; j < particles.length; j++) {
+          const dx = particles[i].x - particles[j].x;
+          const dy = particles[i].y - particles[j].y;
+          const distance = Math.sqrt(dx * dx + dy * dy);
+          
+          if (distance < 120) {
+            const opacity = (120 - distance) / 120 * 0.2;
+            ctx.beginPath();
+            ctx.moveTo(particles[i].x, particles[i].y);
+            ctx.lineTo(particles[j].x, particles[j].y);
+            ctx.strokeStyle = `rgba(184, 207, 206, ${opacity})`;
+            ctx.lineWidth = 0.5;
+            ctx.stroke();
+          }
+        }
+      }
+    };
+
+    // Optimized animation loop
+    let lastTime = 0;
+    const animate = (currentTime: number) => {
+      const deltaTime = currentTime - lastTime;
+      
+      // Limit to 60fps for performance
+      if (deltaTime < 16.67) {
+        animationFrameRef.current = requestAnimationFrame(animate);
+        return;
+      }
+      
+      lastTime = currentTime;
+
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      
+      updateMouse();
+      
+      // Update and draw particles
+      particles.forEach(particle => {
+        particle.update(mouseRef.current, canvas);
+        particle.draw(ctx);
+      });
+      
+      // Draw connections with throttling
+      if (particles.length < 50) {
+        drawConnections(ctx, particles);
+      }
+
+      animationFrameRef.current = requestAnimationFrame(animate);
+    };
+
+    animationFrameRef.current = requestAnimationFrame(animate);
 
     return () => {
       window.removeEventListener('resize', resizeCanvas);
       window.removeEventListener('mousemove', handleMouseMove);
+      if (animationFrameRef.current) {
+        cancelAnimationFrame(animationFrameRef.current);
+      }
     };
   }, []);
 
   return (
     <canvas
       ref={canvasRef}
-      className="absolute inset-0 pointer-events-none will-change-transform"
-      style={{ zIndex: 1 }}
+      className="absolute inset-0 pointer-events-none will-change-transform opacity-70"
+      style={{ 
+        zIndex: 1,
+        mixBlendMode: 'screen'
+      }}
     />
   );
 };
