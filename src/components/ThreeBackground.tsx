@@ -35,67 +35,99 @@ export const ThreeBackground = () => {
       renderer.setSize(window.innerWidth, window.innerHeight);
       renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 
-      // Create floating particles
-      const particleCount = 100;
+      // Create floating particles with enhanced visibility
+      const particleCount = 120;
       const positions = new Float32Array(particleCount * 3);
       const velocities = new Float32Array(particleCount * 3);
+      const sizes = new Float32Array(particleCount);
+      const pulsePhases = new Float32Array(particleCount);
 
-      for (let i = 0; i < particleCount * 3; i += 3) {
-        positions[i] = (Math.random() - 0.5) * 10;
-        positions[i + 1] = (Math.random() - 0.5) * 10;
-        positions[i + 2] = (Math.random() - 0.5) * 10;
+      for (let i = 0; i < particleCount; i++) {
+        const i3 = i * 3;
+        
+        positions[i3] = (Math.random() - 0.5) * 12;
+        positions[i3 + 1] = (Math.random() - 0.5) * 12;
+        positions[i3 + 2] = (Math.random() - 0.5) * 12;
 
-        velocities[i] = (Math.random() - 0.5) * 0.02;
-        velocities[i + 1] = (Math.random() - 0.5) * 0.02;
-        velocities[i + 2] = (Math.random() - 0.5) * 0.02;
+        velocities[i3] = (Math.random() - 0.5) * 0.015;
+        velocities[i3 + 1] = (Math.random() - 0.5) * 0.015;
+        velocities[i3 + 2] = (Math.random() - 0.5) * 0.015;
+
+        // Varied particle sizes for depth
+        sizes[i] = Math.random() * 0.12 + 0.08;
+        pulsePhases[i] = Math.random() * Math.PI * 2;
       }
 
       const geometry = new THREE.BufferGeometry();
       geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+      geometry.setAttribute('size', new THREE.BufferAttribute(sizes, 1));
 
+      // Enhanced material with better visibility
       const material = new THREE.PointsMaterial({
         color: 0x64FFDA,
-        size: 0.02,
+        size: 0.1,
         transparent: true,
-        opacity: 0.3,
-        blending: THREE.AdditiveBlending
+        opacity: 0.6,
+        blending: THREE.AdditiveBlending,
+        sizeAttenuation: true,
+        vertexColors: false
       });
 
       const particles = new THREE.Points(geometry, material);
       scene.add(particles);
 
-      // Mouse interaction
-      const mouse = { x: 0, y: 0 };
+      // Enhanced mouse interaction
+      const mouse = { x: 0, y: 0, targetX: 0, targetY: 0 };
       const handleMouseMove = (event: MouseEvent) => {
-        mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
-        mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
+        mouse.targetX = (event.clientX / window.innerWidth) * 2 - 1;
+        mouse.targetY = -(event.clientY / window.innerHeight) * 2 + 1;
       };
       window.addEventListener('mousemove', handleMouseMove);
+
+      // Animation variables
+      let time = 0;
 
       // Animation loop
       const animate = () => {
         requestAnimationFrame(animate);
+        time += 0.005;
+
+        // Smooth mouse interpolation
+        mouse.x += (mouse.targetX - mouse.x) * 0.05;
+        mouse.y += (mouse.targetY - mouse.y) * 0.05;
 
         if (particles) {
           const positions = particles.geometry.attributes.position.array as Float32Array;
+          const sizes = particles.geometry.attributes.size.array as Float32Array;
           
-          for (let i = 0; i < positions.length; i += 3) {
-            positions[i] += velocities[i];
-            positions[i + 1] += velocities[i + 1];
-            positions[i + 2] += velocities[i + 2];
+          for (let i = 0; i < particleCount; i++) {
+            const i3 = i * 3;
+            
+            // Update positions
+            positions[i3] += velocities[i3];
+            positions[i3 + 1] += velocities[i3 + 1];
+            positions[i3 + 2] += velocities[i3 + 2];
 
-            // Wrap around screen edges
-            if (positions[i] > 5) positions[i] = -5;
-            if (positions[i] < -5) positions[i] = 5;
-            if (positions[i + 1] > 5) positions[i + 1] = -5;
-            if (positions[i + 1] < -5) positions[i + 1] = 5;
+            // Wrap around screen edges with smoother boundaries
+            if (positions[i3] > 6) positions[i3] = -6;
+            if (positions[i3] < -6) positions[i3] = 6;
+            if (positions[i3 + 1] > 6) positions[i3 + 1] = -6;
+            if (positions[i3 + 1] < -6) positions[i3 + 1] = 6;
+
+            // Pulsing animation for enhanced visibility
+            const baseSizeIndex = i;
+            const baseSize = 0.08 + Math.random() * 0.12;
+            const pulseMultiplier = 1 + Math.sin(time * 2 + pulsePhases[i]) * 0.3;
+            sizes[baseSizeIndex] = baseSize * pulseMultiplier;
           }
 
           particles.geometry.attributes.position.needsUpdate = true;
+          particles.geometry.attributes.size.needsUpdate = true;
           
-          // Mouse parallax effect
-          particles.rotation.x += (mouse.y * 0.1 - particles.rotation.x) * 0.1;
-          particles.rotation.y += (mouse.x * 0.1 - particles.rotation.y) * 0.1;
+          // Enhanced mouse parallax effect
+          const parallaxStrength = 0.2;
+          particles.rotation.x += (mouse.y * parallaxStrength - particles.rotation.x) * 0.08;
+          particles.rotation.y += (mouse.x * parallaxStrength - particles.rotation.y) * 0.08;
         }
 
         renderer.render(scene, camera);
@@ -127,8 +159,8 @@ export const ThreeBackground = () => {
   return (
     <canvas
       ref={canvasRef}
-      className="fixed inset-0 pointer-events-none z-0"
-      style={{ opacity: 0.4 }}
+      className="fixed inset-0 pointer-events-none z-0 will-change-transform"
+      style={{ opacity: 0.5 }}
     />
   );
 };
