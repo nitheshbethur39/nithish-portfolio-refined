@@ -1,9 +1,11 @@
 
 import { Github, ExternalLink, ArrowRight, Calendar, Code } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const Projects = () => {
   const projects = [
     {
+      id: 'customer-churn-prediction',
       title: "Customer Churn Prediction Model",
       description: "Developed a machine learning model to predict customer churn with 94% accuracy using ensemble methods and feature engineering techniques.",
       tech: ["Python", "Scikit-learn", "Pandas", "XGBoost"],
@@ -14,6 +16,7 @@ const Projects = () => {
       status: "Completed"
     },
     {
+      id: 'sales-analytics-dashboard',
       title: "Real-time Sales Analytics Dashboard",
       description: "Built an interactive dashboard for real-time sales monitoring with automated alerts and predictive forecasting capabilities.",
       tech: ["Python", "Streamlit", "PostgreSQL", "Plotly"],
@@ -24,6 +27,7 @@ const Projects = () => {
       status: "In Progress"
     },
     {
+      id: 'nlp-sentiment-analysis',
       title: "NLP Sentiment Analysis System",
       description: "Created a comprehensive sentiment analysis system for social media monitoring with real-time processing capabilities.",
       tech: ["Python", "NLTK", "Transformers", "FastAPI"],
@@ -34,6 +38,7 @@ const Projects = () => {
       status: "Completed"
     },
     {
+      id: 'supply-chain-optimization',
       title: "Supply Chain Optimization",
       description: "Optimized supply chain logistics using linear programming and simulation modeling, reducing costs by 15%.",
       tech: ["Python", "OR-Tools", "Pandas", "Matplotlib"],
@@ -125,12 +130,12 @@ const Projects = () => {
                 
                 {/* Action Buttons */}
                 <div className="flex items-center justify-between">
-                  <a href={project.demo} target="_blank" rel="noopener noreferrer"
+                  <Link to={`/project/${project.id}`}
                      className="inline-flex items-center space-x-2 text-blue-gray hover:text-light-teal font-chivo font-medium group-hover:translate-x-1 transition-all duration-300 text-xs">
                     <Code size={12} />
                     <span>View Project</span>
                     <ArrowRight size={12} />
-                  </a>
+                  </Link>
                   
                   <div className="flex space-x-2">
                     <a href={project.github} target="_blank" rel="noopener noreferrer"
