@@ -13,32 +13,61 @@ const Navigation = () => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
       
-      // Get all sections
+      // Get all sections with their positions
       const sections = ['about', 'projects', 'experience', 'education', 'skills', 'contact'];
-      const scrollPosition = window.scrollY + 100; // Offset for better UX
+      const scrollPosition = window.scrollY + window.innerHeight / 3; // Better offset for detection
       
-      // Find current section
-      for (let i = sections.length - 1; i >= 0; i--) {
-        const section = document.getElementById(sections[i]);
-        if (section && section.offsetTop <= scrollPosition) {
-          setActiveSection(sections[i]);
-          break;
+      console.log('Current scroll position:', scrollPosition);
+      
+      let currentActiveSection = '';
+      
+      // Find the current section by checking which section is most visible
+      for (const sectionId of sections) {
+        const section = document.getElementById(sectionId);
+        if (section) {
+          const sectionTop = section.offsetTop;
+          const sectionBottom = sectionTop + section.offsetHeight;
+          
+          console.log(`Section ${sectionId}: top=${sectionTop}, bottom=${sectionBottom}`);
+          
+          // Check if we're within this section
+          if (scrollPosition >= sectionTop && scrollPosition <= sectionBottom) {
+            currentActiveSection = sectionId;
+            console.log(`Active section: ${sectionId}`);
+            break;
+          }
+          
+          // If we're past this section but haven't found the next one, this might be the active one
+          if (scrollPosition >= sectionTop) {
+            currentActiveSection = sectionId;
+          }
         }
       }
       
-      // If at top of page, clear active section
-      if (window.scrollY < 50) {
-        setActiveSection('');
+      // Special case: if we're at the very top, clear active section
+      if (window.scrollY < 100) {
+        currentActiveSection = '';
       }
+      
+      setActiveSection(currentActiveSection);
     };
 
-    window.addEventListener('scroll', handleScroll);
+    // Initial call to set the active section
+    handleScroll();
+    
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
-    element?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    if (element) {
+      const offsetTop = element.offsetTop - 80; // Account for fixed navbar
+      window.scrollTo({
+        top: offsetTop,
+        behavior: 'smooth'
+      });
+    }
     setIsOpen(false);
   };
 
