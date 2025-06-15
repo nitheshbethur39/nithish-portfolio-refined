@@ -1,11 +1,15 @@
 
 import { Calendar, MapPin, Building } from 'lucide-react';
+import { useTheme } from './ThemeProvider';
 
 const Experience = () => {
+  const { theme } = useTheme();
+  
   const experiences = [
     {
       title: "Data Engineer - Center for Air Transportation Systems Research",
       company: "George Mason University",
+      logo: "https://images.unsplash.com/photo-1501854140801-50d01698950b?w=100&h=100&fit=crop&crop=center",
       location: "Fairfax, Virginia",
       period: "January 2025 - May 2025",
       description: [
@@ -19,6 +23,7 @@ const Experience = () => {
     {
       title: "Data Engineer",
       company: "Manuh Solutions",
+      logo: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?w=100&h=100&fit=crop&crop=center",
       location: "Bengaluru, Karnataka, India",
       period: "November 2020 - June 2023",
       description: [
@@ -32,6 +37,7 @@ const Experience = () => {
     {
       title: "Data Analyst",
       company: "Bharat Electronics Limited",
+      logo: "https://images.unsplash.com/photo-1518770660439-4636190af475?w=100&h=100&fit=crop&crop=center",
       location: "Bengaluru, Karnataka, India",
       period: "December 2019 - September 2020",
       description: [
@@ -45,6 +51,7 @@ const Experience = () => {
     {
       title: "Student Internship",
       company: "Bosch Engineering and Business Solutions",
+      logo: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=100&h=100&fit=crop&crop=center",
       location: "Bengaluru Area, India",
       period: "June 2019 - August 2019",
       description: [
@@ -57,8 +64,15 @@ const Experience = () => {
     }
   ];
 
+  console.log('Experience component theme:', theme);
+  console.log('Experience component experiences:', experiences);
+
   return (
-    <section id="experience" className="py-16 px-6 lg:px-8">
+    <section id="experience" className={`py-20 px-6 lg:px-8 transition-colors duration-300 ${
+      theme === 'dark' 
+        ? 'bg-gradient-to-b from-slate-950 to-slate-900' 
+        : 'bg-gradient-to-b from-slate-100 to-slate-200'
+    }`}>
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16 section-header">
           <div className="flex items-center justify-center gap-3 mb-5">
@@ -69,7 +83,9 @@ const Experience = () => {
             <span className="text-3xl">🚀</span>
           </div>
           <div className="w-24 h-1 bg-gradient-to-r from-light-teal to-blue-gray mx-auto mb-8 rounded-full"></div>
-          <p className="text-base text-blue-gray max-w-3xl mx-auto">
+          <p className={`text-base max-w-3xl mx-auto ${
+            theme === 'dark' ? 'text-light-gray' : 'text-slate-700'
+          }`}>
             My journey in data engineering and analytics, delivering measurable business impact 
             across healthcare, aerospace, manufacturing, and defense sectors.
           </p>
@@ -79,7 +95,7 @@ const Experience = () => {
           {/* Timeline line */}
           <div className="absolute left-4 lg:left-1/2 lg:transform lg:-translate-x-0.5 top-0 bottom-0 w-0.5 bg-gradient-to-b from-light-teal to-blue-gray"></div>
 
-          <div className="space-y-10">
+          <div className="space-y-12">
             {experiences.map((exp, index) => (
               <div key={index} className={`relative flex items-center timeline-item ${
                 index % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'
@@ -91,29 +107,56 @@ const Experience = () => {
                 <div className={`ml-12 lg:ml-0 lg:w-1/2 ${
                   index % 2 === 0 ? 'lg:pr-12' : 'lg:pl-12'
                 }`}>
-                  <div className="bg-slate-800/50 backdrop-blur-sm p-6 rounded-2xl border border-custom-medium/50 hover:border-light-teal/50 transition-all duration-300 hover:scale-105">
-                    <div className="flex items-center space-x-2 mb-2">
-                      <Building size={14} className="text-light-teal" />
-                      <span className="text-light-teal font-medium text-sm">{exp.company}</span>
+                  <div className={`p-6 rounded-2xl border transition-all duration-300 hover:scale-105 transform will-change-transform ${
+                    theme === 'dark' 
+                      ? 'bg-slate-800/90 border-slate-700 hover:border-light-teal hover:shadow-xl hover:shadow-light-teal/20 hover:bg-slate-700/90' 
+                      : 'bg-white/90 border-slate-300 hover:border-light-teal hover:shadow-xl hover:shadow-light-teal/20 hover:bg-slate-50/90'
+                  }`}>
+                    {/* Company with Logo */}
+                    <div className="flex items-center space-x-3 mb-2">
+                      <div className="flex-shrink-0">
+                        <img 
+                          src={exp.logo} 
+                          alt={`${exp.company} logo`}
+                          className="w-8 h-8 rounded-lg object-cover border border-light-teal/20"
+                          onError={(e) => {
+                            e.currentTarget.style.display = 'none';
+                            const fallback = e.currentTarget.nextElementSibling as HTMLDivElement;
+                            if (fallback) fallback.style.display = 'flex';
+                          }}
+                        />
+                        <div className="w-8 h-8 bg-gradient-to-br from-light-teal to-blue-gray rounded-lg hidden items-center justify-center">
+                          <Building size={16} className="text-white" />
+                        </div>
+                      </div>
+                      <span className={`font-medium text-sm ${
+                        theme === 'dark' ? 'text-light-teal' : 'text-blue-gray'
+                      }`}>{exp.company}</span>
                     </div>
                     
-                    <h3 className="text-lg font-bold text-light-gray mb-2">{exp.title}</h3>
+                    <h3 className={`text-lg font-bold mb-2 ${
+                      theme === 'dark' ? 'text-light-gray' : 'text-slate-800'
+                    }`}>{exp.title}</h3>
                     
-                    <div className="flex items-center space-x-4 text-blue-gray mb-3">
+                    <div className={`flex items-center space-x-4 mb-3 text-sm ${
+                      theme === 'dark' ? 'text-blue-gray' : 'text-slate-600'
+                    }`}>
                       <div className="flex items-center space-x-1">
                         <Calendar size={12} />
-                        <span className="text-xs">{exp.period}</span>
+                        <span>{exp.period}</span>
                       </div>
                       <div className="flex items-center space-x-1">
                         <MapPin size={12} />
-                        <span className="text-xs">{exp.location}</span>
+                        <span>{exp.location}</span>
                       </div>
                     </div>
                     
                     <ul className="space-y-2 mb-4">
                       {exp.description.map((item, itemIndex) => (
-                        <li key={itemIndex} className="text-blue-gray flex items-start space-x-2 text-sm">
-                          <span className="text-light-teal mt-1">•</span>
+                        <li key={itemIndex} className={`flex items-start space-x-2 text-sm leading-relaxed ${
+                          theme === 'dark' ? 'text-blue-gray' : 'text-slate-600'
+                        }`}>
+                          <span className="text-light-teal mt-1 flex-shrink-0">•</span>
                           <span>{item}</span>
                         </li>
                       ))}
@@ -121,7 +164,11 @@ const Experience = () => {
                     
                     <div className="flex flex-wrap gap-2">
                       {exp.skills.map((skill, skillIndex) => (
-                        <span key={skillIndex} className="text-xs font-medium text-light-gray bg-custom-dark/50 px-2 py-1 rounded-full">
+                        <span key={skillIndex} className={`text-xs font-medium px-2 py-1 rounded-full transition-colors duration-300 ${
+                          theme === 'dark' 
+                            ? 'text-light-gray bg-slate-700/50 hover:bg-slate-600/50' 
+                            : 'text-slate-700 bg-slate-200/50 hover:bg-slate-300/50'
+                        }`}>
                           {skill}
                         </span>
                       ))}

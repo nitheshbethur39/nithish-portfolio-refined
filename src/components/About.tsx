@@ -141,7 +141,7 @@ const About = () => {
               console.log(`Rendering mobile card ${index}, icon:`, IconComponent, 'theme:', theme);
               
               return (
-                <div key={index} className={`group border p-6 rounded-2xl transition-all duration-500 hover:scale-105 hover:shadow-xl transform will-change-transform ${
+                <div key={index} className={`group border p-6 rounded-2xl transition-all duration-500 hover:scale-105 hover:shadow-xl transform will-change-transform relative z-10 ${
                   theme === 'dark' 
                     ? 'bg-slate-800/90 border-slate-700 hover:border-light-teal hover:shadow-light-teal/20 hover:bg-slate-700/90' 
                     : 'bg-white/90 border-slate-300 hover:border-light-teal hover:shadow-light-teal/20 hover:bg-slate-50/90'
@@ -219,7 +219,7 @@ const About = () => {
               console.log(`Rendering desktop card ${index}, icon:`, IconComponent, 'theme:', theme);
               
               return (
-                <div key={index} className={`group border p-4 rounded-2xl transition-all duration-500 hover:scale-105 hover:shadow-xl transform will-change-transform ${
+                <div key={index} className={`group border p-4 rounded-2xl transition-all duration-500 hover:scale-105 hover:shadow-xl transform will-change-transform relative z-10 ${
                   theme === 'dark' 
                     ? 'bg-slate-800/90 border-slate-700 hover:border-light-teal hover:shadow-light-teal/20 hover:bg-slate-700/90' 
                     : 'bg-white/90 border-slate-300 hover:border-light-teal hover:shadow-light-teal/20 hover:bg-slate-50/90'
