@@ -1,4 +1,3 @@
-
 import { Brain, Database, TrendingUp, Code, Mail, Phone, MapPin } from 'lucide-react';
 import { useTheme } from './ThemeProvider';
 
@@ -31,9 +30,6 @@ const About = () => {
       description: "Streamlining workflows with Python, SQL, and advanced analytics tools"
     }
   ];
-
-  console.log('About component theme:', theme);
-  console.log('About component highlights:', highlights);
 
   return (
     <section id="about" className={`py-20 px-6 lg:px-8 transition-colors duration-300 ${
@@ -138,33 +134,26 @@ const About = () => {
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 about-highlights">
             {highlights.map((item, index) => {
               const IconComponent = item.icon;
-              console.log(`Rendering mobile card ${index}, icon:`, IconComponent, 'theme:', theme);
               
               return (
-                <div key={index} className={`group border p-6 rounded-2xl transition-all duration-500 hover:scale-105 hover:shadow-xl transform will-change-transform relative z-10 ${
+                <div key={index} className={`border p-6 rounded-2xl ${
                   theme === 'dark' 
-                    ? 'bg-slate-800/90 border-slate-700 hover:border-light-teal hover:shadow-light-teal/20 hover:bg-slate-700/90' 
-                    : 'bg-white/90 border-slate-300 hover:border-light-teal hover:shadow-light-teal/20 hover:bg-slate-50/90'
+                    ? 'bg-slate-800/90 border-slate-700' 
+                    : 'bg-white/90 border-slate-300'
                 }`}>
                   <div className="flex items-center justify-center mb-4">
                     <div className="relative">
-                      <div className="w-14 h-14 bg-gradient-to-br from-light-teal to-blue-gray rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-lg">
-                        {IconComponent ? (
-                          <IconComponent size={24} className="text-white" />
-                        ) : (
-                          <span className="text-white text-2xl">?</span>
-                        )}
+                      <div className="w-14 h-14 bg-gradient-to-br from-light-teal to-blue-gray rounded-2xl flex items-center justify-center shadow-lg">
+                        <IconComponent size={24} className="text-white" />
                       </div>
                       <span className="absolute -top-1 -right-1 text-xl">{item.emoji}</span>
                     </div>
                   </div>
-                  <h3 className={`text-xl font-bold mb-3 group-hover:text-light-teal transition-colors duration-300 text-center ${
+                  <h3 className={`text-xl font-bold mb-3 text-center ${
                     theme === 'dark' ? 'text-light-gray' : 'text-slate-800'
                   }`}>{item.title}</h3>
-                  <p className={`leading-relaxed text-base text-center transition-colors duration-300 ${
-                    theme === 'dark' 
-                      ? 'text-blue-gray group-hover:text-light-gray' 
-                      : 'text-slate-600 group-hover:text-slate-700'
+                  <p className={`leading-relaxed text-base text-center ${
+                    theme === 'dark' ? 'text-blue-gray' : 'text-slate-600'
                   }`}>{item.description}</p>
                 </div>
               );
@@ -216,33 +205,26 @@ const About = () => {
           <div className="lg:col-span-2 grid grid-cols-2 gap-4 about-highlights">
             {highlights.map((item, index) => {
               const IconComponent = item.icon;
-              console.log(`Rendering desktop card ${index}, icon:`, IconComponent, 'theme:', theme);
               
               return (
-                <div key={index} className={`group border p-4 rounded-2xl transition-all duration-500 hover:scale-105 hover:shadow-xl transform will-change-transform relative z-10 ${
+                <div key={index} className={`border p-4 rounded-2xl ${
                   theme === 'dark' 
-                    ? 'bg-slate-800/90 border-slate-700 hover:border-light-teal hover:shadow-light-teal/20 hover:bg-slate-700/90' 
-                    : 'bg-white/90 border-slate-300 hover:border-light-teal hover:shadow-light-teal/20 hover:bg-slate-50/90'
+                    ? 'bg-slate-800/90 border-slate-700' 
+                    : 'bg-white/90 border-slate-300'
                 }`}>
                   <div className="flex items-center justify-center mb-3">
                     <div className="relative">
-                      <div className="w-12 h-12 bg-gradient-to-br from-light-teal to-blue-gray rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-lg">
-                        {IconComponent ? (
-                          <IconComponent size={20} className="text-white" />
-                        ) : (
-                          <span className="text-white text-lg">?</span>
-                        )}
+                      <div className="w-12 h-12 bg-gradient-to-br from-light-teal to-blue-gray rounded-2xl flex items-center justify-center shadow-lg">
+                        <IconComponent size={20} className="text-white" />
                       </div>
                       <span className="absolute -top-1 -right-1 text-lg">{item.emoji}</span>
                     </div>
                   </div>
-                  <h3 className={`text-lg font-bold mb-2 group-hover:text-light-teal transition-colors duration-300 text-center ${
+                  <h3 className={`text-lg font-bold mb-2 text-center ${
                     theme === 'dark' ? 'text-light-gray' : 'text-slate-800'
                   }`}>{item.title}</h3>
-                  <p className={`leading-relaxed text-sm text-center transition-colors duration-300 ${
-                    theme === 'dark' 
-                      ? 'text-blue-gray group-hover:text-light-gray' 
-                      : 'text-slate-600 group-hover:text-slate-700'
+                  <p className={`leading-relaxed text-sm text-center ${
+                    theme === 'dark' ? 'text-blue-gray' : 'text-slate-600'
                   }`}>{item.description}</p>
                 </div>
               );
