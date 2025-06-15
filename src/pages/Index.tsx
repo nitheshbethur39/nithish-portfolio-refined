@@ -9,12 +9,20 @@ import Contact from '../components/Contact';
 import Navigation from '../components/Navigation';
 import { ThreeBackground } from '../components/ThreeBackground';
 import { useGSAPAnimations } from '../hooks/useGSAPAnimations';
+import { useTheme } from '../components/ThemeProvider';
 
 const Index = () => {
   useGSAPAnimations();
+  const { theme } = useTheme();
+
+  console.log('Current theme in Index:', theme);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 dark:from-slate-950 dark:via-slate-900 dark:to-slate-950 light:from-slate-50 light:via-slate-100 light:to-slate-50 text-white dark:text-white light:text-slate-900 font-chivo scroll-smooth relative">
+    <div className={`min-h-screen transition-colors duration-300 ${
+      theme === 'dark' 
+        ? 'bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 text-white' 
+        : 'bg-gradient-to-br from-slate-50 via-slate-100 to-slate-50 text-slate-900'
+    } font-chivo scroll-smooth relative`}>
       <ThreeBackground />
       <Navigation />
       <div className="relative z-10">

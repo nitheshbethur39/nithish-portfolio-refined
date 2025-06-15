@@ -14,21 +14,39 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
   const [theme, setTheme] = useState<Theme>('dark');
 
   useEffect(() => {
+    // Check localStorage first, then system preference
     const stored = localStorage.getItem('theme') as Theme;
-    if (stored) {
+    if (stored && (stored === 'dark' || stored === 'light')) {
       setTheme(stored);
+    } else {
+      // Check system preference
+      const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      setTheme(systemPrefersDark ? 'dark' : 'light');
     }
   }, []);
 
   useEffect(() => {
     const root = window.document.documentElement;
+    
+    // Remove both classes first
     root.classList.remove('light', 'dark');
+    
+    // Add the current theme class
     root.classList.add(theme);
+    
+    // Also set data attribute for better compatibility
+    root.setAttribute('data-theme', theme);
+    
+    // Store in localStorage
     localStorage.setItem('theme', theme);
+    
+    console.log('Theme applied:', theme, 'Classes:', root.classList.toString());
   }, [theme]);
 
   const toggleTheme = () => {
-    setTheme(theme === 'dark' ? 'light' : 'dark');
+    const newTheme = theme === 'dark' ? 'light' : 'dark';
+    console.log('Toggling theme from', theme, 'to', newTheme);
+    setTheme(newTheme);
   };
 
   return (
