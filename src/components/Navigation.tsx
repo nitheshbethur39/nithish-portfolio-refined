@@ -6,12 +6,32 @@ import { useTheme } from './ThemeProvider';
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [activeSection, setActiveSection] = useState('');
   const { theme, toggleTheme } = useTheme();
 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
+      
+      // Get all sections
+      const sections = ['about', 'projects', 'experience', 'education', 'skills', 'contact'];
+      const scrollPosition = window.scrollY + 100; // Offset for better UX
+      
+      // Find current section
+      for (let i = sections.length - 1; i >= 0; i--) {
+        const section = document.getElementById(sections[i]);
+        if (section && section.offsetTop <= scrollPosition) {
+          setActiveSection(sections[i]);
+          break;
+        }
+      }
+      
+      // If at top of page, clear active section
+      if (window.scrollY < 50) {
+        setActiveSection('');
+      }
     };
+
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
@@ -41,6 +61,10 @@ const Navigation = () => {
     { name: 'Contact' }
   ];
 
+  const isActive = (itemName: string) => {
+    return activeSection === itemName.toLowerCase();
+  };
+
   return (
     <nav className={`fixed top-0 w-full z-50 transition-all duration-700 ease-out ${
       isScrolled ? 'bg-slate-900/95 backdrop-blur-xl border-b border-slate-700/50 shadow-2xl shadow-slate-900/20' : 'bg-transparent'
@@ -59,10 +83,17 @@ const Navigation = () => {
               <button
                 key={item.name}
                 onClick={() => scrollToSection(item.name.toLowerCase())}
-                className={`text-slate-300 hover:text-white font-chivo font-light transition-all duration-500 text-sm hover:scale-110 transform animate-fade-in`}
+                className={`font-chivo font-light transition-all duration-500 text-sm hover:scale-110 transform animate-fade-in relative ${
+                  isActive(item.name) 
+                    ? 'text-light-teal font-medium' 
+                    : 'text-slate-300 hover:text-white'
+                }`}
                 style={{ animationDelay: `${index * 100}ms` }}
               >
                 {item.name}
+                {isActive(item.name) && (
+                  <div className="absolute -bottom-1 left-0 w-full h-0.5 bg-light-teal rounded-full animate-scale-in"></div>
+                )}
               </button>
             ))}
             
@@ -109,10 +140,17 @@ const Navigation = () => {
                 <button
                   key={item.name}
                   onClick={() => scrollToSection(item.name.toLowerCase())}
-                  className={`text-slate-300 hover:text-white font-chivo font-light text-left text-sm transition-all duration-300 hover:translate-x-2 animate-slide-in-left`}
+                  className={`font-chivo font-light text-left text-sm transition-all duration-300 hover:translate-x-2 animate-slide-in-left relative ${
+                    isActive(item.name) 
+                      ? 'text-light-teal font-medium' 
+                      : 'text-slate-300 hover:text-white'
+                  }`}
                   style={{ animationDelay: `${index * 50}ms` }}
                 >
                   {item.name}
+                  {isActive(item.name) && (
+                    <div className="absolute left-0 top-0 bottom-0 w-1 bg-light-teal rounded-full"></div>
+                  )}
                 </button>
               ))}
               
