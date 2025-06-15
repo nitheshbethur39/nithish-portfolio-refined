@@ -22,14 +22,5 @@ export default defineConfig(({ mode }) => ({
   },
   optimizeDeps: {
     include: ['three']
-  },
-  build: {
-    rollupOptions: {
-      output: {
-        manualChunks: {
-          three: ['three']
-        }
-      }
-    }
   }
 }));
