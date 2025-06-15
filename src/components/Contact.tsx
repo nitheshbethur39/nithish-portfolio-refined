@@ -1,5 +1,7 @@
+
 import { Mail, Linkedin, Github, MapPin, Phone, Send } from 'lucide-react';
 import { useState } from 'react';
+
 const Contact = () => {
   const [formData, setFormData] = useState({
     name: '',
@@ -7,122 +9,182 @@ const Contact = () => {
     subject: '',
     message: ''
   });
+
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value
     });
   };
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     // Handle form submission here
     console.log('Form submitted:', formData);
   };
-  const contactInfo = [{
-    icon: Mail,
-    label: "Email",
-    value: "nithish.bilasunu@example.com",
-    href: "mailto:nithish.bilasunu@example.com"
-  }, {
-    icon: Linkedin,
-    label: "LinkedIn",
-    value: "linkedin.com/in/nithishbilasunu",
-    href: "https://linkedin.com/in/nithishbilasunu"
-  }, {
-    icon: Github,
-    label: "GitHub",
-    value: "github.com/nithishbilasunu",
-    href: "https://github.com/nithishbilasunu"
-  }, {
-    icon: Phone,
-    label: "Phone",
-    value: "+1 (555) 123-4567",
-    href: "tel:+15551234567"
-  }, {
-    icon: MapPin,
-    label: "Location",
-    value: "San Francisco, CA",
-    href: "#"
-  }];
-  return <section id="contact" className="py-16 px-6 lg:px-8 bg-slate-800/30">
-      <div className="max-w-7xl -mx-auto py-0 my-[3px] mx-[32px] rounded-none">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl lg:text-4xl font-bold mb-4 bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
+
+  const contactInfo = [
+    {
+      icon: Mail,
+      label: "Email",
+      value: "nithish.bilasunu@example.com",
+      href: "mailto:nithish.bilasunu@example.com"
+    },
+    {
+      icon: Linkedin,
+      label: "LinkedIn",
+      value: "linkedin.com/in/nithishbilasunu",
+      href: "https://linkedin.com/in/nithishbilasunu"
+    },
+    {
+      icon: Github,
+      label: "GitHub",
+      value: "github.com/nithishbilasunu",
+      href: "https://github.com/nithishbilasunu"
+    },
+    {
+      icon: Phone,
+      label: "Phone",
+      value: "+1 (555) 123-4567",
+      href: "tel:+15551234567"
+    },
+    {
+      icon: MapPin,
+      label: "Location",
+      value: "San Francisco, CA",
+      href: "#"
+    }
+  ];
+
+  return (
+    <section id="contact" className="py-12 px-6 lg:px-8 bg-slate-800/30">
+      <div className="max-w-7xl mx-auto">
+        <div className="text-center mb-10">
+          <h2 className="text-2xl lg:text-3xl font-chivo font-medium mb-3 text-light-gray">
             Let's Connect
           </h2>
-          <div className="w-20 h-1 bg-gradient-to-r from-blue-500 to-purple-600 mx-auto mb-6 rounded-full"></div>
-          <p className="text-base text-slate-300 max-w-3xl mx-auto">
+          <div className="w-16 h-[1px] bg-light-teal mx-auto mb-4"></div>
+          <p className="text-sm text-blue-gray max-w-2xl mx-auto font-chivo font-light">
             Ready to discuss data science opportunities, collaborations, or just want to chat about the latest in ML? 
             I'd love to hear from you.
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-10">
+        <div className="grid lg:grid-cols-2 gap-8">
           {/* Contact Information */}
           <div>
-            <h3 className="text-xl font-bold text-white mb-6">Get in Touch</h3>
-            <div className="space-y-4">
-              {contactInfo.map((info, index) => <a key={index} href={info.href} target={info.href.startsWith('http') ? '_blank' : undefined} rel={info.href.startsWith('http') ? 'noopener noreferrer' : undefined} className="flex items-center space-x-3 p-4 bg-slate-800/50 backdrop-blur-sm rounded-xl border border-slate-700/50 hover:border-blue-500/50 transition-all duration-300 hover:scale-105 group">
-                  <div className="w-10 h-10 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                    <info.icon size={18} className="text-white" />
+            <h3 className="text-lg font-chivo font-medium text-light-gray mb-5">Get in Touch</h3>
+            <div className="space-y-3">
+              {contactInfo.map((info, index) => (
+                <a 
+                  key={index} 
+                  href={info.href} 
+                  target={info.href.startsWith('http') ? '_blank' : undefined} 
+                  rel={info.href.startsWith('http') ? 'noopener noreferrer' : undefined} 
+                  className="flex items-center space-x-3 p-3 bg-gradient-to-br from-slate-800/40 to-slate-800/20 backdrop-blur-sm rounded-lg border border-custom-medium/30 hover:border-light-teal/40 transition-all duration-300 hover:scale-[1.02] group"
+                >
+                  <div className="w-8 h-8 bg-gradient-to-r from-light-teal/20 to-blue-gray/20 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                    <info.icon size={14} className="text-light-teal" />
                   </div>
                   <div>
-                    <p className="text-slate-400 text-xs">{info.label}</p>
-                    <p className="text-white font-medium text-sm">{info.value}</p>
+                    <p className="text-blue-gray text-xs font-chivo">{info.label}</p>
+                    <p className="text-light-gray font-chivo font-medium text-sm">{info.value}</p>
                   </div>
-                </a>)}
+                </a>
+              ))}
             </div>
 
-            <div className="mt-8 p-5 bg-gradient-to-r from-blue-500/10 to-purple-600/10 rounded-xl border border-blue-500/20">
-              <h4 className="text-lg font-bold text-white mb-3">Open to Opportunities</h4>
-              <p className="text-slate-300 mb-3 text-sm">
+            <div className="mt-6 p-4 bg-gradient-to-r from-light-teal/10 to-blue-gray/10 rounded-lg border border-light-teal/20">
+              <h4 className="text-base font-chivo font-medium text-light-gray mb-2">Open to Opportunities</h4>
+              <p className="text-blue-gray mb-3 text-xs font-chivo font-light">
                 I'm currently open to new opportunities in data science, machine learning engineering, 
                 and analytics consulting roles. Let's discuss how I can help drive your organization's 
                 data initiatives forward.
               </p>
-              <div className="flex flex-wrap gap-2">
-                {['Remote Work', 'Full-time', 'Contract', 'Consulting'].map((tag, index) => <span key={index} className="text-xs font-medium text-blue-400 bg-blue-500/20 px-2 py-1 rounded-full">
+              <div className="flex flex-wrap gap-1.5">
+                {['Remote Work', 'Full-time', 'Contract', 'Consulting'].map((tag, index) => (
+                  <span key={index} className="text-xs font-chivo font-medium text-light-teal bg-light-teal/10 border border-light-teal/20 px-2 py-0.5 rounded-md">
                     {tag}
-                  </span>)}
+                  </span>
+                ))}
               </div>
             </div>
           </div>
 
           {/* Contact Form */}
           <div>
-            <h3 className="text-xl font-bold text-white mb-6">Send a Message</h3>
+            <h3 className="text-lg font-chivo font-medium text-light-gray mb-5">Send a Message</h3>
             <form onSubmit={handleSubmit} className="space-y-4">
-              <div className="grid md:grid-cols-2 gap-4">
+              <div className="grid md:grid-cols-2 gap-3">
                 <div>
-                  <label htmlFor="name" className="block text-slate-300 font-medium mb-2 text-sm">
+                  <label htmlFor="name" className="block text-blue-gray font-chivo font-medium mb-1.5 text-xs">
                     Name *
                   </label>
-                  <input type="text" id="name" name="name" value={formData.name} onChange={handleInputChange} required className="w-full px-3 py-2 bg-slate-800/50 border border-slate-700/50 rounded-lg text-white placeholder-slate-400 focus:border-blue-500 focus:outline-none transition-colors duration-300 text-sm" placeholder="Your name" />
+                  <input 
+                    type="text" 
+                    id="name" 
+                    name="name" 
+                    value={formData.name} 
+                    onChange={handleInputChange} 
+                    required 
+                    className="w-full px-3 py-2 bg-slate-800/50 border border-custom-medium/30 rounded-lg text-light-gray placeholder-blue-gray focus:border-light-teal focus:outline-none transition-colors duration-300 text-sm font-chivo" 
+                    placeholder="Your name" 
+                  />
                 </div>
                 <div>
-                  <label htmlFor="email" className="block text-slate-300 font-medium mb-2 text-sm">
+                  <label htmlFor="email" className="block text-blue-gray font-chivo font-medium mb-1.5 text-xs">
                     Email *
                   </label>
-                  <input type="email" id="email" name="email" value={formData.email} onChange={handleInputChange} required className="w-full px-3 py-2 bg-slate-800/50 border border-slate-700/50 rounded-lg text-white placeholder-slate-400 focus:border-blue-500 focus:outline-none transition-colors duration-300 text-sm" placeholder="your.email@example.com" />
+                  <input 
+                    type="email" 
+                    id="email" 
+                    name="email" 
+                    value={formData.email} 
+                    onChange={handleInputChange} 
+                    required 
+                    className="w-full px-3 py-2 bg-slate-800/50 border border-custom-medium/30 rounded-lg text-light-gray placeholder-blue-gray focus:border-light-teal focus:outline-none transition-colors duration-300 text-sm font-chivo" 
+                    placeholder="your.email@example.com" 
+                  />
                 </div>
               </div>
               
               <div>
-                <label htmlFor="subject" className="block text-slate-300 font-medium mb-2 text-sm">
+                <label htmlFor="subject" className="block text-blue-gray font-chivo font-medium mb-1.5 text-xs">
                   Subject *
                 </label>
-                <input type="text" id="subject" name="subject" value={formData.subject} onChange={handleInputChange} required className="w-full px-3 py-2 bg-slate-800/50 border border-slate-700/50 rounded-lg text-white placeholder-slate-400 focus:border-blue-500 focus:outline-none transition-colors duration-300 text-sm" placeholder="What's this about?" />
+                <input 
+                  type="text" 
+                  id="subject" 
+                  name="subject" 
+                  value={formData.subject} 
+                  onChange={handleInputChange} 
+                  required 
+                  className="w-full px-3 py-2 bg-slate-800/50 border border-custom-medium/30 rounded-lg text-light-gray placeholder-blue-gray focus:border-light-teal focus:outline-none transition-colors duration-300 text-sm font-chivo" 
+                  placeholder="What's this about?" 
+                />
               </div>
               
               <div>
-                <label htmlFor="message" className="block text-slate-300 font-medium mb-2 text-sm">
+                <label htmlFor="message" className="block text-blue-gray font-chivo font-medium mb-1.5 text-xs">
                   Message *
                 </label>
-                <textarea id="message" name="message" value={formData.message} onChange={handleInputChange} required rows={5} className="w-full px-3 py-2 bg-slate-800/50 border border-slate-700/50 rounded-lg text-white placeholder-slate-400 focus:border-blue-500 focus:outline-none transition-colors duration-300 resize-none text-sm" placeholder="Tell me about your project, opportunity, or just say hello!" />
+                <textarea 
+                  id="message" 
+                  name="message" 
+                  value={formData.message} 
+                  onChange={handleInputChange} 
+                  required 
+                  rows={4} 
+                  className="w-full px-3 py-2 bg-slate-800/50 border border-custom-medium/30 rounded-lg text-light-gray placeholder-blue-gray focus:border-light-teal focus:outline-none transition-colors duration-300 resize-none text-sm font-chivo" 
+                  placeholder="Tell me about your project, opportunity, or just say hello!" 
+                />
               </div>
               
-              <button type="submit" className="w-full bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-blue-500/25 flex items-center justify-center space-x-2 text-sm">
-                <Send size={16} />
+              <button 
+                type="submit" 
+                className="w-full bg-gradient-to-r from-light-teal/20 to-blue-gray/20 border border-light-teal/30 hover:from-light-teal/30 hover:to-blue-gray/30 hover:border-light-teal/50 text-light-teal font-chivo font-medium py-2.5 px-5 rounded-lg transition-all duration-300 hover:scale-[1.02] flex items-center justify-center space-x-2 text-sm"
+              >
+                <Send size={14} />
                 <span>Send Message</span>
               </button>
             </form>
@@ -130,12 +192,14 @@ const Contact = () => {
         </div>
 
         {/* Footer */}
-        <div className="mt-16 pt-6 border-t border-slate-700/50 text-center">
-          <p className="text-slate-400 text-sm">
+        <div className="mt-12 pt-5 border-t border-custom-medium/30 text-center">
+          <p className="text-blue-gray text-xs font-chivo">
             © 2024 Nithish Bilasunu. Built with React and Tailwind CSS.
           </p>
         </div>
       </div>
-    </section>;
+    </section>
+  );
 };
+
 export default Contact;
