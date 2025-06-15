@@ -1,5 +1,5 @@
 
-import { Brain, Database, TrendingUp, Code } from 'lucide-react';
+import { Brain, Database, TrendingUp, Code, Mail, Phone, MapPin } from 'lucide-react';
 import { useTheme } from './ThemeProvider';
 
 const About = () => {
@@ -51,6 +51,47 @@ const About = () => {
             <span className="text-3xl">✨</span>
           </div>
           <div className="w-24 h-1 bg-gradient-to-r from-light-teal to-blue-gray mx-auto mb-8 rounded-full"></div>
+        </div>
+
+        {/* Open to Opportunities Section */}
+        <div className={`mb-16 p-8 rounded-2xl border-2 border-dashed transition-all duration-300 ${
+          theme === 'dark'
+            ? 'border-light-teal/50 bg-slate-800/50'
+            : 'border-light-teal/50 bg-white/50'
+        }`}>
+          <div className="text-center">
+            <div className="flex items-center justify-center gap-3 mb-4">
+              <span className="text-2xl">🎯</span>
+              <h3 className={`text-2xl font-bold ${
+                theme === 'dark' ? 'text-light-teal' : 'text-blue-gray'
+              }`}>
+                Open to Opportunities
+              </h3>
+              <span className="text-2xl">💼</span>
+            </div>
+            <p className={`text-lg mb-6 ${
+              theme === 'dark' ? 'text-light-gray' : 'text-slate-700'
+            }`}>
+              I'm actively seeking full-time opportunities in data engineering, cloud architecture, and analytics roles.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+              <div className="flex items-center gap-2">
+                <Mail size={16} className="text-light-teal" />
+                <a href="mailto:nitheshbethur39@gmail.com" 
+                   className={`hover:text-light-teal transition-colors duration-300 ${
+                     theme === 'dark' ? 'text-light-gray' : 'text-slate-700'
+                   }`}>
+                  nitheshbethur39@gmail.com
+                </a>
+              </div>
+              <div className="flex items-center gap-2">
+                <MapPin size={16} className="text-light-teal" />
+                <span className={theme === 'dark' ? 'text-light-gray' : 'text-slate-700'}>
+                  Fairfax, VA (Open to relocation)
+                </span>
+              </div>
+            </div>
+          </div>
         </div>
 
         {/* Mobile & Tablet Layout - Stacked */}
