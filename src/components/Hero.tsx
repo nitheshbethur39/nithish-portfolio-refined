@@ -1,3 +1,4 @@
+
 import { ArrowDown, Github, Linkedin, Mail, Download } from 'lucide-react';
 
 const Hero = () => {
@@ -99,20 +100,22 @@ const Hero = () => {
         {/* Headshot Section */}
         <div className="lg:w-1/3 flex justify-center hero-image">
           <div className="relative group">
-            <div className="w-64 h-64 lg:w-80 lg:h-80 rounded-full bg-gradient-to-br from-custom-dark to-custom-medium border-4 border-blue-gray shadow-2xl flex items-center justify-center transition-all duration-500 group-hover:scale-105 transform will-change-transform">
-              <div className="text-center">
-                <div className="w-20 h-20 bg-blue-gray rounded-full mx-auto mb-3 flex items-center justify-center">
-                  <svg className="w-10 h-10 text-light-teal" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
-                  </svg>
-                </div>
-                <p className="text-light-teal font-chivo text-xs">Fairfax, VA</p>
-              </div>
+            <div className="w-64 h-64 lg:w-80 lg:h-80 rounded-full overflow-hidden border-4 border-blue-gray shadow-2xl transition-all duration-500 group-hover:scale-105 transform will-change-transform">
+              <img 
+                src="/lovable-uploads/a9115f67-04d5-4f12-9f92-8f8f55bfcea4.png" 
+                alt="Nithish Bilasunur Manjunatha Reddy - Professional Headshot"
+                className="w-full h-full object-cover"
+              />
             </div>
             
             {/* Decorative elements */}
             <div className="absolute -top-3 -right-3 w-6 h-6 bg-light-teal rounded-full"></div>
             <div className="absolute -bottom-3 -left-3 w-5 h-5 bg-blue-gray rounded-full"></div>
+            
+            {/* Location badge */}
+            <div className="absolute -bottom-6 left-1/2 transform -translate-x-1/2 bg-custom-dark/90 backdrop-blur-sm px-3 py-1 rounded-full border border-blue-gray/30">
+              <p className="text-light-teal font-chivo text-xs">Fairfax, VA</p>
+            </div>
           </div>
         </div>
       </div>
