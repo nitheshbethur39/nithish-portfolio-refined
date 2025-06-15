@@ -53,19 +53,19 @@ const Hero = () => {
             in data engineering and analytics.
           </p>
           
-          {/* Social Links */}
+          {/* Social Links - Fixed with explicit icon rendering */}
           <div className="flex justify-center lg:justify-start space-x-6 mb-12 hero-social">
             <a href="https://github.com/nithishbm" target="_blank" rel="noopener noreferrer" 
-               className="text-blue-gray hover:text-light-teal transition-all duration-300 hover:scale-110 transform will-change-transform">
-              <Github size={20} />
+               className="text-blue-gray hover:text-light-teal transition-all duration-300 hover:scale-110 transform will-change-transform flex items-center justify-center w-10 h-10">
+              <Github size={20} className="block" />
             </a>
             <a href="https://www.linkedin.com/in/nithishbm" target="_blank" rel="noopener noreferrer"
-               className="text-blue-gray hover:text-light-teal transition-all duration-300 hover:scale-110 transform will-change-transform">
-              <Linkedin size={20} />
+               className="text-blue-gray hover:text-light-teal transition-all duration-300 hover:scale-110 transform will-change-transform flex items-center justify-center w-10 h-10">
+              <Linkedin size={20} className="block" />
             </a>
             <a href="mailto:nitheshbethur39@gmail.com"
-               className="text-blue-gray hover:text-light-teal transition-all duration-300 hover:scale-110 transform will-change-transform">
-              <Mail size={20} />
+               className="text-blue-gray hover:text-light-teal transition-all duration-300 hover:scale-110 transform will-change-transform flex items-center justify-center w-10 h-10">
+              <Mail size={20} className="block" />
             </a>
           </div>
 
