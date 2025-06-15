@@ -13,6 +13,26 @@ export const ThreeBackground = () => {
 
     // Dynamically import Three.js to avoid build issues
     import('three').then((THREE) => {
+      // Create circular texture for particles
+      const createCircleTexture = () => {
+        const size = 64;
+        const canvas = document.createElement('canvas');
+        canvas.width = size;
+        canvas.height = size;
+        const ctx = canvas.getContext('2d')!;
+        
+        // Create radial gradient for soft circular appearance
+        const gradient = ctx.createRadialGradient(size/2, size/2, 0, size/2, size/2, size/2);
+        gradient.addColorStop(0, 'rgba(255, 255, 255, 1)');
+        gradient.addColorStop(0.7, 'rgba(255, 255, 255, 0.5)');
+        gradient.addColorStop(1, 'rgba(255, 255, 255, 0)');
+        
+        ctx.fillStyle = gradient;
+        ctx.fillRect(0, 0, size, size);
+        
+        return new THREE.CanvasTexture(canvas);
+      };
+
       // Scene setup
       const scene = new THREE.Scene();
 
@@ -35,46 +55,56 @@ export const ThreeBackground = () => {
       renderer.setSize(window.innerWidth, window.innerHeight);
       renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 
-      // Create floating particles with enhanced visibility
+      // Create circular texture
+      const circleTexture = createCircleTexture();
+
+      // Enhanced particle system with circular sprites
       const particleCount = 120;
-      const positions = new Float32Array(particleCount * 3);
-      const velocities = new Float32Array(particleCount * 3);
-      const sizes = new Float32Array(particleCount);
-      const pulsePhases = new Float32Array(particleCount);
+      const particles: THREE.Sprite[] = [];
+      
+      // Site color palette - muted and elegant
+      const colors = [
+        new THREE.Color(0xB8CFCE), // Muted teal - 40%
+        new THREE.Color(0x7F8CAA), // Blue-gray - 35% 
+        new THREE.Color(0x8B7FB8), // Soft purple - 25%
+      ];
 
+      // Create individual sprite particles for better control
       for (let i = 0; i < particleCount; i++) {
-        const i3 = i * 3;
+        const material = new THREE.SpriteMaterial({
+          map: circleTexture,
+          transparent: true,
+          opacity: Math.random() * 0.4 + 0.3, // 0.3-0.7 range
+          blending: THREE.AdditiveBlending,
+          color: colors[Math.floor(Math.random() * colors.length)]
+        });
+
+        const sprite = new THREE.Sprite(material);
         
-        positions[i3] = (Math.random() - 0.5) * 12;
-        positions[i3 + 1] = (Math.random() - 0.5) * 12;
-        positions[i3 + 2] = (Math.random() - 0.5) * 12;
-
-        velocities[i3] = (Math.random() - 0.5) * 0.015;
-        velocities[i3 + 1] = (Math.random() - 0.5) * 0.015;
-        velocities[i3 + 2] = (Math.random() - 0.5) * 0.015;
-
-        // Varied particle sizes for depth
-        sizes[i] = Math.random() * 0.12 + 0.08;
-        pulsePhases[i] = Math.random() * Math.PI * 2;
+        // Position particles
+        sprite.position.set(
+          (Math.random() - 0.5) * 12,
+          (Math.random() - 0.5) * 12,
+          (Math.random() - 0.5) * 12
+        );
+        
+        // Scale for size variation
+        const scale = Math.random() * 0.3 + 0.2; // 0.2-0.5 range
+        sprite.scale.setScalar(scale);
+        
+        // Store initial properties for animation
+        (sprite as any).velocity = {
+          x: (Math.random() - 0.5) * 0.015,
+          y: (Math.random() - 0.5) * 0.015,
+          z: (Math.random() - 0.5) * 0.015
+        };
+        (sprite as any).baseOpacity = material.opacity;
+        (sprite as any).baseScale = scale;
+        (sprite as any).pulsePhase = Math.random() * Math.PI * 2;
+        
+        scene.add(sprite);
+        particles.push(sprite);
       }
-
-      const geometry = new THREE.BufferGeometry();
-      geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
-      geometry.setAttribute('size', new THREE.BufferAttribute(sizes, 1));
-
-      // Enhanced material with better visibility
-      const material = new THREE.PointsMaterial({
-        color: 0x64FFDA,
-        size: 0.1,
-        transparent: true,
-        opacity: 0.6,
-        blending: THREE.AdditiveBlending,
-        sizeAttenuation: true,
-        vertexColors: false
-      });
-
-      const particles = new THREE.Points(geometry, material);
-      scene.add(particles);
 
       // Enhanced mouse interaction
       const mouse = { x: 0, y: 0, targetX: 0, targetY: 0 };
@@ -96,39 +126,35 @@ export const ThreeBackground = () => {
         mouse.x += (mouse.targetX - mouse.x) * 0.05;
         mouse.y += (mouse.targetY - mouse.y) * 0.05;
 
-        if (particles) {
-          const positions = particles.geometry.attributes.position.array as Float32Array;
-          const sizes = particles.geometry.attributes.size.array as Float32Array;
+        particles.forEach((sprite, index) => {
+          const velocity = (sprite as any).velocity;
+          const baseOpacity = (sprite as any).baseOpacity;
+          const baseScale = (sprite as any).baseScale;
+          const pulsePhase = (sprite as any).pulsePhase;
           
-          for (let i = 0; i < particleCount; i++) {
-            const i3 = i * 3;
-            
-            // Update positions
-            positions[i3] += velocities[i3];
-            positions[i3 + 1] += velocities[i3 + 1];
-            positions[i3 + 2] += velocities[i3 + 2];
+          // Update positions
+          sprite.position.x += velocity.x;
+          sprite.position.y += velocity.y;
+          sprite.position.z += velocity.z;
 
-            // Wrap around screen edges with smoother boundaries
-            if (positions[i3] > 6) positions[i3] = -6;
-            if (positions[i3] < -6) positions[i3] = 6;
-            if (positions[i3 + 1] > 6) positions[i3 + 1] = -6;
-            if (positions[i3 + 1] < -6) positions[i3 + 1] = 6;
+          // Wrap around screen edges
+          if (sprite.position.x > 6) sprite.position.x = -6;
+          if (sprite.position.x < -6) sprite.position.x = 6;
+          if (sprite.position.y > 6) sprite.position.y = -6;
+          if (sprite.position.y < -6) sprite.position.y = 6;
 
-            // Pulsing animation for enhanced visibility
-            const baseSizeIndex = i;
-            const baseSize = 0.08 + Math.random() * 0.12;
-            const pulseMultiplier = 1 + Math.sin(time * 2 + pulsePhases[i]) * 0.3;
-            sizes[baseSizeIndex] = baseSize * pulseMultiplier;
-          }
-
-          particles.geometry.attributes.position.needsUpdate = true;
-          particles.geometry.attributes.size.needsUpdate = true;
+          // Pulsing animation for enhanced visibility
+          const pulseMultiplier = 1 + Math.sin(time * 2 + pulsePhase) * 0.3;
+          sprite.scale.setScalar(baseScale * pulseMultiplier);
           
-          // Enhanced mouse parallax effect
-          const parallaxStrength = 0.2;
-          particles.rotation.x += (mouse.y * parallaxStrength - particles.rotation.x) * 0.08;
-          particles.rotation.y += (mouse.x * parallaxStrength - particles.rotation.y) * 0.08;
-        }
+          // Dynamic opacity based on pulse
+          sprite.material.opacity = baseOpacity * (0.8 + Math.sin(time * 1.5 + pulsePhase) * 0.2);
+        });
+
+        // Enhanced mouse parallax effect
+        const parallaxStrength = 0.2;
+        scene.rotation.x += (mouse.y * parallaxStrength - scene.rotation.x) * 0.08;
+        scene.rotation.y += (mouse.x * parallaxStrength - scene.rotation.y) * 0.08;
 
         renderer.render(scene, camera);
       };
@@ -148,8 +174,10 @@ export const ThreeBackground = () => {
         window.removeEventListener('mousemove', handleMouseMove);
         window.removeEventListener('resize', handleResize);
         renderer.dispose();
-        geometry.dispose();
-        material.dispose();
+        circleTexture.dispose();
+        particles.forEach(sprite => {
+          sprite.material.dispose();
+        });
       };
     }).catch((error) => {
       console.warn('Three.js failed to load:', error);
@@ -160,7 +188,7 @@ export const ThreeBackground = () => {
     <canvas
       ref={canvasRef}
       className="fixed inset-0 pointer-events-none z-0 will-change-transform"
-      style={{ opacity: 0.5 }}
+      style={{ opacity: 0.6 }}
     />
   );
 };

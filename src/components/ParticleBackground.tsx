@@ -23,6 +23,13 @@ const ParticleBackground = () => {
     resizeCanvas();
     window.addEventListener('resize', resizeCanvas);
 
+    // Site color palette - elegant and muted
+    const siteColors = [
+      { r: 184, g: 207, b: 206 }, // Muted teal
+      { r: 127, g: 140, b: 170 }, // Blue-gray
+      { r: 139, g: 127, b: 184 }, // Soft purple
+    ];
+
     // Enhanced particle system
     const particles: Array<{
       x: number;
@@ -47,9 +54,12 @@ const ParticleBackground = () => {
     };
     window.addEventListener('mousemove', handleMouseMove);
 
-    // Create enhanced particles
+    // Create enhanced particles with site colors
     for (let i = 0; i < 60; i++) {
       const baseSize = Math.random() * 5 + 3; // Size range: 3-8px
+      const colorIndex = Math.floor(Math.random() * siteColors.length);
+      const selectedColor = siteColors[colorIndex];
+      
       particles.push({
         x: Math.random() * canvas.width,
         y: Math.random() * canvas.height,
@@ -57,14 +67,14 @@ const ParticleBackground = () => {
         dy: (Math.random() - 0.5) * 0.4,
         baseSize: baseSize,
         currentSize: baseSize,
-        baseOpacity: Math.random() * 0.4 + 0.3, // Opacity range: 0.3-0.7
-        opacity: Math.random() * 0.4 + 0.3,
+        baseOpacity: Math.random() * 0.3 + 0.4, // Opacity range: 0.4-0.7
+        opacity: Math.random() * 0.3 + 0.4,
         pulsePhase: Math.random() * Math.PI * 2,
         pulseSpeed: Math.random() * 0.02 + 0.01,
         color: {
-          r: 255,
-          g: Math.random() * 50 + 107, // Slight variation in red channel
-          b: Math.random() * 50 + 107
+          r: selectedColor.r + (Math.random() - 0.5) * 20, // Slight variation
+          g: selectedColor.g + (Math.random() - 0.5) * 20,
+          b: selectedColor.b + (Math.random() - 0.5) * 20
         }
       });
     }
@@ -113,7 +123,7 @@ const ParticleBackground = () => {
         const pulse = Math.sin(particle.pulsePhase) * 0.2 + 1;
         const finalSize = particle.currentSize * pulse;
 
-        // Create gradient for more appealing visuals
+        // Create gradient for soft circular appearance
         const gradient = ctx.createRadialGradient(
           particle.x, particle.y, 0,
           particle.x, particle.y, finalSize
@@ -122,7 +132,7 @@ const ParticleBackground = () => {
         gradient.addColorStop(0.7, `rgba(${particle.color.r}, ${particle.color.g}, ${particle.color.b}, ${particle.opacity * 0.5})`);
         gradient.addColorStop(1, `rgba(${particle.color.r}, ${particle.color.g}, ${particle.color.b}, 0)`);
 
-        // Draw particle with gradient
+        // Draw circular particle with gradient
         ctx.beginPath();
         ctx.arc(particle.x, particle.y, finalSize, 0, Math.PI * 2);
         ctx.fillStyle = gradient;
