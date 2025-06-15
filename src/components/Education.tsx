@@ -4,31 +4,56 @@ import { GraduationCap, Award } from 'lucide-react';
 const Education = () => {
   const education = [
     {
-      degree: "Master of Science in Data Science",
-      school: "University of California, Berkeley",
-      period: "2018 - 2020",
-      gpa: "3.9/4.0",
+      degree: "Master of Science in Data Analytics Engineering",
+      school: "George Mason University",
+      period: "August 2023 - May 2025",
       emoji: "🎓",
-      description: "Specialized in machine learning, statistical modeling, and big data analytics",
-      coursework: ["Machine Learning", "Statistical Computing", "Data Mining", "Deep Learning", "Bayesian Statistics"]
+      description: "Specialized in cloud-based data solutions, machine learning, and advanced analytics",
+      coursework: ["Data Engineering", "Cloud Computing", "Machine Learning", "Statistical Analysis", "Big Data Analytics"]
     },
     {
-      degree: "Bachelor of Science in Computer Science", 
-      school: "Stanford University",
-      period: "2014 - 2018",
-      gpa: "3.8/4.0",
-      emoji: "💻",
-      description: "Focus on algorithms, data structures, and software engineering principles",
-      coursework: ["Algorithms", "Database Systems", "Software Engineering", "Linear Algebra", "Probability Theory"]
+      degree: "Bachelor of Engineering in Electronics & Communications", 
+      school: "Bangalore Institute of Technology",
+      period: "August 2016 - October 2020",
+      emoji: "⚡",
+      description: "Focus on embedded systems, signal processing, and IoT technologies",
+      coursework: ["Digital Signal Processing", "Embedded Systems", "IoT", "Data Structures", "Network Protocols"]
     }
   ];
 
-  const certification = {
-    title: "AWS Certified Machine Learning - Specialty",
-    issuer: "Amazon Web Services",
-    year: "2023",
-    emoji: "☁️"
-  };
+  const certifications = [
+    {
+      title: "AWS Certified Solutions Architect - Associate",
+      issuer: "Amazon Web Services",
+      year: "2024",
+      emoji: "☁️",
+      badge: "/lovable-uploads/c2e1de75-4e6c-49f4-a9a1-33699db9705e.png"
+    },
+    {
+      title: "Programming for Everybody (Getting Started with Python)",
+      issuer: "Coursera",
+      year: "2023",
+      emoji: "🐍"
+    },
+    {
+      title: "Foundations: Data, Data, Everywhere",
+      issuer: "Google Career Certificates",
+      year: "2023",
+      emoji: "📊"
+    },
+    {
+      title: "Intermediate SQL",
+      issuer: "DataCamp",
+      year: "2023",
+      emoji: "🗄️"
+    },
+    {
+      title: "Complete Python Bootcamp",
+      issuer: "Udemy",
+      year: "2023",
+      emoji: "💻"
+    }
+  ];
 
   return (
     <section id="education" className="py-20 px-6 lg:px-8 bg-gradient-to-b from-slate-900 to-slate-950">
@@ -37,19 +62,19 @@ const Education = () => {
           <div className="flex items-center justify-center gap-3 mb-4">
             <span className="text-3xl animate-float">🎓</span>
             <h2 className="text-3xl lg:text-4xl font-bold bg-gradient-to-r from-light-teal to-blue-gray bg-clip-text text-transparent">
-              Education & Certification
+              Education & Certifications
             </h2>
             <span className="text-3xl animate-float delay-150">📜</span>
           </div>
           <div className="w-24 h-1 bg-gradient-to-r from-light-teal to-blue-gray mx-auto mb-8 rounded-full"></div>
           <p className="text-base text-blue-gray max-w-4xl mx-auto">
-            Academic foundation and professional certification that fuel my passion for data science excellence ✨
+            Academic foundation and professional certifications that fuel my expertise in data engineering and cloud architecture ✨
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-3 gap-12">
+        <div className="grid lg:grid-cols-2 gap-12">
           {/* Education */}
-          <div className="lg:col-span-2 animate-slide-in-left">
+          <div className="animate-slide-in-left">
             <div className="flex items-center space-x-3 mb-10">
               <div className="w-12 h-12 bg-gradient-to-r from-light-teal to-blue-gray rounded-2xl flex items-center justify-center">
                 <GraduationCap size={24} className="text-white" />
@@ -71,7 +96,6 @@ const Education = () => {
                       </div>
                       <div className="text-right">
                         <p className="text-blue-gray text-xs">{edu.period}</p>
-                        <p className="text-light-gray text-xs font-bold">GPA: {edu.gpa}</p>
                       </div>
                     </div>
                     
@@ -93,35 +117,42 @@ const Education = () => {
             </div>
           </div>
 
-          {/* Professional Certification */}
+          {/* Professional Certifications */}
           <div className="animate-fade-in">
             <div className="flex items-center space-x-3 mb-10">
               <div className="w-12 h-12 bg-gradient-to-r from-blue-gray to-light-teal rounded-2xl flex items-center justify-center">
                 <Award size={24} className="text-white" />
               </div>
-              <h3 className="text-2xl font-bold text-light-gray">Certification 🏆</h3>
+              <h3 className="text-2xl font-bold text-light-gray">Certifications 🏆</h3>
             </div>
 
-            <div className="relative">
-              <div className="animate-stagger-1">
-                <div className="bg-slate-800/30 backdrop-blur-sm p-6 rounded-2xl border border-custom-medium/50 hover:border-light-teal/50 transition-all duration-500 hover:scale-105 hover:shadow-xl hover:shadow-light-teal/10">
-                  <div className="flex items-center space-x-3 mb-4">
-                    <div className="w-12 h-12 bg-gradient-to-r from-light-teal to-blue-gray rounded-2xl flex items-center justify-center">
-                      <span className="text-lg">{certification.emoji}</span>
-                    </div>
-                    <div>
-                      <h4 className="text-base font-bold text-light-gray mb-1 hover:text-light-teal transition-colors duration-300">{certification.title}</h4>
-                      <p className="text-light-teal font-medium text-sm">{certification.issuer}</p>
-                      <span className="text-light-teal font-bold text-xs">{certification.year}</span>
+            <div className="space-y-4">
+              {certifications.map((cert, index) => (
+                <div key={index} className="animate-stagger-1">
+                  <div className="bg-slate-800/30 backdrop-blur-sm p-4 rounded-2xl border border-custom-medium/50 hover:border-light-teal/50 transition-all duration-500 hover:scale-105 hover:shadow-xl hover:shadow-light-teal/10">
+                    <div className="flex items-center space-x-3">
+                      {cert.badge ? (
+                        <div className="w-12 h-12 flex items-center justify-center">
+                          <img 
+                            src={cert.badge} 
+                            alt={`${cert.title} Badge`}
+                            className="w-10 h-10 object-contain"
+                          />
+                        </div>
+                      ) : (
+                        <div className="w-12 h-12 bg-gradient-to-r from-light-teal to-blue-gray rounded-xl flex items-center justify-center">
+                          <span className="text-lg">{cert.emoji}</span>
+                        </div>
+                      )}
+                      <div className="flex-1">
+                        <h4 className="text-sm font-bold text-light-gray mb-1 hover:text-light-teal transition-colors duration-300">{cert.title}</h4>
+                        <p className="text-light-teal font-medium text-xs">{cert.issuer}</p>
+                        <span className="text-light-teal font-bold text-xs">{cert.year}</span>
+                      </div>
                     </div>
                   </div>
-                  
-                  <p className="text-blue-gray leading-relaxed text-sm">
-                    Professional certification demonstrating expertise in machine learning engineering, 
-                    model deployment, and AWS cloud services for data science applications.
-                  </p>
                 </div>
-              </div>
+              ))}
             </div>
           </div>
         </div>

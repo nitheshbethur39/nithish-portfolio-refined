@@ -4,43 +4,56 @@ import { Calendar, MapPin, Building } from 'lucide-react';
 const Experience = () => {
   const experiences = [
     {
-      title: "Senior Data Scientist",
-      company: "TechCorp Analytics",
-      location: "San Francisco, CA",
-      period: "2022 - Present",
+      title: "Data Engineer - Center for Air Transportation Systems Research",
+      company: "George Mason University",
+      location: "Fairfax, Virginia",
+      period: "January 2025 - May 2025",
       description: [
-        "Led development of machine learning models that improved customer retention by 25%",
-        "Built automated data pipelines processing 50M+ records daily",
-        "Mentored junior data scientists and established ML best practices",
-        "Collaborated with cross-functional teams to deliver data-driven solutions"
+        "Cleaned, filtered, and transformed 500,000+ rows of historical flight data using Python (pandas), improving data quality by 35%",
+        "Automated real-time stock data ingestion using AWS Lambda and EventBridge, reducing manual efforts by 90%",
+        "Engineered unified airline performance and financial datasets with daily S3 updates for centralized access",
+        "Applied Random Forest models achieving 87% accuracy in airline performance predictions using multiple ML algorithms"
       ],
-      skills: ["Python", "TensorFlow", "AWS", "SQL", "Docker"]
+      skills: ["Python", "AWS Lambda", "S3", "EventBridge", "Random Forest", "LSTM", "React"]
     },
     {
-      title: "Data Scientist",
-      company: "DataVision Inc.",
-      location: "New York, NY",
-      period: "2021 - 2022",
+      title: "Data Engineer",
+      company: "Manuh Solutions",
+      location: "Bengaluru, Karnataka, India",
+      period: "November 2020 - June 2023",
       description: [
-        "Developed predictive models for demand forecasting with 90% accuracy",
-        "Created interactive dashboards for executive decision-making",
-        "Implemented A/B testing frameworks for product optimization",
-        "Reduced data processing time by 40% through optimization techniques"
+        "Delivered scalable ETL pipelines for U.S. healthcare provider achieving 99.9% data accuracy",
+        "Migrated large-scale legacy healthcare data ensuring compliance with governance standards",
+        "Optimized SQL queries with advanced indexing, improving execution speed by 30%",
+        "Reduced pre-deployment data issues by 20% through comprehensive SQL code reviews"
       ],
-      skills: ["R", "Tableau", "PostgreSQL", "Scikit-learn", "Git"]
+      skills: ["Python", "PostgreSQL", "ETL", "Data Warehousing", "Healthcare Data", "SQL"]
     },
     {
-      title: "Junior Data Analyst",
-      company: "Analytics Solutions",
-      location: "Boston, MA",
-      period: "2020 - 2021",
+      title: "Data Analyst",
+      company: "Bharat Electronics Limited",
+      location: "Bengaluru, Karnataka, India",
+      period: "December 2019 - September 2020",
       description: [
-        "Performed statistical analysis on customer behavior data",
-        "Automated reporting processes saving 20 hours per week",
-        "Contributed to data quality initiatives and documentation",
-        "Supported senior analysts in machine learning projects"
+        "Engineered real-time ETL pipeline for thermal monitoring on Indian Navy vessels",
+        "Reduced overheating incidents by 30% and energy consumption by 20% through predictive analytics",
+        "Designed Tableau dashboards cutting manual diagnostics time by 40% for engineering teams",
+        "Applied statistical models for thermal forecasting improving operational safety"
       ],
-      skills: ["Excel", "SQL", "Python", "Power BI", "Statistics"]
+      skills: ["Python", "MySQL", "Tableau", "Statistical Models", "Real-time ETL", "IoT"]
+    },
+    {
+      title: "Student Internship",
+      company: "Bosch Engineering and Business Solutions",
+      location: "Bengaluru Area, India",
+      period: "June 2019 - August 2019",
+      description: [
+        "Developed real-time data integration and predictive maintenance system for manufacturing plant",
+        "Connected SCADA systems to central data server enabling seamless data flow",
+        "Built ETL pipeline using Python and SQL for machine health data processing",
+        "Reduced machine breakdowns by 25% and maintenance costs by 15% through time-series analysis"
+      ],
+      skills: ["Python", "SQL", "Tableau", "SCADA", "Time-series Analysis", "Manufacturing"]
     }
   ];
 
@@ -57,8 +70,8 @@ const Experience = () => {
           </div>
           <div className="w-24 h-1 bg-gradient-to-r from-light-teal to-blue-gray mx-auto mb-8 rounded-full"></div>
           <p className="text-base text-blue-gray max-w-3xl mx-auto">
-            My journey in data science, from junior analyst to senior leadership roles, 
-            driving data-driven decision making across organizations.
+            My journey in data engineering and analytics, delivering measurable business impact 
+            across healthcare, aerospace, manufacturing, and defense sectors.
           </p>
         </div>
 

@@ -8,65 +8,65 @@ const Skills = () => {
       title: "Programming Languages",
       skills: [
         { name: "Python", level: "Expert" },
-        { name: "R", level: "Advanced" },
         { name: "SQL", level: "Expert" },
+        { name: "R", level: "Advanced" },
         { name: "JavaScript", level: "Intermediate" },
         { name: "Java", level: "Intermediate" }
       ]
     },
     {
-      icon: Brain,
-      title: "Machine Learning & AI",
+      icon: Cloud,
+      title: "Cloud & Data Platforms",
       skills: [
-        { name: "Scikit-learn", level: "Expert" },
-        { name: "TensorFlow", level: "Advanced" },
-        { name: "PyTorch", level: "Advanced" },
-        { name: "XGBoost", level: "Expert" },
-        { name: "Deep Learning", level: "Advanced" }
+        { name: "AWS", level: "Expert" },
+        { name: "Apache Spark", level: "Advanced" },
+        { name: "Databricks", level: "Advanced" },
+        { name: "Apache Kafka", level: "Advanced" },
+        { name: "Informatica", level: "Advanced" }
       ]
     },
     {
       icon: Database,
       title: "Data Engineering",
       skills: [
-        { name: "Apache Spark", level: "Advanced" },
-        { name: "Apache Airflow", level: "Advanced" },
-        { name: "Apache Kafka", level: "Intermediate" },
         { name: "ETL Pipelines", level: "Expert" },
-        { name: "Data Warehousing", level: "Advanced" }
+        { name: "Data Warehousing", level: "Expert" },
+        { name: "PostgreSQL", level: "Expert" },
+        { name: "MySQL", level: "Advanced" },
+        { name: "Apache Airflow", level: "Advanced" }
       ]
     },
     {
       icon: BarChart3,
-      title: "Data Visualization",
+      title: "Analytics & Visualization",
       skills: [
         { name: "Tableau", level: "Expert" },
-        { name: "Power BI", level: "Advanced" },
-        { name: "Plotly", level: "Expert" },
-        { name: "D3.js", level: "Intermediate" },
-        { name: "Matplotlib/Seaborn", level: "Expert" }
+        { name: "AWS QuickSight", level: "Advanced" },
+        { name: "Statistical Models", level: "Advanced" },
+        { name: "Power BI", level: "Intermediate" },
+        { name: "D3.js", level: "Intermediate" }
       ]
     },
     {
-      icon: Cloud,
-      title: "Cloud & DevOps",
+      icon: Brain,
+      title: "Machine Learning",
       skills: [
-        { name: "AWS", level: "Expert" },
-        { name: "Google Cloud Platform", level: "Advanced" },
-        { name: "Microsoft Azure", level: "Intermediate" },
-        { name: "Docker", level: "Advanced" },
-        { name: "Kubernetes", level: "Intermediate" }
+        { name: "Random Forest", level: "Expert" },
+        { name: "XGBoost", level: "Advanced" },
+        { name: "LSTM", level: "Advanced" },
+        { name: "Scikit-learn", level: "Advanced" },
+        { name: "TensorFlow", level: "Intermediate" }
       ]
     },
     {
       icon: Wrench,
-      title: "Tools & Frameworks",
+      title: "Development & Tools",
       skills: [
         { name: "Git/GitHub", level: "Expert" },
-        { name: "Jupyter Notebooks", level: "Expert" },
-        { name: "Streamlit", level: "Advanced" },
-        { name: "FastAPI", level: "Advanced" },
-        { name: "MLflow", level: "Advanced" }
+        { name: "pytest", level: "Advanced" },
+        { name: "Docker", level: "Advanced" },
+        { name: "React", level: "Advanced" },
+        { name: "Vercel", level: "Advanced" }
       ]
     }
   ];
@@ -89,16 +89,16 @@ const Skills = () => {
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16 section-header">
           <div className="flex items-center justify-center gap-3 mb-5">
-            <span className="text-3xl">💻</span>
+            <span className="text-3xl">⚡</span>
             <h2 className="text-3xl lg:text-4xl font-bold bg-gradient-to-r from-light-teal to-blue-gray bg-clip-text text-transparent">
               Technical Skills
             </h2>
-            <span className="text-3xl">⚡</span>
+            <span className="text-3xl">🛠️</span>
           </div>
           <div className="w-24 h-1 bg-gradient-to-r from-light-teal to-blue-gray mx-auto mb-8 rounded-full"></div>
           <p className="text-base text-gray-600 dark:text-gray-300 max-w-3xl mx-auto font-chivo">
-            Comprehensive expertise across the data science and analytics ecosystem, 
-            from data collection and processing to advanced machine learning and deployment.
+            Comprehensive expertise across cloud architecture, data engineering, and analytics — 
+            from AWS infrastructure to machine learning model deployment.
           </p>
         </div>
 

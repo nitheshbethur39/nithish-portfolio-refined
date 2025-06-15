@@ -1,5 +1,5 @@
 
-import { Mail, Linkedin, Github, MapPin, Phone, Send } from 'lucide-react';
+import { Mail, Linkedin, Github, MapPin, Phone, Send, ExternalLink } from 'lucide-react';
 import { useState } from 'react';
 
 const Contact = () => {
@@ -26,32 +26,38 @@ const Contact = () => {
     {
       icon: Mail,
       label: "Email",
-      value: "nithish.bilasunu@example.com",
-      href: "mailto:nithish.bilasunu@example.com"
+      value: "nitheshbethur39@gmail.com",
+      href: "mailto:nitheshbethur39@gmail.com"
     },
     {
       icon: Linkedin,
       label: "LinkedIn",
-      value: "linkedin.com/in/nithishbilasunu",
-      href: "https://linkedin.com/in/nithishbilasunu"
+      value: "linkedin.com/in/nithishbm",
+      href: "https://www.linkedin.com/in/nithishbm"
     },
     {
       icon: Github,
       label: "GitHub",
-      value: "github.com/nithishbilasunu",
-      href: "https://github.com/nithishbilasunu"
+      value: "github.com/nithishbm",
+      href: "https://github.com/nithishbm"
     },
     {
       icon: Phone,
       label: "Phone",
-      value: "+1 (555) 123-4567",
-      href: "tel:+15551234567"
+      value: "(571) 574-3215",
+      href: "tel:+15715743215"
     },
     {
       icon: MapPin,
       label: "Location",
-      value: "San Francisco, CA",
+      value: "3917 Fairfax Square, Fairfax, VA 22031",
       href: "#"
+    },
+    {
+      icon: ExternalLink,
+      label: "Portfolio",
+      value: "nithishbilasunurportfolio.framer.website",
+      href: "https://nithishbilasunurportfolio.framer.website/"
     }
   ];
 
@@ -75,8 +81,8 @@ const Contact = () => {
           </div>
           <div className="w-24 h-1 bg-gradient-to-r from-light-teal to-blue-gray mx-auto mb-8 rounded-full animate-scale-in delay-500"></div>
           <p className="text-base text-blue-gray max-w-2xl mx-auto font-chivo font-light animate-fade-in delay-700">
-            Ready to discuss data science opportunities, collaborations, or just want to chat about the latest in ML? 
-            I'd love to hear from you.
+            Ready to discuss data engineering opportunities, cloud architecture projects, or AWS consulting? 
+            I'm actively seeking full-time roles and would love to hear from you.
           </p>
         </div>
 
@@ -107,12 +113,12 @@ const Contact = () => {
             <div className="mt-8 p-6 bg-gradient-to-r from-light-teal/10 to-blue-gray/10 rounded-xl border border-light-teal/20 animate-fade-in delay-1000">
               <h4 className="text-lg font-chivo font-medium text-light-gray mb-3 animate-fade-in">Open to Opportunities</h4>
               <p className="text-blue-gray mb-4 text-sm font-chivo font-light animate-fade-in delay-200">
-                I'm currently open to new opportunities in data science, machine learning engineering, 
-                and analytics consulting roles. Let's discuss how I can help drive your organization's 
-                data initiatives forward.
+                I'm actively seeking full-time opportunities in data engineering, cloud architecture, 
+                and analytics roles. Let's discuss how my AWS expertise and data engineering experience 
+                can drive your organization's success.
               </p>
               <div className="flex flex-wrap gap-2">
-                {['Remote Work', 'Full-time', 'Contract', 'Consulting'].map((tag, index) => (
+                {['Data Engineering', 'Cloud Architecture', 'AWS Solutions', 'Analytics'].map((tag, index) => (
                   <span 
                     key={index} 
                     className={`text-sm font-chivo font-medium text-light-teal bg-light-teal/10 border border-light-teal/20 px-3 py-1 rounded-full hover:bg-light-teal/20 transition-all duration-300 hover:scale-105 animate-scale-in`}
@@ -208,7 +214,7 @@ const Contact = () => {
         {/* Footer */}
         <div className="mt-20 pt-8 border-t border-custom-medium/20 text-center animate-fade-in delay-1000">
           <p className="text-blue-gray text-sm font-chivo">
-            © 2024 Nithish Bilasunu. Built with React and Tailwind CSS.
+            © 2024 Nithish Bilasunur Manjunatha Reddy. Built with React and Tailwind CSS.
           </p>
         </div>
       </div>

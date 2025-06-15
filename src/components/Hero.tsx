@@ -41,28 +41,29 @@ const Hero = () => {
           {/* Title */}
           <div className="mb-6">
             <p className="text-lg lg:text-xl text-blue-gray font-chivo font-light">
-              Data Scientist & Analytics Expert
+              AWS Certified Solutions Architect | Data Engineer | GMU Graduate
             </p>
             <div className="w-24 h-[1px] bg-light-teal mx-auto lg:mx-0 mt-4"></div>
           </div>
           
           {/* Description */}
           <p className="text-base text-blue-gray mb-10 max-w-2xl mx-auto lg:mx-0 font-chivo font-light leading-relaxed">
-            Transforming data into strategic insights through machine learning, 
-            statistical analysis, and innovative visualization techniques.
+            Turning Cloud & Data into Real-World Impact. Specialized in building scalable cloud-based data 
+            solutions that drive efficiency and measurable business results. Actively seeking full-time opportunities 
+            in data engineering and analytics.
           </p>
           
           {/* Social Links */}
           <div className="flex justify-center lg:justify-start space-x-6 mb-12 hero-social">
-            <a href="https://github.com" target="_blank" rel="noopener noreferrer" 
+            <a href="https://github.com/nithishbm" target="_blank" rel="noopener noreferrer" 
                className="text-blue-gray hover:text-light-teal transition-all duration-300 hover:scale-110 transform will-change-transform">
               <Github size={20} />
             </a>
-            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer"
+            <a href="https://www.linkedin.com/in/nithishbm" target="_blank" rel="noopener noreferrer"
                className="text-blue-gray hover:text-light-teal transition-all duration-300 hover:scale-110 transform will-change-transform">
               <Linkedin size={20} />
             </a>
-            <a href="mailto:nithish.bilasunu@example.com"
+            <a href="mailto:nitheshbethur39@gmail.com"
                className="text-blue-gray hover:text-light-teal transition-all duration-300 hover:scale-110 transform will-change-transform">
               <Mail size={20} />
             </a>
@@ -98,7 +99,7 @@ const Hero = () => {
                     <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
                   </svg>
                 </div>
-                <p className="text-light-teal font-chivo text-xs">Add Your Photo</p>
+                <p className="text-light-teal font-chivo text-xs">Fairfax, VA</p>
               </div>
             </div>
             

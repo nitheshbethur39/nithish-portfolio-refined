@@ -63,7 +63,7 @@ const Projects = () => {
 
   return (
     <section id="projects" className="py-20 px-6 lg:px-8">
-      <div className="max-w-6xl mx-auto">
+      <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16 section-header">
           <div className="flex items-center justify-center gap-3 mb-5">
             <span className="text-3xl">🚀</span>
@@ -79,9 +79,10 @@ const Projects = () => {
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-8">
+        {/* Responsive Grid Layout - Fixed spacing and alignment */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8">
           {projects.map((project, index) => (
-            <div key={index} className="project-card group relative bg-slate-800/50 backdrop-blur-sm rounded-2xl border border-slate-700/50 overflow-hidden hover:border-teal-400/50 transition-all duration-500 hover:transform hover:scale-[1.02] hover:shadow-2xl hover:shadow-teal-400/10">
+            <div key={index} className="project-card group relative bg-slate-800/50 backdrop-blur-sm rounded-2xl border border-slate-700/50 overflow-hidden hover:border-teal-400/50 transition-all duration-500 hover:transform hover:scale-[1.02] hover:shadow-2xl hover:shadow-teal-400/10 flex flex-col">
               
               {/* Status Badge */}
               <div className="absolute top-4 right-4 z-10">
@@ -95,7 +96,7 @@ const Projects = () => {
               </div>
 
               {/* Image Section */}
-              <div className="relative overflow-hidden h-48">
+              <div className="relative overflow-hidden h-48 flex-shrink-0">
                 <img 
                   src={project.image} 
                   alt={project.title}
@@ -116,21 +117,21 @@ const Projects = () => {
                 </div>
               </div>
               
-              {/* Content Section */}
-              <div className="p-6">
+              {/* Content Section - Flex grow to fill remaining space */}
+              <div className="p-6 flex-grow flex flex-col">
                 {/* Header */}
                 <div className="flex items-start justify-between mb-4">
-                  <h3 className="text-xl font-semibold text-white group-hover:text-teal-400 transition-colors duration-300 leading-tight">
+                  <h3 className="text-xl font-semibold text-white group-hover:text-teal-400 transition-colors duration-300 leading-tight flex-grow">
                     {project.title}
                   </h3>
-                  <div className="flex items-center text-sm text-gray-400 ml-4">
+                  <div className="flex items-center text-sm text-gray-400 ml-4 flex-shrink-0">
                     <Calendar size={14} className="mr-2" />
-                    {project.date}
+                    <span className="whitespace-nowrap">{project.date}</span>
                   </div>
                 </div>
                 
                 {/* Description */}
-                <p className="text-gray-400 mb-6 leading-relaxed">
+                <p className="text-gray-400 mb-6 leading-relaxed flex-grow">
                   {project.description}
                 </p>
                 
@@ -144,7 +145,7 @@ const Projects = () => {
                 </div>
                 
                 {/* Action Buttons */}
-                <div className="flex items-center justify-between">
+                <div className="flex items-center justify-between mt-auto">
                   <Link to={`/project/${project.id}`}
                      className="inline-flex items-center space-x-2 text-gray-300 hover:text-teal-400 font-medium group-hover:translate-x-1 transition-all duration-300">
                     <Code size={16} />

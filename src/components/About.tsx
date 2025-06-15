@@ -5,27 +5,27 @@ const About = () => {
   const highlights = [
     {
       icon: Brain,
-      emoji: "🤖",
-      title: "Machine Learning",
-      description: "Expert in developing predictive models and AI solutions"
+      emoji: "☁️",
+      title: "Cloud Architecture",
+      description: "AWS Certified Solutions Architect with expertise in scalable cloud solutions"
     },
     {
       icon: Database,
-      emoji: "📊",
+      emoji: "🔧",
       title: "Data Engineering", 
-      description: "Building robust data pipelines and ETL processes"
+      description: "Building robust ETL pipelines and real-time data processing systems"
     },
     {
       icon: TrendingUp,
-      emoji: "📈",
-      title: "Business Analytics",
-      description: "Converting complex data into strategic business insights"
+      emoji: "📊",
+      title: "Business Impact",
+      description: "Delivering measurable results: 40% cost reduction, 99.9% data accuracy"
     },
     {
       icon: Code,
-      emoji: "💻",
-      title: "Statistical Programming",
-      description: "Proficient in Python, R, SQL, and advanced analytics tools"
+      emoji: "⚡",
+      title: "Automation & Analytics",
+      description: "Streamlining workflows with Python, SQL, and advanced analytics tools"
     }
   ];
 
@@ -34,7 +34,7 @@ const About = () => {
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16 section-header">
           <div className="flex items-center justify-center gap-3 mb-5">
-            <span className="text-3xl">👨‍💻</span>
+            <span className="text-3xl">🚀</span>
             <h2 className="text-3xl lg:text-4xl font-bold bg-gradient-to-r from-light-teal to-blue-gray bg-clip-text text-transparent">
               About Me
             </h2>
@@ -47,21 +47,22 @@ const About = () => {
           <div className="space-y-6 about-content">
             <div className="space-y-5">
               <p className="text-base text-light-gray leading-relaxed">
-                <span className="text-xl mr-2">🚀</span>
-                I'm a passionate data scientist with over 3 years of experience in transforming 
-                complex datasets into actionable business insights. My expertise spans machine learning, 
-                statistical analysis, and data visualization.
+                <span className="text-xl mr-2">🎓</span>
+                I'm a recent Master's graduate in Data Analytics Engineering from George Mason University and 
+                an AWS Certified Solutions Architect. I specialize in building scalable cloud-based data solutions 
+                that drive efficiency and measurable business impact.
+              </p>
+              <p className="text-base text-light-gray leading-relaxed">
+                <span className="text-xl mr-2">💡</span>
+                From automating EC2 backups with SmartVault (cutting costs by 40%) to engineering real-time 
+                pipelines with Kafka, Glue, and Athena, I bring hands-on experience in data engineering, 
+                analytics, and cloud architecture across healthcare, aerospace, and manufacturing sectors.
               </p>
               <p className="text-base text-light-gray leading-relaxed">
                 <span className="text-xl mr-2">🎯</span>
-                I specialize in building end-to-end data solutions, from data collection and preprocessing 
-                to model deployment and business intelligence dashboards. My goal is to bridge the gap 
-                between raw data and strategic decision-making.
-              </p>
-              <p className="text-base text-light-gray leading-relaxed">
-                <span className="text-xl mr-2">🌟</span>
-                When I'm not analyzing data, you'll find me exploring new technologies, contributing to 
-                open-source projects, or sharing knowledge through technical writing and mentoring.
+                I'm passionate about using cloud tools to solve real business problems — whether it's streamlining 
+                workflows, enhancing compliance, or creating actionable insights. Currently seeking full-time 
+                opportunities in data engineering and analytics roles.
               </p>
             </div>
             
