@@ -1,4 +1,3 @@
-
 import { ArrowDown, Github, Linkedin, Mail, Download } from 'lucide-react';
 
 const Hero = () => {
@@ -53,19 +52,27 @@ const Hero = () => {
             in data engineering and analytics.
           </p>
           
-          {/* Social Links - Fixed with explicit icon rendering */}
-          <div className="flex justify-center lg:justify-start space-x-6 mb-12 hero-social">
+          {/* Social Links - Repositioned with jitter animation */}
+          <div className="flex justify-center lg:justify-start space-x-6 mb-8 hero-social">
             <a href="https://github.com/nithishbm" target="_blank" rel="noopener noreferrer" 
-               className="text-blue-gray hover:text-light-teal transition-all duration-300 hover:scale-110 transform will-change-transform flex items-center justify-center w-10 h-10">
-              <Github size={20} className="block" />
+               className="text-blue-gray hover:text-light-teal transition-all duration-300 hover:scale-110 transform will-change-transform flex items-center justify-center w-12 h-12 animate-jitter"
+               aria-label="Visit my GitHub profile">
+              <Github size={24} className="block" />
             </a>
             <a href="https://www.linkedin.com/in/nithishbm" target="_blank" rel="noopener noreferrer"
-               className="text-blue-gray hover:text-light-teal transition-all duration-300 hover:scale-110 transform will-change-transform flex items-center justify-center w-10 h-10">
-              <Linkedin size={20} className="block" />
+               className="text-blue-gray hover:text-light-teal transition-all duration-300 hover:scale-110 transform will-change-transform flex items-center justify-center w-12 h-12 animate-jitter"
+               aria-label="Visit my LinkedIn profile">
+              <Linkedin size={24} className="block" />
             </a>
+          </div>
+
+          {/* Contact Email Link */}
+          <div className="flex justify-center lg:justify-start mt-8">
             <a href="mailto:nitheshbethur39@gmail.com"
-               className="text-blue-gray hover:text-light-teal transition-all duration-300 hover:scale-110 transform will-change-transform flex items-center justify-center w-10 h-10">
-              <Mail size={20} className="block" />
+               className="text-blue-gray hover:text-light-teal transition-all duration-300 flex items-center space-x-2 text-sm"
+               aria-label="Send me an email">
+              <Mail size={16} />
+              <span>nitheshbethur39@gmail.com</span>
             </a>
           </div>
 
