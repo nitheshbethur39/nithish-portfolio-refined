@@ -1,5 +1,5 @@
 
-import { Github, ExternalLink, ArrowRight } from 'lucide-react';
+import { Github, ExternalLink, ArrowRight, Calendar, Code } from 'lucide-react';
 
 const Projects = () => {
   const projects = [
@@ -9,7 +9,9 @@ const Projects = () => {
       tech: ["Python", "Scikit-learn", "Pandas", "XGBoost"],
       image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=400&fit=crop",
       github: "#",
-      demo: "#"
+      demo: "#",
+      date: "2024",
+      status: "Completed"
     },
     {
       title: "Real-time Sales Analytics Dashboard",
@@ -17,7 +19,9 @@ const Projects = () => {
       tech: ["Python", "Streamlit", "PostgreSQL", "Plotly"],
       image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop",
       github: "#",
-      demo: "#"
+      demo: "#",
+      date: "2024",
+      status: "In Progress"
     },
     {
       title: "NLP Sentiment Analysis System",
@@ -25,7 +29,9 @@ const Projects = () => {
       tech: ["Python", "NLTK", "Transformers", "FastAPI"],
       image: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=600&h=400&fit=crop",
       github: "#",
-      demo: "#"
+      demo: "#",
+      date: "2023",
+      status: "Completed"
     },
     {
       title: "Supply Chain Optimization",
@@ -33,74 +39,124 @@ const Projects = () => {
       tech: ["Python", "OR-Tools", "Pandas", "Matplotlib"],
       image: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=600&h=400&fit=crop",
       github: "#",
-      demo: "#"
+      demo: "#",
+      date: "2023",
+      status: "Completed"
     }
   ];
 
   return (
-    <section id="projects" className="py-16 px-6 lg:px-8 bg-slate-900/50">
+    <section id="projects" className="py-12 px-6 lg:px-8 bg-slate-900/50">
       <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl lg:text-4xl font-chivo font-medium mb-4 text-light-gray">
+        <div className="text-center mb-10">
+          <h2 className="text-2xl lg:text-3xl font-chivo font-medium mb-3 text-light-gray">
             Featured Projects
           </h2>
-          <div className="w-20 h-[1px] bg-light-teal mx-auto mb-6"></div>
-          <p className="text-base text-blue-gray max-w-3xl mx-auto font-chivo font-light">
+          <div className="w-16 h-[1px] bg-light-teal mx-auto mb-4"></div>
+          <p className="text-sm text-blue-gray max-w-2xl mx-auto font-chivo font-light">
             Explore my latest data science and analytics projects that demonstrate practical applications 
             of machine learning and statistical analysis.
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-6">
+        <div className="grid lg:grid-cols-2 gap-5">
           {projects.map((project, index) => (
-            <div key={index} className="group bg-slate-800/30 backdrop-blur-sm rounded-2xl border border-custom-medium/50 overflow-hidden hover:border-light-teal/50 transition-all duration-500 hover:transform hover:scale-[1.02]">
-              <div className="relative overflow-hidden">
+            <div key={index} className="group relative bg-gradient-to-br from-slate-800/40 to-slate-800/20 backdrop-blur-sm rounded-xl border border-custom-medium/30 overflow-hidden hover:border-light-teal/40 transition-all duration-500 hover:transform hover:scale-[1.02] hover:shadow-2xl hover:shadow-light-teal/10">
+              
+              {/* Status Badge */}
+              <div className="absolute top-3 right-3 z-10">
+                <span className={`text-xs font-chivo font-medium px-2 py-1 rounded-full ${
+                  project.status === 'Completed' 
+                    ? 'bg-green-500/20 text-green-400 border border-green-500/30' 
+                    : 'bg-yellow-500/20 text-yellow-400 border border-yellow-500/30'
+                }`}>
+                  {project.status}
+                </span>
+              </div>
+
+              {/* Image Section */}
+              <div className="relative overflow-hidden h-40">
                 <img 
                   src={project.image} 
                   alt={project.title}
-                  className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-700"
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 to-transparent"></div>
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/50 to-transparent"></div>
+                
+                {/* Floating Action Buttons */}
+                <div className="absolute top-3 left-3 flex space-x-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <a href={project.github} target="_blank" rel="noopener noreferrer"
+                     className="w-8 h-8 bg-custom-dark/80 backdrop-blur-sm rounded-lg flex items-center justify-center text-light-gray hover:text-light-teal hover:bg-custom-dark transition-all duration-300 hover:scale-110">
+                    <Github size={14} />
+                  </a>
+                  <a href={project.demo} target="_blank" rel="noopener noreferrer"
+                     className="w-8 h-8 bg-custom-dark/80 backdrop-blur-sm rounded-lg flex items-center justify-center text-light-gray hover:text-light-teal hover:bg-custom-dark transition-all duration-300 hover:scale-110">
+                    <ExternalLink size={14} />
+                  </a>
+                </div>
               </div>
               
-              <div className="p-6">
-                <div className="flex items-center justify-between mb-3">
-                  <div className="flex space-x-3">
-                    <a href={project.github} target="_blank" rel="noopener noreferrer"
-                       className="text-blue-gray hover:text-light-teal transition-colors duration-300">
-                      <Github size={18} />
-                    </a>
-                    <a href={project.demo} target="_blank" rel="noopener noreferrer"
-                       className="text-blue-gray hover:text-light-teal transition-colors duration-300">
-                      <ExternalLink size={18} />
-                    </a>
+              {/* Content Section */}
+              <div className="p-5">
+                {/* Header */}
+                <div className="flex items-start justify-between mb-3">
+                  <h3 className="text-base font-chivo font-medium text-light-gray group-hover:text-light-teal transition-colors duration-300 line-clamp-2">
+                    {project.title}
+                  </h3>
+                  <div className="flex items-center text-xs text-blue-gray ml-3">
+                    <Calendar size={12} className="mr-1" />
+                    {project.date}
                   </div>
                 </div>
                 
-                <h3 className="text-lg font-chivo font-medium mb-3 text-light-gray group-hover:text-light-teal transition-colors duration-300">
-                  {project.title}
-                </h3>
-                
-                <p className="text-blue-gray mb-4 leading-relaxed font-chivo font-light text-sm">
+                {/* Description */}
+                <p className="text-blue-gray mb-4 leading-relaxed font-chivo font-light text-xs line-clamp-3">
                   {project.description}
                 </p>
                 
-                <div className="flex flex-wrap gap-2 mb-4">
+                {/* Tech Stack */}
+                <div className="flex flex-wrap gap-1.5 mb-4">
                   {project.tech.map((tech, techIndex) => (
-                    <span key={techIndex} className="text-xs font-chivo font-medium text-light-gray bg-custom-dark/50 px-3 py-1 rounded-full">
+                    <span key={techIndex} className="text-xs font-chivo font-medium text-light-teal bg-light-teal/10 border border-light-teal/20 px-2 py-0.5 rounded-md">
                       {tech}
                     </span>
                   ))}
                 </div>
                 
-                <a href={project.demo} target="_blank" rel="noopener noreferrer"
-                   className="inline-flex items-center space-x-2 text-blue-gray hover:text-light-teal font-chivo font-medium group-hover:translate-x-2 transition-all duration-300 text-sm">
-                  <span>View Project</span>
-                  <ArrowRight size={14} />
-                </a>
+                {/* Action Buttons */}
+                <div className="flex items-center justify-between">
+                  <a href={project.demo} target="_blank" rel="noopener noreferrer"
+                     className="inline-flex items-center space-x-2 text-blue-gray hover:text-light-teal font-chivo font-medium group-hover:translate-x-1 transition-all duration-300 text-xs">
+                    <Code size={12} />
+                    <span>View Project</span>
+                    <ArrowRight size={12} />
+                  </a>
+                  
+                  <div className="flex space-x-2">
+                    <a href={project.github} target="_blank" rel="noopener noreferrer"
+                       className="w-7 h-7 bg-custom-medium/20 rounded-lg flex items-center justify-center text-blue-gray hover:text-light-teal hover:bg-light-teal/10 transition-all duration-300">
+                      <Github size={12} />
+                    </a>
+                    <a href={project.demo} target="_blank" rel="noopener noreferrer"
+                       className="w-7 h-7 bg-custom-medium/20 rounded-lg flex items-center justify-center text-blue-gray hover:text-light-teal hover:bg-light-teal/10 transition-all duration-300">
+                      <ExternalLink size={12} />
+                    </a>
+                  </div>
+                </div>
               </div>
+
+              {/* Hover Overlay Effect */}
+              <div className="absolute inset-0 bg-gradient-to-r from-light-teal/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
             </div>
           ))}
+        </div>
+
+        {/* View All Projects Button */}
+        <div className="text-center mt-8">
+          <a href="#" className="inline-flex items-center space-x-2 bg-gradient-to-r from-light-teal/20 to-light-teal/10 border border-light-teal/30 text-light-teal font-chivo font-medium px-5 py-2.5 rounded-lg hover:from-light-teal/30 hover:to-light-teal/20 hover:border-light-teal/50 transition-all duration-300 hover:scale-105 text-sm">
+            <span>View All Projects</span>
+            <ArrowRight size={14} />
+          </a>
         </div>
       </div>
     </section>
