@@ -165,6 +165,14 @@
     .parallax-bg {
       transform: none !important;
     }
+
+    .shimmer-text {
+      background: #EAEFEF !important;
+      -webkit-background-clip: unset !important;
+      background-clip: unset !important;
+      color: #EAEFEF !important;
+      animation: none !important;
+    }
   }
 
   /* Smooth page transitions */
@@ -177,6 +185,33 @@
     opacity: 1;
     transform: translate3d(0, 0, 0);
     transition: opacity 600ms ease-out, transform 600ms ease-out;
+  }
+
+  /* Shimmer effect for name highlighting */
+  .shimmer-text {
+    background: linear-gradient(
+      110deg,
+      #EAEFEF 25%,
+      #ffffff 37%,
+      #B8CFCE 50%,
+      #ffffff 63%,
+      #EAEFEF 75%
+    );
+    background-size: 400% 100%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: shimmer 3.5s ease-in-out infinite;
+    will-change: background-position;
+  }
+
+  @keyframes shimmer {
+    0% {
+      background-position: 200% 0;
+    }
+    100% {
+      background-position: -200% 0;
+    }
   }
 }
 

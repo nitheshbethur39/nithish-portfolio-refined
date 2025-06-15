@@ -29,11 +29,13 @@ const Hero = () => {
       <div className="max-w-6xl mx-auto flex flex-col lg:flex-row items-center justify-between gap-12 relative z-10">
         {/* Content Section */}
         <div className="lg:w-2/3 text-center lg:text-left hero-content">
-          {/* Name */}
-          <h1 className="text-4xl lg:text-5xl font-chivo font-light mb-6 text-light-gray leading-tight">
-            Nithish Bilasunur
-            <br />
-            <span className="font-medium">Manjunatha Reddy</span>
+          {/* Name with shimmer effect */}
+          <h1 className="text-4xl lg:text-5xl font-chivo font-light mb-6 leading-tight">
+            <span className="shimmer-text">
+              Nithish Bilasunur
+              <br />
+              Manjunatha Reddy
+            </span>
           </h1>
           
           {/* Title */}
