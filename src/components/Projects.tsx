@@ -67,43 +67,6 @@ const Projects = () => {
       date: "Jun 2019 - Aug 2019",
       status: "Completed",
       category: "analytics"
-    },
-    // Dummy placeholder projects
-    {
-      id: 'e-commerce-analytics',
-      title: "E-commerce Customer Analytics Platform",
-      description: "Built comprehensive customer behavior analytics platform with real-time recommendation engine and churn prediction models, improving customer retention by 35% and increasing revenue by 22%.",
-      tech: ["Python", "Apache Kafka", "TensorFlow", "React", "MongoDB"],
-      image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&h=400&fit=crop",
-      github: "#",
-      demo: "#",
-      date: "Coming Soon",
-      status: "Coming Soon",
-      category: "analytics"
-    },
-    {
-      id: 'serverless-microservices',
-      title: "Serverless Microservices Architecture",
-      description: "Designed and implemented cloud-native microservices architecture using AWS Lambda and API Gateway, reducing operational costs by 60% and improving system scalability by 300%.",
-      tech: ["AWS Lambda", "API Gateway", "DynamoDB", "CloudFormation", "Node.js"],
-      image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=600&h=400&fit=crop",
-      github: "#",
-      demo: "#",
-      date: "Coming Soon",
-      status: "Coming Soon",
-      category: "cloud"
-    },
-    {
-      id: 'realtime-fraud-detection',
-      title: "Real-time Fraud Detection System",
-      description: "Developed ML-powered fraud detection system processing 1M+ transactions daily with 99.8% accuracy and sub-second response times, preventing $2.5M in fraudulent activities annually.",
-      tech: ["Python", "Apache Spark", "Kafka", "Redis", "Scikit-learn"],
-      image: "https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=600&h=400&fit=crop",
-      github: "#",
-      demo: "#",
-      date: "Coming Soon",
-      status: "Coming Soon",
-      category: "analytics"
     }
   ];
 
