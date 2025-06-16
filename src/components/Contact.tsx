@@ -26,8 +26,8 @@ const Contact = () => {
     {
       icon: Mail,
       label: "Email",
-      value: "nitheshbethur39@gmail.com",
-      href: "mailto:nitheshbethur39@gmail.com"
+      value: "nbilasun@gmu.edu",
+      href: "mailto:nbilasun@gmu.edu"
     },
     {
       icon: Linkedin,
@@ -39,7 +39,7 @@ const Contact = () => {
       icon: Github,
       label: "GitHub",
       value: "github.com/nithishbm",
-      href: "https://github.com/nithishbm"
+      href: "https://github.com/nitheshbethur39"
     },
     {
       icon: Phone,
@@ -52,12 +52,6 @@ const Contact = () => {
       label: "Location",
       value: "3917 Fairfax Square, Fairfax, VA 22031",
       href: "#"
-    },
-    {
-      icon: ExternalLink,
-      label: "Portfolio",
-      value: "nithishbilasunurportfolio.framer.website",
-      href: "https://nithishbilasunurportfolio.framer.website/"
     }
   ];
 
