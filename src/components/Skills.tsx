@@ -74,18 +74,18 @@ const Skills = () => {
   const getLevelColor = (level: string) => {
     switch (level) {
       case "Expert":
-        return "bg-emerald-100 text-emerald-800 dark:bg-emerald-900/30 dark:text-emerald-300";
+        return "bg-emerald-900/30 text-emerald-300";
       case "Advanced":
-        return "bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-300";
+        return "bg-blue-900/30 text-blue-300";
       case "Intermediate":
-        return "bg-amber-100 text-amber-800 dark:bg-amber-900/30 dark:text-amber-300";
+        return "bg-amber-900/30 text-amber-300";
       default:
-        return "bg-gray-100 text-gray-800 dark:bg-gray-800 dark:text-gray-300";
+        return "bg-gray-800 text-gray-300";
     }
   };
 
   return (
-    <section id="skills" className="py-16 px-6 lg:px-8 bg-white dark:bg-gray-900">
+    <section id="skills" className="py-16 px-6 lg:px-8 bg-gray-900">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16 section-header">
           <div className="flex items-center justify-center gap-3 mb-5">
@@ -96,7 +96,7 @@ const Skills = () => {
             <span className="text-3xl">🛠️</span>
           </div>
           <div className="w-24 h-1 bg-gradient-to-r from-light-teal to-blue-gray mx-auto mb-8 rounded-full"></div>
-          <p className="text-base text-gray-600 dark:text-gray-300 max-w-3xl mx-auto font-chivo">
+          <p className="text-base text-gray-300 max-w-3xl mx-auto font-chivo">
             Comprehensive expertise across cloud architecture, data engineering, and analytics — 
             from AWS infrastructure to machine learning model deployment.
           </p>
@@ -106,13 +106,13 @@ const Skills = () => {
           {skillCategories.map((category, index) => (
             <div 
               key={index} 
-              className="bg-gray-50 dark:bg-gray-800 p-6 rounded-xl border border-gray-200 dark:border-gray-700 hover:shadow-lg transition-all duration-300"
+              className="bg-gray-800 p-6 rounded-xl border border-gray-700 hover:shadow-lg transition-all duration-300"
             >
               <div className="flex items-center mb-4">
-                <div className="w-10 h-10 bg-gray-900 dark:bg-gray-100 rounded-lg flex items-center justify-center mr-3">
-                  <category.icon size={20} className="text-white dark:text-gray-900" />
+                <div className="w-10 h-10 bg-gray-100 rounded-lg flex items-center justify-center mr-3">
+                  <category.icon size={20} className="text-gray-900" />
                 </div>
-                <h3 className="text-lg font-semibold text-gray-900 dark:text-white font-chivo">
+                <h3 className="text-lg font-semibold text-white font-chivo">
                   {category.title}
                 </h3>
               </div>
@@ -120,7 +120,7 @@ const Skills = () => {
               <div className="space-y-2">
                 {category.skills.map((skill, skillIndex) => (
                   <div key={skillIndex} className="flex items-center justify-between">
-                    <span className="text-gray-700 dark:text-gray-300 font-medium font-chivo text-sm">
+                    <span className="text-gray-300 font-medium font-chivo text-sm">
                       {skill.name}
                     </span>
                     <span 

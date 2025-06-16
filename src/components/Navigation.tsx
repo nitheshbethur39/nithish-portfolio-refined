@@ -1,13 +1,11 @@
 
 import { useState, useEffect } from 'react';
-import { Menu, X, Sun, Moon, Download } from 'lucide-react';
-import { useTheme } from './ThemeProvider';
+import { Menu, X, Download } from 'lucide-react';
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState('');
-  const { theme, toggleTheme } = useTheme();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -133,23 +131,10 @@ const Navigation = () => {
               <Download size={14} />
               <span>Resume</span>
             </button>
-            
-            <button
-              onClick={toggleTheme}
-              className="text-slate-300 hover:text-white p-2 rounded-lg hover:bg-slate-800/50 transition-all duration-500 hover:scale-110 transform animate-scale-in delay-800"
-            >
-              {theme === 'dark' ? <Sun size={16} /> : <Moon size={16} />}
-            </button>
           </div>
 
           {/* Mobile menu button */}
-          <div className="md:hidden flex items-center space-x-3">
-            <button
-              onClick={toggleTheme}
-              className="text-slate-300 hover:text-white p-2 transition-all duration-300 hover:scale-110"
-            >
-              {theme === 'dark' ? <Sun size={16} /> : <Moon size={16} />}
-            </button>
+          <div className="md:hidden">
             <button
               onClick={() => setIsOpen(!isOpen)}
               className="text-slate-300 hover:text-white transition-all duration-300 hover:scale-110"
