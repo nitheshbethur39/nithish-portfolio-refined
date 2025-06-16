@@ -71,8 +71,8 @@ const Navigation = () => {
 
   const downloadResume = () => {
     const link = document.createElement('a');
-    link.href = '/resume.pdf';
-    link.download = 'Nithish_Bilasunur_Manjunatha_Reddy_Resume.pdf';
+    link.href = '/resume/NithishResume.pdf';
+    link.download = 'Nithish_Resume.pdf';
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);

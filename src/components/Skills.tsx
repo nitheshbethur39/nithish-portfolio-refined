@@ -30,7 +30,6 @@ const Skills = () => {
         { name: "Data Warehousing", level: "Expert" },
         { name: "PostgreSQL", level: "Expert" },
         { name: "MySQL", level: "Advanced" },
-        { name: "Apache Airflow", level: "Intermediate" }
       ]
     },
     {
