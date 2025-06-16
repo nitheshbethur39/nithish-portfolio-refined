@@ -72,7 +72,7 @@ const Hero = () => {
                className="text-blue-gray hover:text-light-teal transition-all duration-300 flex items-center space-x-2 text-sm"
                aria-label="Send me an email">
               <Mail size={16} />
-              <span>nitheshbethur39@gmail.com</span>
+              <span>nbilasun@gmu.edu</span>
             </a>
           </div>
 

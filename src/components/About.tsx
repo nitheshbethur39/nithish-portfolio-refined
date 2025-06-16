@@ -73,11 +73,11 @@ const About = () => {
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <div className="flex items-center gap-2">
                 <Mail size={16} className="text-light-teal" />
-                <a href="mailto:nitheshbethur39@gmail.com" 
+                <a href="mailto:nbilasun@gmu.edu" 
                    className={`hover:text-light-teal transition-colors duration-300 ${
                      theme === 'dark' ? 'text-light-gray' : 'text-slate-700'
                    }`}>
-                  nitheshbethur39@gmail.com
+                  nbilasun@gmu.edu
                 </a>
               </div>
               <div className="flex items-center gap-2">
