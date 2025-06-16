@@ -40,9 +40,9 @@ const Hero = () => {
           {/* Title */}
           <div className="mb-6">
             <p className="text-lg lg:text-xl text-blue-gray font-chivo font-light">
-              Data Engineer | Data Analyst | Data Scientist | AWS Certified
+              Building smarter systems through data, cloud, and curiosity
             </p>
-            <div className="w-24 h-[1px] bg-light-teal mx-auto lg:mx-0 mt-4"></div>
+            <div className="w-60  h-[1px] bg-light-teal mx-auto lg:mx-0 mt-4"></div>
           </div>
           
           {/* Description */}
@@ -116,12 +116,7 @@ const Hero = () => {
         </div>
       </div>
 
-      {/* Scroll Indicator */}
-      <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2">
-        <div className="w-5 h-10 border border-blue-gray rounded-full flex justify-center">
-          <div className="w-1 h-2 bg-light-teal rounded-full mt-2"></div>
-        </div>
-      </div>
+
     </section>
   );
 };

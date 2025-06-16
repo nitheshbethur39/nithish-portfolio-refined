@@ -9,9 +9,7 @@ const Skills = () => {
       skills: [
         { name: "Python", level: "Expert" },
         { name: "SQL", level: "Expert" },
-        { name: "R", level: "Advanced" },
-        { name: "JavaScript", level: "Intermediate" },
-        { name: "Java", level: "Intermediate" }
+        { name: "R", level: "Begineer" }
       ]
     },
     {
@@ -20,9 +18,8 @@ const Skills = () => {
       skills: [
         { name: "AWS", level: "Expert" },
         { name: "Apache Spark", level: "Advanced" },
-        { name: "Databricks", level: "Advanced" },
-        { name: "Apache Kafka", level: "Advanced" },
-        { name: "Informatica", level: "Advanced" }
+        { name: "Databricks", level: "Beginner" },
+        { name: "Apache Kafka", level: "Advanced" }
       ]
     },
     {
@@ -33,7 +30,7 @@ const Skills = () => {
         { name: "Data Warehousing", level: "Expert" },
         { name: "PostgreSQL", level: "Expert" },
         { name: "MySQL", level: "Advanced" },
-        { name: "Apache Airflow", level: "Advanced" }
+        { name: "Apache Airflow", level: "Intermediate" }
       ]
     },
     {
@@ -42,9 +39,7 @@ const Skills = () => {
       skills: [
         { name: "Tableau", level: "Expert" },
         { name: "AWS QuickSight", level: "Advanced" },
-        { name: "Statistical Models", level: "Advanced" },
-        { name: "Power BI", level: "Intermediate" },
-        { name: "D3.js", level: "Intermediate" }
+        { name: "Statistical Models", level: "Advanced" }
       ]
     },
     {
@@ -64,7 +59,6 @@ const Skills = () => {
       skills: [
         { name: "Git/GitHub", level: "Expert" },
         { name: "pytest", level: "Advanced" },
-        { name: "Docker", level: "Advanced" },
         { name: "React", level: "Advanced" },
         { name: "Vercel", level: "Advanced" }
       ]

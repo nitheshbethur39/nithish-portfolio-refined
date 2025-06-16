@@ -20,8 +20,7 @@ const Education = () => {
     title: "AWS Certified Solutions Architect - Associate",
     issuer: "Amazon Web Services",
     year: "2025",
-    emoji: "☁️",
-    badge: "/lovable-uploads/aws.png",
+    Image: "/images/aws.png",
     link: "https://www.credly.com/badges/d50342c8-f2af-4d96-8e7e-05db74ca838f"
   }];
   return <section id="education" className="py-20 px-6 lg:px-8 bg-gradient-to-b from-slate-900 to-slate-950">
