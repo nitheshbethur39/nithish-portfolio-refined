@@ -122,7 +122,7 @@ const About = () => {
             </div>
             
             <div className="pt-6 text-center">
-              <a href="/resume.pdf" target="_blank" rel="noopener noreferrer"
+              <a href="/resume/NithishResume.pdf" target="_blank" rel="noopener noreferrer"
                  className="group inline-flex items-center space-x-3 bg-gradient-to-r from-light-teal to-blue-gray hover:from-light-teal/80 hover:to-blue-gray/80 px-8 py-4 rounded-xl text-white font-bold text-base transition-all duration-500 hover:scale-105 hover:shadow-xl hover:shadow-light-teal/30 transform will-change-transform">
                 <span className="text-lg group-hover:rotate-12 transition-transform duration-300">📄</span>
                 <span>Download Resume</span>
@@ -170,30 +170,26 @@ const About = () => {
                 theme === 'dark' ? 'text-light-gray' : 'text-slate-700'
               }`}>
                 <span className="text-xl mr-2">🎓</span>
-                I'm a recent Master's graduate in Data Analytics Engineering from George Mason University and 
-                an AWS Certified Solutions Architect. I specialize in building scalable cloud-based data solutions 
-                that drive efficiency and measurable business impact.
+                 I’m a Data Engineer with a Master’s in Data Analytics Engineering from GMU, 
+                 where I focused on building scalable pipelines and solving real-world problems with data.
+              </p>
+              <p className={`text-lg leading-relaxed ${
+                theme === 'dark' ? 'text-light-gray' : 'text-slate-700'
+              }`}>
+                <span className="text-xl mr-2">⚙️</span>
+                 I’ve worked across healthcare, aerospace, and manufacturing - building real-time systems, predictive models, and cost-effective ETL workflows using Python and SQL.
               </p>
               <p className={`text-lg leading-relaxed ${
                 theme === 'dark' ? 'text-light-gray' : 'text-slate-700'
               }`}>
                 <span className="text-xl mr-2">💡</span>
-                From automating EC2 backups with SmartVault (cutting costs by 40%) to engineering real-time 
-                pipelines with Kafka, Glue, and Athena, I bring hands-on experience in data engineering, 
-                analytics, and cloud architecture across healthcare, aerospace, and manufacturing sectors.
-              </p>
-              <p className={`text-lg leading-relaxed ${
-                theme === 'dark' ? 'text-light-gray' : 'text-slate-700'
-              }`}>
-                <span className="text-xl mr-2">🎯</span>
-                I'm passionate about using cloud tools to solve real business problems — whether it's streamlining 
-                workflows, enhancing compliance, or creating actionable insights. Currently seeking full-time 
-                opportunities in data engineering and analytics roles.
+               I love turning messy data into useful insights and finding smarter ways to make systems work better. 
+               Open to full-time roles where I can keep building meaningful, data-driven solutions.
               </p>
             </div>
             
             <div className="pt-8">
-              <a href="/resume.pdf" target="_blank" rel="noopener noreferrer"
+              <a href="/resume/NithishResume_DE.pdf" target="_blank" rel="noopener noreferrer"
                  className="group inline-flex items-center space-x-3 bg-gradient-to-r from-light-teal to-blue-gray hover:from-light-teal/80 hover:to-blue-gray/80 px-8 py-4 rounded-xl text-white font-bold text-base transition-all duration-500 hover:scale-105 hover:shadow-xl hover:shadow-light-teal/30 transform will-change-transform">
                 <span className="text-lg group-hover:rotate-12 transition-transform duration-300">📄</span>
                 <span>Download Resume</span>

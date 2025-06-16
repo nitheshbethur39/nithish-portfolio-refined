@@ -118,7 +118,7 @@ const Experience = () => {
                         <img 
                           src={exp.logo} 
                           alt={`${exp.company} logo`}
-                          className="w-8 h-8 rounded-lg object-cover border border-light-teal/20"
+                          className="w-12 h-12 rounded-lg object-cover border border-light-teal/20"
                           onError={(e) => {
                             e.currentTarget.style.display = 'none';
                             const fallback = e.currentTarget.nextElementSibling as HTMLDivElement;
@@ -126,10 +126,10 @@ const Experience = () => {
                           }}
                         />
                         <div className="w-8 h-8 bg-gradient-to-br from-light-teal to-blue-gray rounded-lg hidden items-center justify-center">
-                          <Building size={16} className="text-white" />
+                          <Building size={18} className="text-white" />
                         </div>
                       </div>
-                      <span className={`font-medium text-sm ${
+                      <span className={`font-medium text-lg ${
                         theme === 'dark' ? 'text-light-teal' : 'text-blue-gray'
                       }`}>{exp.company}</span>
                     </div>
