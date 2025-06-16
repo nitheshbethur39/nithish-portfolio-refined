@@ -9,7 +9,7 @@ const Experience = () => {
     {
       title: "Data Engineer - Center for Air Transportation Systems Research",
       company: "George Mason University",
-      logo: "https://images.unsplash.com/photo-1501854140801-50d01698950b?w=100&h=100&fit=crop&crop=center",
+      logo: "/images/gmu.jpg",
       location: "Fairfax, Virginia",
       period: "January 2025 - May 2025",
       description: [
@@ -23,7 +23,7 @@ const Experience = () => {
     {
       title: "Data Engineer",
       company: "Manuh Solutions",
-      logo: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?w=100&h=100&fit=crop&crop=center",
+      logo: "/images/manuh.jpg",
       location: "Bengaluru, Karnataka, India",
       period: "November 2020 - June 2023",
       description: [
@@ -37,7 +37,7 @@ const Experience = () => {
     {
       title: "Data Analyst",
       company: "Bharat Electronics Limited",
-      logo: "https://images.unsplash.com/photo-1518770660439-4636190af475?w=100&h=100&fit=crop&crop=center",
+      logo: "/images/BEL.png",
       location: "Bengaluru, Karnataka, India",
       period: "December 2019 - September 2020",
       description: [
@@ -51,7 +51,7 @@ const Experience = () => {
     {
       title: "Student Internship",
       company: "Bosch Engineering and Business Solutions",
-      logo: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=100&h=100&fit=crop&crop=center",
+      logo: "/images/bosch.png",
       location: "Bengaluru Area, India",
       period: "June 2019 - August 2019",
       description: [

@@ -1,3 +1,4 @@
+import { link } from 'fs';
 import { GraduationCap, Award } from 'lucide-react';
 const Education = () => {
   const education = [{
@@ -18,9 +19,10 @@ const Education = () => {
   const certifications = [{
     title: "AWS Certified Solutions Architect - Associate",
     issuer: "Amazon Web Services",
-    year: "2024",
+    year: "2025",
     emoji: "☁️",
-    badge: "/lovable-uploads/c2e1de75-4e6c-49f4-a9a1-33699db9705e.png"
+    badge: "/lovable-uploads/aws.png",
+    link: "https://www.credly.com/badges/d50342c8-f2af-4d96-8e7e-05db74ca838f"
   }];
   return <section id="education" className="py-20 px-6 lg:px-8 bg-gradient-to-b from-slate-900 to-slate-950">
       <div className="max-w-7xl mx-auto">

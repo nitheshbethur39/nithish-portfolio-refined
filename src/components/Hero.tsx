@@ -40,21 +40,20 @@ const Hero = () => {
           {/* Title */}
           <div className="mb-6">
             <p className="text-lg lg:text-xl text-blue-gray font-chivo font-light">
-              AWS Certified Solutions Architect | Data Engineer | GMU Graduate
+              Data Engineer | Data Analyst | Data Scientist | AWS Certified
             </p>
             <div className="w-24 h-[1px] bg-light-teal mx-auto lg:mx-0 mt-4"></div>
           </div>
           
           {/* Description */}
           <p className="text-base text-blue-gray mb-10 max-w-2xl mx-auto lg:mx-0 font-chivo font-light leading-relaxed">
-            Turning Cloud & Data into Real-World Impact. Specialized in building scalable cloud-based data 
-            solutions that drive efficiency and measurable business results. Actively seeking full-time opportunities 
-            in data engineering and analytics.
+            Data professional with experience in pipelines, analytics, and modeling. Skilled in Python, SQL, and real-time data. 
+            AWS Certified Solutions Architect with hands-on cloud projects. Master’s in Data Analytics Engineering.
           </p>
           
           {/* Social Links - Repositioned with jitter animation */}
           <div className="flex justify-center lg:justify-start space-x-6 mb-8 hero-social">
-            <a href="https://github.com/nithishbm" target="_blank" rel="noopener noreferrer" 
+            <a href="https://github.com/nitheshbethur39" target="_blank" rel="noopener noreferrer" 
                className="text-blue-gray hover:text-light-teal transition-all duration-300 hover:scale-110 transform will-change-transform flex items-center justify-center w-12 h-12"
                aria-label="Visit my GitHub profile">
               <Github size={24} className="block" />
@@ -64,17 +63,15 @@ const Hero = () => {
                aria-label="Visit my LinkedIn profile">
               <Linkedin size={24} className="block" />
             </a>
-          </div>
-
-          {/* Contact Email Link */}
-          <div className="flex justify-center lg:justify-start mt-8">
-            <a href="mailto:nitheshbethur39@gmail.com"
+            <a href="mailto:nbilasun@gmu.edu"
                className="text-blue-gray hover:text-light-teal transition-all duration-300 flex items-center space-x-2 text-sm"
                aria-label="Send me an email">
-              <Mail size={16} />
-              <span>nbilasun@gmu.edu</span>
+              <Mail size={24} />
+              
             </a>
+
           </div>
+
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start hero-buttons">
@@ -101,7 +98,7 @@ const Hero = () => {
           <div className="relative group">
             <div className="w-64 h-64 lg:w-80 lg:h-80 rounded-full overflow-hidden border-4 border-blue-gray shadow-2xl transition-all duration-500 group-hover:scale-105 transform will-change-transform">
               <img 
-                src="/lovable-uploads/a9115f67-04d5-4f12-9f92-8f8f55bfcea4.png" 
+                src="/images/a9115f67-04d5-4f12-9f92-8f8f55bfcea4.png" 
                 alt="Nithish Bilasunur Manjunatha Reddy - Professional Headshot"
                 className="w-full h-full object-cover"
               />
