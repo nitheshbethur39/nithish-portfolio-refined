@@ -189,7 +189,7 @@ const About = () => {
             </div>
             
             <div className="pt-8">
-              <a href="/resume/NithishResume_DE.pdf" target="_blank" rel="noopener noreferrer"
+              <a href="/resume/NithishResume.pdf" target="_blank" rel="noopener noreferrer"
                  className="group inline-flex items-center space-x-3 bg-gradient-to-r from-light-teal to-blue-gray hover:from-light-teal/80 hover:to-blue-gray/80 px-8 py-4 rounded-xl text-white font-bold text-base transition-all duration-500 hover:scale-105 hover:shadow-xl hover:shadow-light-teal/30 transform will-change-transform">
                 <span className="text-lg group-hover:rotate-12 transition-transform duration-300">📄</span>
                 <span>Download Resume</span>
