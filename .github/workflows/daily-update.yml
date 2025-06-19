@@ -1,0 +1,35 @@
+name: Daily Update
+
+on:
+  schedule:
+    - cron: "0 6 * * *" # Runs every day at midnight UTC
+  workflow_dispatch:
+
+jobs:
+  daily-update:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+
+      - name: Run daily update script
+        run: python daily_update.py
+
+      - name: Configure Git
+        run: |
+          git config user.name "nitheshbethur39"
+          git config user.email "nitheshbethur39@gmail.com"
+
+      - name: Commit and push changes
+        run: |
+          git add daily_update.txt
+          if git diff --cached --quiet; then
+            echo "No changes to commit."
+          else
+            git commit -m "Daily update"
+            git push
