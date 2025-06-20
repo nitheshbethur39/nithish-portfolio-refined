@@ -2,7 +2,7 @@ name: Daily Update
 
 on:
   schedule:
-    - cron: "0 6 * * *" # Runs every day at midnight UTC
+    - cron: "0 6 * * *" # Runs every day at 6 AM UTC
   workflow_dispatch:
 
 jobs:
@@ -28,9 +28,4 @@ jobs:
       - name: Commit and push changes
         run: |
           git add daily_update.txt
-          if git diff --cached --quiet; then
-            echo "No changes to commit."
-          else
-            git commit -m "Daily update"
-            git push
-          fi
+          git diff --cached --quiet && echo "No changes to commit." || (git commit -m "Daily update" && git push)
