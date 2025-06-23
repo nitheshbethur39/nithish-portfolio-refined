@@ -3,70 +3,119 @@ import { Github, ExternalLink, ArrowRight, Calendar, Code } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
+import { Description } from '@radix-ui/react-toast';
 
 const Projects = () => {
-  const [activeTab, setActiveTab] = useState('all');
+  const [activeTab, setActiveTab] = useState(()=>'all');
 
   const projects = [
     {
       id: 'smartvault-backup-automation',
-      title: "SmartVault - AWS EC2 Backup Automation",
-      description: "Automated real-time stock data ingestion and EC2 backup processes using AWS Lambda and EventBridge, reducing manual data collection efforts by 90% and cutting infrastructure costs by 40%.",
-      tech: ["AWS Lambda", "EC2", "S3", "EventBridge", "Python"],
-      image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=600&h=400&fit=crop",
-      github: "#",
+      title: "SmartVault – Automated EC2 Backup & Compliance System",
+      description: "Designed and deployed a fully automated, tag-based backup and compliance system on AWS to manage EC2 volume snapshots with zero manual intervention.",
+      tech: ["AWS Lambda", "EC2", "S3", "EventBridge","SNS","CodePipeline","CloudWatch", "Python"],
+
+      image: "https://images.unsplash.com/photo-1649734926695-1b1664e98842?q=80&w=2662&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      github: "https://github.com/nitheshbethur39/smartvault-backup-system",
       demo: "#",
-      date: "2025",
-      status: "In Progress",
-      category: "cloud"
-    },
-    {
-      id: 'airline-performance-analytics',
-      title: "Airline Performance Analytics & Forecasting",
-      description: "Cleaned and transformed 500,000+ rows of flight data achieving 87% prediction accuracy using ML models. Engineered unified datasets and deployed interactive React dashboards for investor insights.",
-      tech: ["Python", "pandas", "Random Forest", "LSTM", "XGBoost", "React"],
-      image: "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=600&h=400&fit=crop",
-      github: "#",
-      demo: "#",
-      date: "Jan 2025 - May 2025",
-      status: "In Progress",
-      category: "analytics"
-    },
-    {
-      id: 'healthcare-etl-pipeline',
-      title: "Healthcare ETL Pipeline & Data Warehouse",
-      description: "Delivered scalable ETL pipelines for U.S. healthcare provider achieving 99.9% data accuracy. Optimized SQL queries improving execution speed by 30% and reduced pre-deployment issues by 20%.",
-      tech: ["Python", "PostgreSQL", "SQL", "ETL", "Data Warehouse"],
-      image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?w=600&h=400&fit=crop",
-      github: "#",
-      demo: "#",
-      date: "Nov 2020 - Jun 2023",
+      date: "May-2025",
       status: "Completed",
-      category: "cloud"
+      category: "cloud & data engineering"
     },
     {
-      id: 'naval-thermal-monitoring',
-      title: "Naval Thermal Monitoring System",
-      description: "Engineered real-time ETL pipeline for thermal monitoring on Indian Navy vessels, reducing overheating incidents by 30% and energy consumption by 20%. Built Tableau dashboards cutting diagnostics time by 40%.",
-      tech: ["Python", "MySQL", "Tableau", "Real-time ETL", "Statistical Models"],
-      image: "https://images.unsplash.com/photo-1581833971358-2c8b550f87b3?w=600&h=400&fit=crop",
+      id: 'wildrydes-serverless-app',
+      title: "WildRydes: Serverless Ride-Sharing App on AWS",
+      description: "Built a fully serverless ride-sharing app using AWS services like Lambda, API Gateway, DynamoDB, and Cognito. Hosted the frontend on Amplify with CI/CD from GitHub.",
+      tech: ["AWS Lambda", "API Gateway", "DynamoDB", "Cognito", "Amplify", "Node.js"],
+      image: "https://images.unsplash.com/photo-1519241047957-be31d7379a5d?w=600&h=400&fit=crop",
       github: "#",
       demo: "#",
-      date: "Dec 2019 - Sep 2020",
+      date: "June 2025",
       status: "Completed",
-      category: "cloud"
+      category: "cloud & data engineering"
     },
     {
-      id: 'predictive-maintenance-bosch',
-      title: "Predictive Maintenance System",
-      description: "Developed real-time data integration system for Bosch manufacturing plant using SCADA integration and time-series analysis, reducing machine breakdowns by 25% and maintenance costs by 15%.",
-      tech: ["Python", "SQL", "Tableau", "SCADA", "Time-series Analysis"],
-      image: "https://images.unsplash.com/photo-1565008447742-97d5aca24c05?w=600&h=400&fit=crop",
+      id:'rag-chatbot-bedrock',
+      title: "Personalized AI Chatbot with Amazon Bedrock (RAG)",
+      description: "Built a custom chatbot using Retrieval Augmented Generation (RAG) on Amazon Bedrock, trained on personal documents to answer questions about me with high accuracy and context awareness.",
+      longDescription: "This project demonstrates the creation of a personalized AI assistant using Retrieval Augmented Generation (RAG) in Amazon Bedrock. The chatbot was designed to understand and answer questions about my personal profile, knowledge, and experience using documents uploaded to S3. Bedrock’s integration with OpenSearch Serverless and Titan embedding models enabled real-time search and intelligent response generation. The setup included building a Knowledge Base, connecting vector storage, syncing data, and testing with multiple AI models like Llama and Titan.",
+      tech: [
+        "Amazon Bedrock",
+        "RAG (Retrieval Augmented Generation)",
+        "S3",
+        "OpenSearch Serverless",
+        "Titan Embeddings",
+        "Llama 3 Instruct",
+        "IAM Roles"
+      ],
+      image: "https://learn.nextwork.org/projects/static/ai-rag-bedrock/architecture-complete.png",
+      github: "https://github.com/nitheshbethur39/AI-Chatbot-RAG-Amazon-Bedrock",
+      demo: "#",
+      date: "Feb 2025",
+      status: "Completed",
+      duration: "1 week",
+      teamSize: "Solo project",
+      category: "cloud & data engineering",
+    },
+    {
+      id: 'netflix-dashboard-quicksight',
+      title: "Visualizing Netflix Data with Amazon QuickSight",
+      description: "Built an interactive dashboard using Amazon QuickSight to analyze Netflix data stored in S3. Visualized trends in content types, genres, and release years with donut and bar charts.",
+      longDescription: "This project showcases cloud-based data visualization using Amazon QuickSight. The dataset was stored in Amazon S3 and connected to QuickSight via a manifest file. The dashboard highlights key metrics such as the number of movies and TV shows by year, genre distribution, and content trends. Filters were applied for precise insights, and the final dashboard was exported as a PDF for sharing. The project involved hands-on work with AWS permissions, dataset configuration, and QuickSight's interactive charting features.",
+      tech: ["Amazon QuickSight", "Amazon S3", "AWS", "Data Visualization"],
+      image:"/images/netflix-dashboard.png", // Replace with S3-hosted preview if available
       github: "#",
       demo: "#",
-      date: "Jun 2019 - Aug 2019",
+      date: "Feb 2025",
       status: "Completed",
-      category: "analytics"
+      duration: "1 hour",
+      teamSize: "Solo project",
+      category: "data visualization & analytics"
+    },
+    {
+      id: 'kafka-stock-data-pipeline',
+      title: "Kafka Stock Market Data Pipeline with AWS",
+      description: "Built a real-time stock market data pipeline using Apache Kafka, AWS S3, Glue, and Athena. Simulated data was streamed via Kafka and stored in S3 for analysis using Athena.",
+      longDescription: "This project demonstrates the development of a real-time stock market data pipeline using Apache Kafka and AWS services. Simulated stock data is sent via a Kafka producer hosted on an EC2 instance. A Kafka consumer fetches the data and stores it in an S3 bucket. AWS Glue is used to catalog the data, and AWS Athena enables SQL-based querying. The pipeline enables end-to-end data ingestion, storage, metadata extraction, and analysis.",
+      tech: ["Python", "Apache Kafka", "AWS EC2", "AWS S3", "AWS Glue", "AWS Athena", "pandas", "kafka-python", "boto3"],
+      image: "/images/kafka.png", // Replace with your actual image link if needed
+      github: "https://github.com/nitheshbethur39/Kafka-Stock-Market-Data-Pipeline-Project/tree/main",
+      demo: "#",
+      date: "Jan 2025",
+      status: "Completed",
+      duration: "2 Days",
+      teamSize: "Solo project",
+      category: "cloud & data engineering"
+    },
+    {
+      id: 'airbnb-cost-dashboard',
+      title: "Airbnb Cost Distribution Dashboard with Tableau",
+      description: "Created an interactive dashboard to visualize Airbnb pricing trends across zip codes and property sizes. Highlighted revenue patterns using KPIs and time-series analysis.",
+      longDescription: "This project involves analyzing Airbnb listings to identify pricing trends based on location (zipcode) and the number of bedrooms. Built using Tableau, the dashboard includes visualizations such as average price per bedroom, price by zipcode, and revenue trends over the year. Key performance indicators were added to help track business-critical metrics. The data was cleaned and processed using SQL before visualization.",
+      tech: ["Tableau", "SQL", "Data Visualization"],
+      image: "/images/airbnb.png", 
+      github: "https://public.tableau.com/app/profile/nithish.bm/viz/AirBnBFullProject_16640999066110/Dashboard1",
+      demo: "https://public.tableau.com/app/profile/nithish.bm/viz/AirBnBFullProject_16640999066110/Dashboard1",
+      date: "Feb 2025",
+      status: "Completed",
+      duration: "1 day",
+      teamSize: "Solo project",
+      category: "data visualization & analytics"
+    },
+    {
+      id: 'data-science-job-market',
+      title: "Data Science Job Market Analysis",
+      description: "Analyzed data science job postings using Databricks and MongoDB to uncover key trends in skills, job summaries, and market demand. Visualized insights using Tableau dashboards.",
+      longDescription: "This project provides a comprehensive analysis of the data science job market by leveraging Databricks for data processing and MongoDB for storage. Apache Spark was used to clean and transform job postings data, focusing on skill requirements, job descriptions, and trends over time. Tableau dashboards were created to highlight in-demand skills and industry demand, helping job seekers and educators better understand the current hiring landscape.",
+      tech: ["Databricks", "Apache Spark", "MongoDB", "Tableau"],
+      image: "/images/job-dashboard.png", 
+      github: "https://public.tableau.com/app/profile/nithish.bm/viz/AirBnBFullProject_16640999066110/Dashboard1",
+      demo: "https://public.tableau.com/app/profile/nithish.bm/viz/AirBnBFullProject_16640999066110/Dashboard1",
+      date: "Apr 2024",
+      status: "Completed",
+      duration: "3 days",
+      teamSize: "Solo project",
+      category: "data visualization & analytics",
     }
   ];
 
@@ -96,9 +145,9 @@ const Projects = () => {
         <img 
           src={project.image} 
           alt={project.title}
-          className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+          className="w-full h-full object-cover group-hover:scale-110 brightness-110 transition-transform duration-700"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/50 to-transparent"></div>
+        <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 via-slate-900/30 to-transparent z-0 pointer-events-none"></div>
         
         {/* Floating Action Buttons */}
         <div className="absolute top-4 left-4 flex space-x-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
@@ -163,7 +212,7 @@ const Projects = () => {
       </div>
 
       {/* Hover Overlay Effect */}
-      <div className="absolute inset-0 bg-gradient-to-r from-teal-400/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
+      <div className="absolute inset-0 bg-gradient-to-r from-teal-400/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none z-0"></div>
     </div>
   );
 
@@ -186,18 +235,19 @@ const Projects = () => {
         </div>
 
         {/* Tabs Interface */}
-        <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
-          <TabsList className="grid w-full grid-cols-3 max-w-md mx-auto mb-12 bg-slate-800/50 border border-slate-700/50">
-            <TabsTrigger value="all" className="data-[state=active]:bg-teal-400/20 data-[state=active]:text-teal-400">
+        <Tabs defaultValue='all' value={activeTab} onValueChange={setActiveTab} className="w-full">
+          <TabsList className="grid grid-cols-1 sm:grid-cols-3 w-full max-w-2xl mx-auto mb-12 bg-slate-800/50 border border-slate-700/50 gap-1">
+            <TabsTrigger value="all" className="text-xs sm:text-sm">
               All Projects
             </TabsTrigger>
-            <TabsTrigger value="cloud" className="data-[state=active]:bg-teal-400/20 data-[state=active]:text-teal-400">
-              Cloud & Data
+            <TabsTrigger value="cloud & data engineering" className="text-xs sm:text-sm">
+              Cloud & Engineering
             </TabsTrigger>
-            <TabsTrigger value="analytics" className="data-[state=active]:bg-teal-400/20 data-[state=active]:text-teal-400">
-              Analytics & ML
+            <TabsTrigger value="data visualization & analytics" className="text-xs sm:text-sm">
+              Data Viz & Analytics
             </TabsTrigger>
           </TabsList>
+
 
           <TabsContent value="all" className="mt-0">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
@@ -207,17 +257,17 @@ const Projects = () => {
             </div>
           </TabsContent>
 
-          <TabsContent value="cloud" className="mt-0">
+          <TabsContent value="cloud & data engineering" className="mt-0">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
-              {filterProjects('cloud').map((project, index) => (
+              {filterProjects('cloud & data engineering').map((project, index) => (
                 <ProjectCard key={project.id} project={project} index={index} />
               ))}
             </div>
           </TabsContent>
 
-          <TabsContent value="analytics" className="mt-0">
+          <TabsContent value="data visualization & analytics" className="mt-0">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
-              {filterProjects('analytics').map((project, index) => (
+              {filterProjects('data visualization & analytics').map((project, index) => (
                 <ProjectCard key={project.id} project={project} index={index} />
               ))}
             </div>

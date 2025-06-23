@@ -8,290 +8,267 @@ const ProjectDetail = () => {
   const projects = [
     {
       id: 'smartvault-backup-automation',
-      title: "SmartVault - AWS EC2 Backup Automation",
-      description: "Automated real-time stock data ingestion and EC2 backup processes using AWS Lambda and EventBridge, reducing manual data collection efforts by 90% and cutting infrastructure costs by 40%.",
-      longDescription: "This comprehensive cloud automation project focused on building a robust backup system for AWS EC2 instances using serverless architecture. The solution automated stock data ingestion from multiple sources, implemented real-time backup processes, and significantly reduced operational overhead while improving system reliability and cost efficiency.",
-      tech: ["AWS Lambda", "EC2", "S3", "EventBridge", "Python"],
-      image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800&h=600&fit=crop",
-      github: "#",
+      title: "SmartVault – Automated EC2 Backup & Compliance System",
+      description: "Developed a policy-driven Lambda orchestration system to automate EC2 EBS snapshots, incorporating retention logic to delete expired snapshots and reduce storage costs. Built a compliance engine to identify and report non-compliant EC2 instances based on defined backup policies. Integrated CloudWatch dashboards, custom metrics, and SNS notifications for real-time monitoring and alerting. Implemented a CI/CD pipeline using CodePipeline and S3 artifacts to automate Lambda function deployments.",
+      longDescription: "Created a policy-driven Lambda orchestration system to automate EC2 EBS snapshots. Implemented retention logic to delete expired snapshots and reduce storage cost, Built a compliance engine to report non-compliant EC2 instances based on backup policies.Integrated CloudWatch dashboards, metrics, and SNS notifications for real-time monitoring and alerting.Developed a CI/CD pipeline using CodePipeline and S3 artifacts for Lambda function deployment.",
+      tech: ["AWS Lambda", "EC2", "S3", "EventBridge","SNS","CodePipeline","CloudWatch", "Python"],
+      image: "https://images.unsplash.com/photo-1649734926695-1b1664e98842?q=80&w=2662&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      github: "https://github.com/nitheshbethur39/smartvault-backup-system",
       demo: "#",
-      date: "2025",
-      status: "In Progress",
-      duration: "6 months",
+      date: "May 2025",
       teamSize: "Solo Project",
-      category: "cloud",
+      category: "cloud & data engineering",
       challenges: [
-        "Managing complex EC2 instance dependencies during backup",
-        "Handling real-time stock data ingestion at scale",
-        "Optimizing Lambda cold starts for time-sensitive operations"
+        "Not all EC2 instances were properly tagged, so it was hard to know which ones needed backups automatically.",
+        "Deleting old snapshots without mistakes was risky, since wrong logic could accidentally remove important backups.",
+        "Keeping track of backup compliance in real time was tough, especially as the number of instances kept changing."
       ],
       solutions: [
-        "Implemented dependency mapping with EventBridge orchestration",
-        "Used streaming data pipelines with buffering mechanisms",
-        "Applied provisioned concurrency and connection pooling"
+        "Built a Lambda function that looks for tagged EC2 instances and takes automatic backups based on those tags.",
+        "Created a cleanup function that safely deletes old snapshots by checking their age and making sure they're no longer needed.",
+        "Set up a reporting system that checks which instances are missing backups and sends alerts using email and dashboards."
       ],
       results: [
-        "90% reduction in manual data collection efforts",
-        "40% reduction in infrastructure costs",
-        "99.9% backup success rate with automated recovery"
+        "Saved around 60% on storage costs by cleaning up old, unused snapshots.",
+        "Made backups fully automatic, removing the need for manual work.",
+        "Helped teams stay compliant, with clear alerts and reports for any missing backups."
       ],
       keyFeatures: [
-        "Automated EC2 snapshot management",
-        "Real-time stock data processing",
-        "Cost optimization algorithms",
-        "Disaster recovery automation"
+        "Automatic backups based on simple tags added to EC2 instances.",
+        "Safe cleanup of old snapshots to reduce unnecessary costs.",
+        "Compliance reports and alerts sent through email and dashboards.",
+        "CI/CD setup to easily deploy and update all functions without manual steps."
       ]
     },
     {
-      id: 'airline-performance-analytics',
-      title: "Airline Performance Analytics & Forecasting",
-      description: "Cleaned and transformed 500,000+ rows of flight data achieving 87% prediction accuracy using ML models. Engineered unified datasets and deployed interactive React dashboards for investor insights.",
-      longDescription: "A comprehensive data analytics platform that processes large-scale airline performance data to provide predictive insights for investors and airline management. The system combines advanced machine learning models with interactive visualizations to forecast flight performance, delays, and operational metrics.",
-      tech: ["Python", "pandas", "Random Forest", "LSTM", "XGBoost", "React"],
-      image: "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=800&h=600&fit=crop",
+      id: 'wildrydes-serverless-app',
+      title: "WildRydes: End-to-End Serverless Ride-Sharing App",
+      description: "Built a fully serverless Uber-like app using AWS services with Cognito authentication, API Gateway, Lambda, and DynamoDB. Integrated frontend on Amplify with CI/CD from GitHub.",
+      longDescription: "WildRydes is a hands-on project that demonstrates how to build a ride-sharing application using a completely serverless architecture on AWS. It features user sign-up and login with Cognito, RESTful APIs with API Gateway and Lambda functions, and a DynamoDB backend to track ride data. The frontend is a static website hosted on Amplify with continuous deployment from GitHub.",
+      tech: [
+        "AWS Amplify",
+        "Amazon Cognito",
+        "API Gateway",
+        "AWS Lambda",
+        "Node.js",
+        "DynamoDB",
+        "IAM"
+      ],
+      image: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=800&h=600&fit=crop",
       github: "#",
       demo: "#",
-      date: "Jan 2025 - May 2025",
-      status: "In Progress",
-      duration: "5 months",
-      teamSize: "3 developers",
-      category: "analytics",
-      challenges: [
-        "Processing 500,000+ rows of heterogeneous flight data",
-        "Handling missing data and inconsistent formats",
-        "Building accurate forecasting models for volatile airline metrics"
-      ],
-      solutions: [
-        "Implemented robust ETL pipelines with data validation",
-        "Used advanced imputation techniques and feature engineering",
-        "Applied ensemble methods combining LSTM and XGBoost models"
-      ],
-      results: [
-        "87% prediction accuracy for flight performance",
-        "Unified dataset from 15+ data sources",
-        "Interactive dashboards serving 100+ stakeholders"
-      ],
-      keyFeatures: [
-        "Real-time flight performance tracking",
-        "Predictive delay forecasting",
-        "Interactive investor dashboards",
-        "Automated reporting system"
-      ]
-    },
-    {
-      id: 'healthcare-etl-pipeline',
-      title: "Healthcare ETL Pipeline & Data Warehouse",
-      description: "Delivered scalable ETL pipelines for U.S. healthcare provider achieving 99.9% data accuracy. Optimized SQL queries improving execution speed by 30% and reduced pre-deployment issues by 20%.",
-      longDescription: "A mission-critical healthcare data infrastructure project that built scalable ETL pipelines for a major U.S. healthcare provider. The system processes sensitive patient data while maintaining HIPAA compliance, ensuring data accuracy, and providing real-time analytics for clinical decision-making.",
-      tech: ["Python", "PostgreSQL", "SQL", "ETL", "Data Warehouse"],
-      image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?w=800&h=600&fit=crop",
-      github: "#",
-      demo: "#",
-      date: "Nov 2020 - Jun 2023",
+      date: "June 2025",
       status: "Completed",
-      duration: "32 months",
-      teamSize: "5 team members",
-      category: "cloud",
+      duration: "2 weeks",
+      teamSize: "Solo project",
+      category: "cloud & data engineering",
       challenges: [
-        "Ensuring HIPAA compliance for sensitive patient data",
-        "Managing complex healthcare data schemas",
-        "Achieving near-perfect data accuracy requirements"
+        "Configuring Cognito User Pools and handling JWT authentication",
+        "Setting up CORS policies in API Gateway to support frontend requests",
+        "Managing IAM roles with least privilege for Lambda and DynamoDB access"
       ],
       solutions: [
-        "Implemented end-to-end encryption and audit trails",
-        "Built flexible schema mapping with validation rules",
-        "Created comprehensive data quality monitoring"
+        "Used Amazon Cognito for secure, verified user sign-up and login flows",
+        "Enabled and tested CORS on both OPTIONS and POST methods in API Gateway",
+        "Created and attached fine-grained IAM policies to Lambda functions"
       ],
       results: [
-        "99.9% data accuracy achieved",
-        "30% improvement in SQL query execution speed",
-        "20% reduction in pre-deployment issues"
+        "Fully functional ride-sharing app using only serverless components",
+        "Frontend hosted with Amplify and auto-deployed via GitHub CI/CD",
+        "Successful ride requests saved in DynamoDB with user tracking"
       ],
       keyFeatures: [
-        "HIPAA-compliant data processing",
-        "Real-time data validation",
-        "Automated quality monitoring",
-        "Clinical analytics dashboards"
+        "User authentication with email verification",
+        "Unicorn assignment and ride request handling via Lambda",
+        "RESTful API with Cognito authorization",
+        "No server management – 100% serverless architecture"
       ]
     },
     {
-      id: 'naval-thermal-monitoring',
-      title: "Naval Thermal Monitoring System",
-      description: "Engineered real-time ETL pipeline for thermal monitoring on Indian Navy vessels, reducing overheating incidents by 30% and energy consumption by 20%. Built Tableau dashboards cutting diagnostics time by 40%.",
-      longDescription: "A specialized IoT and data analytics solution for the Indian Navy that monitors thermal conditions across naval vessels in real-time. The system prevents equipment failures, optimizes energy consumption, and provides critical insights for maritime operations through advanced analytics and visualization.",
-      tech: ["Python", "MySQL", "Tableau", "Real-time ETL", "Statistical Models"],
-      image: "https://images.unsplash.com/photo-1581833971358-2c8b550f87b3?w=800&h=600&fit=crop",
-      github: "#",
+      id: 'rag-chatbot-bedrock',
+      title: "Personalized AI Chatbot with Amazon Bedrock (RAG)",
+      description: "Built a custom chatbot using Retrieval Augmented Generation (RAG) on Amazon Bedrock, trained on personal documents to answer questions about me with high accuracy and context awareness.",
+      longDescription: "This project demonstrates the creation of a personalized AI assistant using Retrieval Augmented Generation (RAG) in Amazon Bedrock. The chatbot was designed to understand and answer questions about my personal profile, knowledge, and experience using documents uploaded to S3. Bedrock’s integration with OpenSearch Serverless and Titan embedding models enabled real-time search and intelligent response generation. The setup included building a Knowledge Base, connecting vector storage, syncing data, and testing with multiple AI models like Llama and Titan.",
+      tech: [
+        "Amazon Bedrock",
+        "RAG (Retrieval Augmented Generation)",
+        "S3",
+        "OpenSearch Serverless",
+        "Titan Embeddings",
+        "Llama 3 Instruct",
+        "IAM Roles"
+      ],
+      image: "https://learn.nextwork.org/projects/static/ai-rag-bedrock/architecture-complete.png",
+      github: "https://github.com/nitheshbethur39/AI-Chatbot-RAG-Amazon-Bedrock",
       demo: "#",
-      date: "Dec 2019 - Sep 2020",
+      date: "Feb 2025",
       status: "Completed",
-      duration: "10 months",
-      teamSize: "4 engineers",
-      category: "cloud",
+      duration: "1 Week",
+      teamSize: "Solo project",
+      category: "cloud & data engineering",
       challenges: [
-        "Operating in harsh maritime environments",
-        "Processing real-time sensor data from multiple vessels",
-        "Ensuring system reliability for critical naval operations"
+        "Understanding how to connect S3 with Bedrock’s Knowledge Base",
+        "Managing permissions and IAM roles for Bedrock access",
+        "Handling vector search accuracy and syncing issues with embeddings"
       ],
       solutions: [
-        "Implemented ruggedized IoT sensors with redundancy",
-        "Built fault-tolerant streaming data architecture",
-        "Created automated failover and recovery systems"
+        "Created a Bedrock Knowledge Base linked to S3 and OpenSearch Serverless",
+        "Configured service roles for Bedrock to access and process personal data",
+        "Used Titan Embeddings and Llama models to improve chatbot accuracy"
       ],
       results: [
-        "30% reduction in overheating incidents",
-        "20% reduction in energy consumption",
-        "40% reduction in diagnostic time"
+        "Successfully built an AI chatbot trained on my personal data",
+        "Enabled context-aware and accurate answers through RAG architecture",
+        "Gained hands-on experience with Bedrock’s end-to-end AI pipeline"
       ],
       keyFeatures: [
-        "Real-time thermal monitoring",
-        "Predictive maintenance alerts",
-        "Energy optimization algorithms",
-        "Naval-grade reliability systems"
+        "RAG-powered question answering from personal documents",
+        "Amazon Bedrock Knowledge Base + vector search setup",
+        "Document storage and management using Amazon S3",
+        "AI model testing and switching using Llama 3 and Titan"
       ]
     },
     {
-      id: 'predictive-maintenance-bosch',
-      title: "Predictive Maintenance System",
-      description: "Developed real-time data integration system for Bosch manufacturing plant using SCADA integration and time-series analysis, reducing machine breakdowns by 25% and maintenance costs by 15%.",
-      longDescription: "An industrial IoT and predictive analytics solution developed for Bosch manufacturing operations. The system integrates with existing SCADA infrastructure to provide real-time machine health monitoring, predictive maintenance scheduling, and operational optimization through advanced time-series analysis.",
-      tech: ["Python", "SQL", "Tableau", "SCADA", "Time-series Analysis"],
-      image: "https://images.unsplash.com/photo-1565008447742-97d5aca24c05?w=800&h=600&fit=crop",
-      github: "#",
-      demo: "#",
-      date: "Jun 2019 - Aug 2019",
+      id: 'netflix-dashboard-quicksight',
+      title: "Visualizing Netflix Data with Amazon QuickSight",
+      description: "Built an interactive dashboard using Amazon QuickSight to analyze Netflix data stored in S3. Visualized trends in content types, genres, and release years with donut and bar charts.",
+      longDescription: "This project showcases cloud-based data visualization using Amazon QuickSight. The dataset was stored in Amazon S3 and connected to QuickSight via a manifest file. The dashboard highlights key metrics such as the number of movies and TV shows by year, genre distribution, and content trends. Filters were applied for precise insights, and the final dashboard was exported as a PDF for sharing. The project involved hands-on work with AWS permissions, dataset configuration, and QuickSight's interactive charting features.",
+      tech: ["Amazon QuickSight", "Amazon S3", "AWS", "Data Visualization"],
+      image:"/images/netflix-dashboard.png",
+      github: "/images/netflix-dashboard.png",
+      demo: "/images/netflix-dashboard.png",
+      date: "Feb 2025",
       status: "Completed",
-      duration: "3 months",
-      teamSize: "2 developers",
-      category: "analytics",
+      duration: "1 hour",
+      teamSize: "Solo project",
+      category: "data visualization & analytics",
       challenges: [
-        "Integrating with legacy SCADA systems",
-        "Processing high-frequency industrial sensor data",
-        "Building accurate predictive models for diverse machinery"
+        "Configuring S3 permissions correctly for QuickSight access",
+        "Editing the manifest.json file to accurately point to the dataset",
+        "Designing a clean, interactive dashboard layout for end users"
       ],
       solutions: [
-        "Developed custom SCADA connectors with protocol translation",
-        "Implemented streaming analytics with edge computing",
-        "Used machine-specific ML models with ensemble techniques"
+        "Granted S3 access to QuickSight via Security & Permissions setup",
+        "Edited the manifest file to ensure correct dataset structure and location",
+        "Used filters, labels, and formatting to make the dashboard insightful and easy to use"
       ],
       results: [
-        "25% reduction in machine breakdowns",
-        "15% reduction in maintenance costs",
-        "Real-time monitoring of 200+ machines"
+        "Created a fully interactive and shareable Netflix data dashboard",
+        "Highlighted key trends in content type, genre, and year using visual charts",
+        "Demonstrated real-time data exploration skills using Amazon QuickSight"
       ],
       keyFeatures: [
-        "SCADA system integration",
-        "Real-time anomaly detection",
-        "Predictive maintenance scheduling",
-        "Manufacturing optimization dashboards"
+        "Donut chart of release year distribution",
+        "Bar charts for content types and popular genres",
+        "Filters for refining by genre, country, and year",
+        "PDF export for sharing dashboard insights"
       ]
     },
     {
-      id: 'e-commerce-analytics',
-      title: "E-commerce Customer Analytics Platform",
-      description: "Built comprehensive customer behavior analytics platform with real-time recommendation engine and churn prediction models, improving customer retention by 35% and increasing revenue by 22%.",
-      longDescription: "A comprehensive e-commerce analytics platform that combines customer behavior analysis, real-time recommendation systems, and predictive modeling to optimize customer experience and business outcomes. The platform processes millions of user interactions to provide personalized experiences and actionable business insights.",
-      tech: ["Python", "Apache Kafka", "TensorFlow", "React", "MongoDB"],
-      image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&h=600&fit=crop",
-      github: "#",
+      id: 'kafka-stock-data-pipeline',
+      title: "Kafka Stock Market Data Pipeline with AWS",
+      description: "Built a real-time stock market data pipeline using Apache Kafka, AWS S3, Glue, and Athena. Simulated data was streamed via Kafka and stored in S3 for analysis using Athena.",
+      longDescription: "This project demonstrates the development of a real-time stock market data pipeline using Apache Kafka and AWS services. Simulated stock data is sent via a Kafka producer hosted on an EC2 instance. A Kafka consumer fetches the data and stores it in an S3 bucket. AWS Glue is used to catalog the data, and AWS Athena enables SQL-based querying. The pipeline enables end-to-end data ingestion, storage, metadata extraction, and analysis.",
+      tech: ["Python", "Apache Kafka", "AWS EC2", "AWS S3", "AWS Glue", "AWS Athena", "pandas", "kafka-python", "boto3"],
+      image: "/images/kafka.png", // Replace with your actual image link if needed
+      github: "https://github.com/nitheshbethur39/Kafka-Stock-Market-Data-Pipeline-Project/tree/main",
       demo: "#",
-      date: "Coming Soon",
-      status: "Coming Soon",
-      duration: "8 months",
-      teamSize: "6 developers",
-      category: "analytics",
+      date: "Jan 2025",
+      status: "Completed",
+      duration: "2 Days",
+      teamSize: "Solo project",
+      category: "cloud & data engineering",
       challenges: [
-        "Processing millions of real-time user interactions",
-        "Building accurate recommendation algorithms",
-        "Scaling personalization across diverse product catalogs"
+        "Setting up Kafka and Zookeeper on AWS EC2",
+        "Managing real-time data ingestion without overloading Kafka",
+        "Ensuring permissions and access between EC2, S3, Glue, and Athena"
       ],
       solutions: [
-        "Implemented distributed streaming with Apache Kafka",
-        "Used collaborative filtering with deep learning models",
-        "Built microservices architecture for horizontal scaling"
+        "Installed and configured Kafka cluster manually on EC2 with secure SSH setup",
+        "Created a producer-consumer pipeline using kafka-python and boto3",
+        "Used AWS Glue crawlers to catalog S3 data and queried it using Athena"
       ],
       results: [
-        "35% improvement in customer retention",
-        "22% increase in revenue",
-        "Real-time recommendations for 1M+ users"
+        "Successfully streamed and stored real-time stock data into S3",
+        "Built a fully working serverless querying pipeline with Glue and Athena",
+        "Demonstrated a scalable architecture for real-time financial data processing"
       ],
       keyFeatures: [
-        "Real-time behavior tracking",
-        "Personalized recommendation engine",
-        "Customer churn prediction",
-        "Revenue optimization analytics"
+        "Real-time stock data streaming using Apache Kafka",
+        "Data storage and crawling in AWS S3 + Glue",
+        "SQL querying over streamed data via AWS Athena",
+        "Notebooks for simulation and end-to-end pipeline execution"]
+    },
+    {
+      id: 'airbnb-cost-dashboard',
+      title: "Airbnb Cost Distribution Dashboard with Tableau",
+      description: "Created an interactive dashboard to visualize Airbnb pricing trends across zip codes and property sizes. Highlighted revenue patterns using KPIs and time-series analysis.",
+      longDescription: "This project involves analyzing Airbnb listings to identify pricing trends based on location (zipcode) and the number of bedrooms. Built using Tableau, the dashboard includes visualizations such as average price per bedroom, price by zipcode, and revenue trends over the year. Key performance indicators were added to help track business-critical metrics. The data was cleaned and processed using SQL before visualization.",
+      tech: ["Tableau", "SQL", "Data Visualization"],
+      image: "/images/airbnb.png", 
+      github: "https://public.tableau.com/app/profile/nithish.bm/viz/AirBnBFullProject_16640999066110/Dashboard1",
+      demo: "https://public.tableau.com/app/profile/nithish.bm/viz/AirBnBFullProject_16640999066110/Dashboard1",
+      date: "Feb 2025",
+      status: "Completed",
+      duration: "1 day",
+      teamSize: "Solo project",
+      category: "data visualization & analytics",
+      challenges: [
+        "Analyzing price variance across diverse zip codes and bedroom counts",
+        "Building KPIs for revenue over time using calendar data",
+        "Designing a clean dashboard layout that highlights insights clearly"
+      ],
+      solutions: [
+        "Used SQL to clean and preprocess the Airbnb dataset",
+        "Developed visual KPIs for price trends and bedroom listings",
+        "Built a Tableau dashboard showing price by zipcode, revenue trends, and average price per bedroom"
+      ],
+      results: [
+        "Created a fully interactive Tableau dashboard showcasing Airbnb pricing insights",
+        "Enabled better understanding of high-revenue zip codes and seasonal trends",
+        "Improved visualization and comparison of listing costs by size and location"
+      ],
+      keyFeatures: [
+        "Bar charts for average price per bedroom",
+        "Zipcode-level price comparisons",
+        "Time-series graph showing revenue progression",
+        "Summary table showing bedroom distribution"
       ]
     },
     {
-      id: 'serverless-microservices',
-      title: "Serverless Microservices Architecture",
-      description: "Designed and implemented cloud-native microservices architecture using AWS Lambda and API Gateway, reducing operational costs by 60% and improving system scalability by 300%.",
-      longDescription: "A comprehensive serverless architecture transformation project that modernized legacy monolithic applications into cloud-native microservices. The solution leverages AWS serverless technologies to achieve unprecedented scalability while dramatically reducing operational overhead and infrastructure costs.",
-      tech: ["AWS Lambda", "API Gateway", "DynamoDB", "CloudFormation", "Node.js"],
-      image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&h=600&fit=crop",
-      github: "#",
-      demo: "#",
-      date: "Coming Soon",
-      status: "Coming Soon",
-      duration: "12 months",
-      teamSize: "8 developers",
-      category: "cloud",
+     id: 'data-science-job-market',
+      title: "Data Science Job Market Analysis",
+      description: "Analyzed data science job postings using Databricks and MongoDB to uncover key trends in skills, job summaries, and market demand. Visualized insights using Tableau dashboards.",
+      longDescription: "This project provides a comprehensive analysis of the data science job market by leveraging Databricks for data processing and MongoDB for storage. Apache Spark was used to clean and transform job postings data, focusing on skill requirements, job descriptions, and trends over time. Tableau dashboards were created to highlight in-demand skills and industry demand, helping job seekers and educators better understand the current hiring landscape.",
+      tech: ["Databricks", "Apache Spark", "MongoDB", "Tableau"],
+      image: "/images/job-dashboard.png", 
+      github: "https://public.tableau.com/app/profile/nithish.bm/viz/AirBnBFullProject_16640999066110/Dashboard1",
+      demo: "https://public.tableau.com/app/profile/nithish.bm/viz/AirBnBFullProject_16640999066110/Dashboard1",
+      date: "Apr 2024",
+      status: "Completed",
+      duration: "3 days",
+      teamSize: "Solo project",
+      category: "data visualization & analytics",
       challenges: [
-        "Decomposing complex monolithic applications",
-        "Managing distributed system complexity",
-        "Ensuring data consistency across microservices"
+        "Extracting and cleaning unstructured job posting data from MongoDB",
+        "Parsing and analyzing large text fields using Apache Spark",
+        "Designing dashboards that clearly show skill trends and job demand"
       ],
       solutions: [
-        "Applied domain-driven design for service boundaries",
-        "Implemented event-driven architecture with SQS/SNS",
-        "Used eventual consistency with CQRS patterns"
+        "Used Databricks and Spark for large-scale data cleaning and processing",
+        "Extracted top skills and job requirements from job summaries",
+        "Built Tableau dashboards to visualize trends across industries and regions"
       ],
       results: [
-        "60% reduction in operational costs",
-        "300% improvement in system scalability",
-        "Zero-downtime deployments"
+        "Identified top in-demand data science skills by frequency and relevance",
+        "Generated clear visuals of job trends to guide learners and professionals",
+        "Showcased the application of Spark with NoSQL for real-world analytics"
       ],
       keyFeatures: [
-        "Serverless microservices architecture",
-        "Auto-scaling infrastructure",
-        "Event-driven communication",
-        "Infrastructure as Code deployment"
-      ]
-    },
-    {
-      id: 'realtime-fraud-detection',
-      title: "Real-time Fraud Detection System",
-      description: "Developed ML-powered fraud detection system processing 1M+ transactions daily with 99.8% accuracy and sub-second response times, preventing $2.5M in fraudulent activities annually.",
-      longDescription: "A high-performance fraud detection system that processes millions of financial transactions in real-time using advanced machine learning algorithms. The system combines rule-based engines with ML models to achieve exceptional accuracy while maintaining ultra-low latency for critical financial operations.",
-      tech: ["Python", "Apache Spark", "Kafka", "Redis", "Scikit-learn"],
-      image: "https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=800&h=600&fit=crop",
-      github: "#",
-      demo: "#",
-      date: "Coming Soon",
-      status: "Coming Soon",
-      duration: "10 months",
-      teamSize: "5 data scientists",
-      category: "analytics",
-      challenges: [
-        "Processing 1M+ transactions daily with sub-second latency",
-        "Balancing fraud detection accuracy with false positives",
-        "Adapting to evolving fraud patterns in real-time"
-      ],
-      solutions: [
-        "Implemented distributed computing with Apache Spark",
-        "Used ensemble models with dynamic threshold adjustment",
-        "Built continuous learning pipelines with model retraining"
-      ],
-      results: [
-        "99.8% fraud detection accuracy",
-        "Sub-second response times",
-        "$2.5M prevented in fraudulent activities annually"
-      ],
-      keyFeatures: [
-        "Real-time transaction monitoring",
-        "Machine learning fraud detection",
-        "Dynamic risk scoring",
-        "Automated response systems"
+        "Skill frequency analysis across job postings",
+        "Job title and industry distribution breakdown",
+        "Interactive Tableau dashboard for visual exploration",
+        "Scalable processing pipeline using Spark on Databricks"
       ]
     }
   ];
@@ -371,17 +348,7 @@ const ProjectDetail = () => {
                   </span>
                 ))}
               </div>
-              
-              <div className="flex items-center space-x-6 text-sm text-blue-gray">
-                <div className="flex items-center">
-                  <Clock size={16} className="mr-2" />
-                  <span>{project.duration}</span>
-                </div>
-                <div className="flex items-center">
-                  <Users size={16} className="mr-2" />
-                  <span>{project.teamSize}</span>
-                </div>
-              </div>
+        
             </div>
             
             <div className="relative">
@@ -395,79 +362,84 @@ const ProjectDetail = () => {
           </div>
         </div>
       </section>
-
       {/* Content Sections */}
       <section className="pb-16 px-6 lg:px-8">
         <div className="max-w-6xl mx-auto">
-          <div className="grid lg:grid-cols-2 gap-8">
-            
-            {/* Challenges & Solutions */}
-            <div className="space-y-8">
-              <div className="bg-slate-800/40 backdrop-blur-sm rounded-xl border border-custom-medium/30 p-6">
-                <h3 className="text-xl font-chivo font-medium mb-4 text-light-gray flex items-center">
-                  <Target size={20} className="mr-2 text-light-teal" />
-                  Challenges
-                </h3>
-                <ul className="space-y-3">
-                  {project.challenges.map((challenge, index) => (
-                    <li key={index} className="text-blue-gray font-chivo flex items-start">
-                      <div className="w-2 h-2 bg-red-400 rounded-full mt-2 mr-3 flex-shrink-0"></div>
-                      {challenge}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-              
-              <div className="bg-slate-800/40 backdrop-blur-sm rounded-xl border border-custom-medium/30 p-6">
-                <h3 className="text-xl font-chivo font-medium mb-4 text-light-gray flex items-center">
-                  <Code size={20} className="mr-2 text-light-teal" />
-                  Solutions
-                </h3>
-                <ul className="space-y-3">
-                  {project.solutions.map((solution, index) => (
-                    <li key={index} className="text-blue-gray font-chivo flex items-start">
-                      <div className="w-2 h-2 bg-green-400 rounded-full mt-2 mr-3 flex-shrink-0"></div>
-                      {solution}
-                    </li>
-                  ))}
-                </ul>
-              </div>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+
+            {/* Left: Challenges & Solutions */}
+            <div className="flex-1 flex flex-col gap-8">
+              <div className="flex-1 min-h-[320px] bg-slate-800/40 backdrop-blur-sm rounded-xl border border-custom-medium/30 p-6">
+                <div className="bg-slate-800/40 backdrop-blur-sm rounded-xl border border-custom-medium/30 p-6">
+                  <h3 className="text-xl font-chivo font-medium mb-4 text-light-gray flex items-center">
+                    <Target size={20} className="mr-2 text-light-teal" />
+                    Challenges
+                  </h3>
+                  <ul className="space-y-3">
+                    {project.challenges.map((challenge, index) => (
+                      <li key={index} className="text-blue-gray font-chivo flex items-start">
+                        <div className="w-2 h-2 bg-red-400 rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                        {challenge}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>  
+              <div className="flex-1 min-h-[320px] bg-slate-800/40 backdrop-blur-sm rounded-xl border border-custom-medium/30 p-6">
+                <div className="bg-slate-800/40 backdrop-blur-sm rounded-xl border border-custom-medium/30 p-6">
+                  <h3 className="text-xl font-chivo font-medium mb-4 text-light-gray flex items-center">
+                    <Code size={20} className="mr-2 text-light-teal" />
+                    Solutions
+                  </h3>
+                  <ul className="space-y-3">
+                    {project.solutions.map((solution, index) => (
+                      <li key={index} className="text-blue-gray font-chivo flex items-start">
+                        <div className="w-2 h-2 bg-green-400 rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                        {solution}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>  
             </div>
-            
-            {/* Results & Features */}
-            <div className="space-y-8">
-              <div className="bg-slate-800/40 backdrop-blur-sm rounded-xl border border-custom-medium/30 p-6">
-                <h3 className="text-xl font-chivo font-medium mb-4 text-light-gray flex items-center">
-                  <CheckCircle size={20} className="mr-2 text-light-teal" />
-                  Results
-                </h3>
-                <ul className="space-y-3">
-                  {project.results.map((result, index) => (
-                    <li key={index} className="text-blue-gray font-chivo flex items-start">
-                      <div className="w-2 h-2 bg-light-teal rounded-full mt-2 mr-3 flex-shrink-0"></div>
-                      {result}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-              
-              <div className="bg-slate-800/40 backdrop-blur-sm rounded-xl border border-custom-medium/30 p-6">
-                <h3 className="text-xl font-chivo font-medium mb-4 text-light-gray flex items-center">
-                  <Code size={20} className="mr-2 text-light-teal" />
-                  Key Features
-                </h3>
-                <ul className="space-y-3">
-                  {project.keyFeatures.map((feature, index) => (
-                    <li key={index} className="text-blue-gray font-chivo flex items-start">
-                      <div className="w-2 h-2 bg-blue-400 rounded-full mt-2 mr-3 flex-shrink-0"></div>
-                      {feature}
-                    </li>
-                  ))}
-                </ul>
-              </div>
+
+            {/* Right: Results & Features */}
+            <div className="flex flex-col gap-8">
+              <div className="flex-1 min-h-[320px] bg-slate-800/40 backdrop-blur-sm rounded-xl border border-custom-medium/30 p-6">
+                <div className="bg-slate-800/40 backdrop-blur-sm rounded-xl border border-custom-medium/30 p-6">
+                  <h3 className="text-xl font-chivo font-medium mb-4 text-light-gray flex items-center">
+                    <CheckCircle size={20} className="mr-2 text-light-teal" />
+                    Results
+                  </h3>
+                  <ul className="space-y-3">
+                    {project.results.map((result, index) => (
+                      <li key={index} className="text-blue-gray font-chivo flex items-start">
+                        <div className="w-2 h-2 bg-light-teal rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                        {result}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>  
+              <div className="flex-1 min-h-[320px] bg-slate-800/40 backdrop-blur-sm rounded-xl border border-custom-medium/30 p-6">
+                <div className="bg-slate-800/40 backdrop-blur-sm rounded-xl border border-custom-medium/30 p-6">
+                  <h3 className="text-xl font-chivo font-medium mb-4 text-light-gray flex items-center">
+                    <Code size={20} className="mr-2 text-light-teal" />
+                    Key Features
+                  </h3>
+                  <ul className="space-y-3">
+                    {project.keyFeatures.map((feature, index) => (
+                      <li key={index} className="text-blue-gray font-chivo flex items-start">
+                        <div className="w-2 h-2 bg-blue-400 rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                        {feature}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>  
             </div>
           </div>
-          
+    
           {/* Action Buttons */}
           <div className="mt-12 flex items-center justify-center space-x-4">
             <a href={project.github} target="_blank" rel="noopener noreferrer"
@@ -475,11 +447,7 @@ const ProjectDetail = () => {
               <Github size={18} />
               <span>View Code</span>
             </a>
-            <a href={project.demo} target="_blank" rel="noopener noreferrer"
-               className="inline-flex items-center space-x-2 bg-gradient-to-r from-light-teal/20 to-light-teal/10 border border-light-teal/30 text-light-teal font-chivo font-medium px-6 py-3 rounded-lg hover:from-light-teal/30 hover:to-light-teal/20 hover:border-light-teal/50 transition-all duration-300 hover:scale-105">
-              <ExternalLink size={18} />
-              <span>Live Demo</span>
-            </a>
+
           </div>
         </div>
       </section>
